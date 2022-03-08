@@ -1,0 +1,80 @@
+---
+title: Getting started
+description: Set up and configure Adobe Graph.
+---
+
+# Getting started
+
+This guide provides you with the basic steps you need to set up your API management environment:
+
+## Join the Beta
+
+Request access to join the Adobe Graph Beta:
+
+<!-- still waiting to hear back from Nishant regarding Beta signup -->
+
+- An Adobe IO account. If you do not already have an Adobe IO account, [install Adobe IO].
+
+## Prerequisites
+
+Before you can begin using Adobe Graph, you must install:
+
+- [Node.js]
+- [nvm] 16.x.x
+
+You will also need to have:
+
+- A working instance of Adobe Commerce with Live Search with either Luma or Venia sample data
+- An API key (provided by Adobe)
+- An API to integrate (for example, your own API, any public OpenAPI REST endpoint, or an [Adobe Experience Manager API])
+
+<!-- Is it better as one list or is splitting it ok? (for parity) -->
+
+## Configure your environment
+
+Once you have an Adobe IO account you need to access the cli tool to start configuring your APIs with the schema management service.
+
+1. Install the [schema management plugin] in your project directory:
+
+   ```bash
+   aio plugins:install @magento/aio-cli-plugin-commerce-admin
+   ```
+
+1. Create a `config.json` file in your working directory with the following parameters:
+
+   ``` json
+   {
+      "baseUrl": "https://<your_commerce_site>",
+      "authorizationToken": "<assigned_token>",
+      "apiKey": "<your_apiKey>"
+   }
+   ```
+
+1. Run the following command to load the configuration information into Adobe Graph:
+
+   ``` bash
+   aio config:set aio-cli-plugin-commerce-admin <path_to_json_file>
+   ```
+
+   **Example**
+
+   ``` bash
+   aio config:set aio-cli-plugin-commerce-admin ./config.json
+   ```
+
+## Next steps
+
+- Proceed to [create a tenant].
+
+<!-- Link Definitions -->
+[nvm]:https://github.com/nvm-sh/nvm
+[install Adobe IO]:https://developer.adobe.com/runtime/docs/guides/tools/cli_install
+[Adobe Experience Manager API]:https://experienceleague.adobe.com/docs/experience-manager-screens/user-guide/developing/rest-api.html
+[request access to Adobe IO]:https://developer.adobe.com/app-builder/trial/
+[npm]:https://www.npmjs.com/package/npm
+[AIO Plugin Documentation]:https://github.com/adobe/aio-cli#aio-pluginslink-plugin
+[aio CLI]:https://developer.adobe.com/runtime/docs/guides/tools/cli_install/
+[Node.js]:https://nodejs.org/en/download/
+[schema management plugin]:https://www.npmjs.com/package/@magento/aio-cli-plugin-commerce-admin
+[create a tenant]:../overview/create-a-tenant.md
+<!-- Is this the correct format for relative links? (since we don't have an absolute url yet) -->
