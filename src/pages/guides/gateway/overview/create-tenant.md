@@ -55,7 +55,7 @@ description: Create a configuration file for your tenants, access the gateway, a
         },
       "tenantId": "<your_tenant_Id>"
     }
-<!-- Please review the code to make sure I anonymized appropriately. I also removed your transforms to declutter. -->
+<!-- Please review the code to make sure I anonymized appropriately. -->
 
 1. Run the login command and provide your credentials in the browser window.
 
