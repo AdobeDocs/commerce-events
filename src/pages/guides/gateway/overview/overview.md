@@ -9,14 +9,15 @@ Adobe Graph is a decoupled API platform that enables enterprise and mid-market d
 
 Adobe Graph enables developers to integrate a GraphQL Mesh or third-party APIs with other Adobe products, like App Builder, Adobe IO Gateway, or other serverless technologies. By subscribing to near-real-time events, developers can allow these external systems to synchronize data, participate in distributed workflows, and generally react to events as they occur. 
 
->[!NOTE]
->[GraphQL] is a query language for your API that lets you query exactly the information you need and only the information you need. [GraphQL Mesh] allows you to use GraphQL to query multiple data sources simultaneously.
+<InlineAlert variant="info" slots="text"/>
+
+[GraphQL] is a query language for your API that lets you query exactly the information you need and only the information you need. [GraphQL Mesh] allows you to use GraphQL to query multiple data sources simultaneously.
 
 ## Features
 
 - **Adobe Graph** - A reverse proxy that accepts most API calls for many backend services
 - **Configurable Integrations** - Low/No-code method to integrate with your own private APIs with Adobe Commerce and other Adobe products, and third-party APIs
-<!-- The last two features likely refer to the App Builder and may need to be deleted before beta -->
+<!-- The two features below likely refer to the App Builder and may need to be deleted before beta -->
 - **Backwards Compatibility** - Preserve existing APIs while gradually adopting new ones 
 - **Extensibility** - Customize and extend all of your APIs directly in the gateway without making changes to the API source
 
