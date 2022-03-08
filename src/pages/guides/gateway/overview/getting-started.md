@@ -11,7 +11,7 @@ This guide provides you with the basic steps you need to set up your API managem
 
 Request access to join the Adobe Graph Beta:
 
-<!-- still waiting to hear back from Nishant regarding Beta signup -->
+<!-- Nishant can you provide info regarding Beta signup? -->
 
 - An Adobe IO account. If you do not already have an Adobe IO account, [install Adobe IO].
 
@@ -27,8 +27,6 @@ You will also need to have:
 - A working instance of Adobe Commerce with Live Search with either Luma or Venia sample data
 - An API key (provided by Adobe)
 - An API to integrate (for example, your own API, any public OpenAPI REST endpoint, or an [Adobe Experience Manager API])
-
-<!-- Is it better as one list or is splitting it ok? (for parity) -->
 
 ## Configure your environment
 
