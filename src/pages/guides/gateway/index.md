@@ -15,11 +15,11 @@ Adobe Graph enables developers to integrate a GraphQL Mesh or third-party APIs w
 
 ## Features
 
-- **Adobe Graph** - A reverse proxy that accepts most API calls for many backend services
-- **Configurable Integrations** - Low/No-code method to integrate with your own private APIs with Adobe Commerce and other Adobe products, and third-party APIs
+-  **Adobe Graph** - A reverse proxy that accepts most API calls for many backend services
+-  **Configurable Integrations** - Low/No-code method to integrate with your own private APIs with Adobe Commerce and other Adobe products, and third-party APIs
 <!-- The two features below likely refer to the App Builder and may need to be deleted before beta -->
-- **Backwards Compatibility** - Preserve existing APIs while gradually adopting new ones 
-- **Extensibility** - Customize and extend all of your APIs directly in the gateway without making changes to the API source
+-  **Backwards Compatibility** - Preserve existing APIs while gradually adopting new ones 
+-  **Extensibility** - Customize and extend all of your APIs directly in the gateway without making changes to the API source
 
 ## Example Use Case
 
@@ -27,11 +27,11 @@ Adobe Commerce users can consider Adobe Graph as a low-code way to integrate oth
 
 # Where to go next
 
-- [Getting started]
-  - [Prerequisites]
-  - [Create an Adobe IO account]
-  - [Configure your environment]
-- [Create a tenant]
+-  [Getting started]
+  -  [Prerequisites]
+  -  [Create an Adobe IO account]
+  -  [Configure your environment]
+-  [Create a tenant]
 
 <!-- Link Definitions -->
 <!-- i'll clean out the unused links once we get everything settled. -->
