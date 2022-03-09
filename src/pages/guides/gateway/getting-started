@@ -13,20 +13,20 @@ Request access to join the Adobe Graph Beta:
 
 <!-- Nishant can you provide info regarding Beta signup? -->
 
-- An Adobe IO account. If you do not already have an Adobe IO account, [install Adobe IO].
+-  An Adobe IO account. If you do not already have an Adobe IO account, [install Adobe IO].
 
 ## Prerequisites
 
 Before you can begin using Adobe Graph, you must install:
 
-- [Node.js]
-- [nvm] 16.x.x
+-  [Node.js]
+-  [nvm] 16.x.x
 
 You will also need to have:
 
-- A working instance of Adobe Commerce with Live Search with either Luma or Venia sample data
-- An API key (provided by Adobe)
-- An API to integrate (for example, your own API, any public OpenAPI REST endpoint, or an [Adobe Experience Manager API])
+-  A working instance of Adobe Commerce with Live Search with either Luma or Venia sample data
+-  An API key (provided by Adobe)
+-  An API to integrate (for example, your own API, any public OpenAPI REST endpoint, or an [Adobe Experience Manager API])
 
 ## Configure your environment
 
@@ -62,7 +62,7 @@ Once you have an Adobe IO account you need to access the cli tool to start confi
 
 ## Next steps
 
-- Proceed to [create a tenant].
+-  Proceed to [create a tenant].
 
 <!-- Link Definitions -->
 [nvm]:https://github.com/nvm-sh/nvm
