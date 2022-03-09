@@ -1,0 +1,86 @@
+---
+title: Create a Tenant
+description: Create a configuration file for your tenants, access the gateway, and update your configuration file. <!-- Just a general question, who are descriptions for? what are our guidelines for them? -->
+---
+
+# Create a tenant
+
+1. Create and save a JSON configuration file that defines the properties of your mesh. In this example, the file name is `mesh.json`.
+
+    ```json
+    {
+      "meshConfig": {
+        "sources": [
+          {
+            "name": "PWA",
+            "handler": {
+              "graphql": {
+                "endpoint": "https://<your_venia>/graphql/"
+              }
+            }
+          },
+          {
+            "name": "AEM",
+            "handler": {
+              "graphql": {
+                "endpoint": "https://<your_AEM_site>/endpoint.json"
+              }
+            }
+          },
+          {
+            "name": "LiveSearch",
+              "handler": {
+                "graphql": {
+                  "endpoint": "https://<your_commerce_site>/search/graphql",
+                  "operationHeaders": {
+                    "x-api-key": "search_gql",
+                    "Magento-Environment-Id": "<your_environment_id>",
+                    "Magento-Website-Code": "base",
+                    "Content-Type": "application/json",
+                    "Magento-Store-Code": "main_website_store",
+                    "Magento-Store-View-Code": "default"
+                  },
+                  "schemaHeaders": {
+                    "x-api-key": "search_gql",
+                    "Magento-Environment-Id": "<your_environment_id>",
+                    "Magento-Website-Code": "base",
+                    "Content-Type": "application/json",
+                    "Magento-Store-Code": "main_website_store",
+                    "Magento-Store-View-Code": "default"
+                  }
+                }
+              }
+            }
+          ]
+        },
+      "tenantId": "<your_tenant_Id>"
+    }
+<!-- Please review the code to make sure I anonymized appropriately. -->
+
+1. Run the login command and provide your credentials in the browser window.
+
+    ```bash
+    aio auth:login
+    ```
+
+1. Run the following command to create a tenant:
+
+    ```bash
+    aio commerce-gateway:tenant:create ./mesh.json
+    ```
+
+# Access the gateway
+
+After creating a tenant, you should be able to access the GraphQL endpoint by entering the following URL in any GraphQL browser:
+
+```bash
+https://<your_Adobe_Graph_Gateway>.adobe.io/api/<chosen_tenant_name>/graphql?api_key=<your_apiKey>
+```
+
+## Update your configuration
+
+If you make any changes to your JSON configuration file, you must publish them before the changes will be reflected in your gateway.
+
+```bash
+aio commerce-gateway:tenant:update tenantid ./mesh.json
+```
