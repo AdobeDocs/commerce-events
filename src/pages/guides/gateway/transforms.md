@@ -22,9 +22,15 @@ Additionally, these transforms are available but are not fully supported at this
 
 ## Rename
 
-[Rename] transforms allow you to rename a GraphQL field, type, or field argument. In the example below, we rename an API field from `integrationCustomerTokenServiceV1CreateCustomerAccessTokenPost` to `CreateCustomerToken`.
+[Rename] transforms allow you to rename a GraphQL field, type, or field argument. Renaming allows you to avoid conflicting names, simplify complicated names, and make queries look more like mutations. In the example below, we rename a long API field name from `integrationCustomerTokenServiceV1CreateCustomerAccessTokenPost` to the shorter `CreateCustomerToken`.
 
-```bash
+`rename` elements can contain arrays of individual renaming operations, defined in separate `renames` objects. Each of these objects must define the `from` and `to` values.
+
+<InlineAlert variant="info" slots="text"/>
+
+You can use [RegEx flags] to enable the use of regular expressions when renaming using this transform. For example, you could use the key value pair `field: api(.*)` in the `from` object to rename any field of the corresponding type that begins with "api".
+
+```json
 {
   "meshConfig": {
     "sources": [
@@ -62,32 +68,32 @@ Additionally, these transforms are available but are not fully supported at this
 
 ## Prefix
 
-[Prefix] transforms allow you to append prefixes to GraphQL types and root operations. In the example below, the [AEM] schema will be prefixed with "AEM_" in order to distinguish it from [PWA].
+[Prefix] transforms allow you to append prefixes to existing types and root operations. `prefix` is similar to `rename` in that it allows you to modify names to avoid conflicts, simplify complicated names, and change the appearance of your query. In contrast with `rename`, `prefix` is simpler and only allows you to append a prefix to the existing name. In the example below, the [PWA] schema will be prefixed with "Venia_" in order to distinguish it from [AEM].
 
-```bash
+```json
 {
   "meshConfig": {
     "sources": [
       {
-        "name": "PWA",
+        "name": "AEM",
         "handler": {
           "graphql": {
-            "endpoint": "<your_Venia_url>"
+            "endpoint": "example1.com"
           }
         }
       },
        {
-        "name": "AEM",
+        "name": "PWA",
         "handler": {
           "graphql": {
-            "endpoint": "<your_AEM_url>"
+            "endpoint": "example2.com"
           }
         },
         "transforms": [
           {
             "prefix": {
               "includeRootOperations": true,
-              "value": "AEM_"
+              "value": "Venia_"
             }
           }
         ]
@@ -98,11 +104,13 @@ Additionally, these transforms are available but are not fully supported at this
 }
 ```
 
-## Filter
+## Filter Schema
 
-[Filter] transforms allow you to specify which fields are returned in your response. In the example below, the [PWA] handler will only return the Category and Customer Order information in its responses.
+The [Filter Schema] transform allows you to include or exclude fields from your configuration file. This means that queries run with this configuration will use the filtered schema. In the example below, the queries that reference the [PWA] handler will have the Category and Customer Order fields filtered out of their schema.
 
-```bash
+<!-- I'm not certain if the paragraph above is accurate. The documentation here is a little sparse: https://www.graphql-mesh.com/docs/transforms/filter-schema -->
+
+```json
 {
   "meshConfig": {
     "sources": [
@@ -110,7 +118,7 @@ Additionally, these transforms are available but are not fully supported at this
         "name": "PWA",
         "handler": {
           "graphql": {
-            "endpoint": "your_Venia_url"
+            "endpoint": "example1.com"
           }
         },
         "transforms": [
@@ -128,7 +136,7 @@ Additionally, these transforms are available but are not fully supported at this
         "name": "AEM",
         "handler": {
           "graphql": {
-            "endpoint": "<your_AEM_url>"
+            "endpoint": "example2.com"
           }
         }
       }
@@ -140,17 +148,17 @@ Additionally, these transforms are available but are not fully supported at this
 
 ## Replace
 
-[Replace] transforms allow you to replace one the configuration properties of one field with another. In the example below, the `parent` field is being replaced by the `child` field.
+[Replace] transforms allow you to replace the configuration properties of one field with another, which allows you to hoist field values from a subfield to its parent. Use this transform to clean up redundant looking queries or replace field types. In the example below, the `parent` field is being replaced by the `child` field.
 
-```bash
+```json
 {
   "meshConfig": {
     "sources": [
       {
-        "name": "Magento REST",
+        "name": "PWA",
         "handler": {
-          "openapi": {
-            "source": "your_Magento_API"
+          "graphql": {
+            "endpoint": "example1.com"
           }
         },
           "transforms": [
@@ -164,7 +172,8 @@ Additionally, these transforms are available but are not fully supported at this
                   },
                   "to": {
                     "type": "<your_API_Response>",
-                    "field": "child"
+                    "field": "child",
+                  "scope": "hoistvalue"
                   }
                 }
               ]
@@ -189,7 +198,7 @@ Additionally, these transforms are available but are not fully supported at this
 [Naming Convention] transforms allow you to apply casing and other conventions to your response. In the example below, `category` fields are converted to uppercase, while `urlResolver` fields are converted to lowercase.
 
 
-```bash
+```json
 {
   "meshConfig": {
     "sources": [
@@ -203,8 +212,8 @@ Additionally, these transforms are available but are not fully supported at this
         "transforms": [
           {
             "namingConvention": {
-              "category": uppercase
-              "urlResolver": lowercase
+              "category": "upperCase",
+              "urlResolver": "camelCase"
             }
           }
         ]
@@ -232,10 +241,11 @@ Additionally, these transforms are available but are not fully supported at this
 [transforms]: https://www.graphql-mesh.com/docs/transforms/transforms-introduction
 [Prefix]: https://www.graphql-mesh.com/docs/transforms/prefix
 [Rename]: https://www.graphql-mesh.com/docs/transforms/rename
-[Filter]: https://www.graphql-mesh.com/docs/transforms/filter-schema
+[Filter Schema]: https://www.graphql-mesh.com/docs/transforms/filter-schema
 [Replace]: https://www.graphql-mesh.com/docs/transforms/replace-field
 [Type Merge]: https://www.graphql-mesh.com/docs/transforms/type-merging
 [Naming Convention]: https://www.graphql-mesh.com/docs/transforms/naming-convention
 [Federation]: https://www.graphql-mesh.com/docs/transforms/federation
 [Encaspsulate]: https://www.graphql-mesh.com/docs/transforms/encapsulate
 [GraphQL Mesh Example]: https://www.graphql-mesh.com/docs/recipes/multiple-apis#merging-types-from-different-sources-using-type-merging
+[RegEx flags]: https://www.graphql-mesh.com/docs/transforms/rename#config-api-reference
