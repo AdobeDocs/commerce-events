@@ -32,7 +32,7 @@ Additionally, these transforms are available but are not fully supported at this
         "name": "Magento REST",
         "handler": {
           "openapi": {
-            "source": "your_Magento_API"
+            "source": "https://www.example.com/rest/all/schema?services=all"
           }
         },
           "transforms": [
