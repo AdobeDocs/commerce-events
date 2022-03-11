@@ -180,7 +180,7 @@ Additionally, these transforms are available but are not fully supported at this
 
 ## Type Merge
 
-[Type Merge] transforms allow you to combine multiple sources by merging a type from each source. For example, you could combine responses from two different APIs on a single field,provided you [rename] the fields you want to stitch to the same name. For more information, see this [GraphQL Mesh Example].
+[Type Merge] transforms allow you to combine multiple sources by merging a type from each source. For example, you could combine responses from two different APIs on a single field, provided you [rename] the fields you want to stitch to the same name. For more information, see this [GraphQL Mesh Example].
 
 <!-- I couldn't really come up with an example here, so linking out made more sense to me. -->
 
