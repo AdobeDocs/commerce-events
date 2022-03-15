@@ -35,7 +35,22 @@ The [API] handler allows you to connect OpenAPIs and Swagger schemas using a `.j
   "tenantId": "<your_tenant_id>"
 }
 ```
- 
+### API Handler Configuration
+
+ Adobe Graph currently supports the following configuration options for API handlers.
+
+-  **source** - Your API source or endpoint
+-  **sourceFormat** - The format of the source file (`json` | `yaml`)
+-  **schemaHeaders** - JSON Headers to fetch your schema
+-  **operationHeaders** - JSON headers for your API calls
+-  **baseUrl** - Your base URL
+-  **qs** - JSON object for query search parameters
+-  **includeHttpDetails** - A boolean flag to include HTTP Response details
+
+<InlineAlert variant="info" slots="text"/>
+
+For more information, see GraphQL Mesh's [Config API Reference]. Note that Adobe Graph uses an older version of GraphQL Mesh, so settings in external documentation may not be accurate for these purposes. Additionally, only the options specified above are currently supported.
+
 ## GraphQL endpoints
 
 The [GraphQL] handler allows you to connect GraphQL schemas using a `.json` or `.yaml` file.
@@ -64,6 +79,19 @@ The [GraphQL] handler allows you to connect GraphQL schemas using a `.json` or `
   "tenantId": "<your_tenant_id>"
 }
 ```
+### GraphQL Handler Configuration
+
+ Adobe Graph currently supports the following configuration options for GraphQL handlers.
+
+-  **endpoint** - The URL or path of your GraphQL endpoint
+-  **schemaHeaders** - JSON Headers to fetch your schema
+-  **operationHeaders** - JSON headers for your calls
+-  **useGETForQueries** - A boolean option to use HTTP GET
+-  **method** - HTTP method used (`GET` | `POST`)
+
+<InlineAlert variant="info" slots="text"/>
+
+For more information, see GraphQL Mesh's [GraphQL Config API Reference]. Note that Adobe Graph uses an older version of GraphQL Mesh, so settings in external documentation may not be accurate for these purposes. Additionally, only the options specified above are currently supported.
 
 ## JSON schemas
 
@@ -82,6 +110,31 @@ The [JSON] handler allows you to load rest services using a `.yaml` file.
             "method": "GET"
             "responseSchema": ".<your_schema>/carts.json"
 ```
+### JSON Schema Handler Configuration
+
+ Adobe Graph currently supports the following configuration options for JSON Schema handlers.
+
+-  **baseurl** - The URL or path of your JSON Schema
+-  **schemaHeaders** - JSON Headers to fetch your schema
+-  **operationHeaders** - JSON headers for your calls
+-  **operations** - An array that contains:
+   -  field
+   -  description
+   -  type (`Query` | `Mutation` | `Subscription`)
+   -  requestSchema
+   -  requestSample
+   -  requestTypeName
+   -  requestBaseBody - This body will merge with the request body sent with the HTTP request
+   -  responseSchema
+   -  responseSample
+   -  responseTypeName
+   -  argTypeMap
+   -  pubsubTopic
+-  **ignoreErrorResponses** - A Boolean option to ignore errors
+
+<InlineAlert variant="info" slots="text"/>
+
+For more information, see GraphQL Mesh's [JSON Schema Config API Reference]. Note that Adobe Graph uses an older version of GraphQL Mesh, so settings in external documentation may not be accurate for these purposes. Additionally, only the options specified above are currently supported.
 
 <!-- Link Definitions -->
 
@@ -90,3 +143,6 @@ The [JSON] handler allows you to load rest services using a `.yaml` file.
 [API]: https://www.graphql-mesh.com/docs/handlers/openapi
 [GraphQL]: https://www.graphql-mesh.com/docs/handlers/graphql
 [JSON]: https://www.graphql-mesh.com/docs/handlers/json-schema
+[Config API Reference]: https://www.graphql-mesh.com/docs/handlers/openapi#config-api-reference
+[GraphQL Config API Reference]: https://www.graphql-mesh.com/docs/handlers/graphql#config-api-reference
+[JSON Schema Config API Reference]: https://www.graphql-mesh.com/docs/handlers/json-schema#config-api-reference
