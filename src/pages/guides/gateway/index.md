@@ -21,7 +21,7 @@ Adobe Graph enables developers to integrate a GraphQL Mesh or third-party APIs w
 -  **Backwards Compatibility** - Preserve existing APIs while gradually adopting new ones 
 -  **Extensibility** - Customize and extend all of your APIs directly in the gateway without making changes to the API source
 
-## Example Use Case
+## Example use case
 
 Adobe Commerce users can consider Adobe Graph as a low-code way to integrate other APIs to the Storefront and Storefront Management APIs. It also provides a way for the Storefront API and the Storefront Management APIs to communicate with each other.
 

@@ -69,7 +69,7 @@ description: Create a configuration file for your tenants, access the gateway, a
     aio commerce-gateway:tenant:create ./mesh.json
     ```
 
-# Access the gateway
+## Access the gateway
 
 After creating a tenant, you should be able to access the GraphQL endpoint by entering the following URL in any GraphQL browser:
 
