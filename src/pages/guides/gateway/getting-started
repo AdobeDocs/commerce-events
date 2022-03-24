@@ -35,7 +35,7 @@ Once you have an Adobe IO account you need to access the cli tool to start confi
 1. Install the [schema management plugin] in your project directory:
 
    ```bash
-   aio plugins:install @magento/aio-cli-plugin-commerce-admin
+   aio plugins:install @adobe/aio-cli-plugin-commerce-admin
    ```
 
 1. Create a `config.json` file in your working directory with the following parameters:
@@ -43,7 +43,6 @@ Once you have an Adobe IO account you need to access the cli tool to start confi
    ``` json
    {
       "baseUrl": "https://<your_commerce_site>",
-      "authorizationToken": "<assigned_token>",
       "apiKey": "<your_apiKey>"
    }
    ```
