@@ -79,6 +79,7 @@ The [GraphQL] handler allows you to connect to a GraphQL endpoint.
   "tenantId": "<your_tenant_id>"
 }
 ```
+
 ### GraphQL Handler Configuration
 
  Adobe Graph currently supports the following configuration options for GraphQL handlers.
@@ -110,6 +111,7 @@ The [JSON] handler allows you to load rest services using a `.yaml` file.
             "method": "GET"
             "responseSchema": ".<your_schema>/carts.json"
 ```
+
 ### JSON Schema Handler Configuration
 
  Adobe Graph currently supports the following configuration options for JSON Schema handlers.
