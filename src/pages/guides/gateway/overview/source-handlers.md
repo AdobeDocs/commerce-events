@@ -6,7 +6,7 @@ title: Adding source handlers
 
 Although [GraphQL Mesh] supports many types of [source handlers], at launch Adobe Graph only supports the following:
 
--  [APIs](#apis)
+-  [OpenAPI](#OpenAPI)
 -  [GraphQL endpoints](#graphql_endpoints)
 -  [JSON schemas](#json_schemas)
 
@@ -14,9 +14,9 @@ Although [GraphQL Mesh] supports many types of [source handlers], at launch Adob
 
 We will add support for additional handlers in future releases.
 
-## APIs
+## OpenAPI
 
-The [API] handler allows you to connect OpenAPIs and Swagger schemas using a `.json` or `.yaml` file.
+The [OpenAPI] handler allows you to connect to an OpenAPI-complaint REST service endpoint or static Swagger schemas using a `.json` or `.yaml` file.
 
 ```bash
 {
@@ -53,7 +53,7 @@ For more information, see GraphQL Mesh's [Config API Reference]. Note that Adobe
 
 ## GraphQL endpoints
 
-The [GraphQL] handler allows you to connect GraphQL schemas using a `.json` or `.yaml` file.
+The [GraphQL] handler allows you to connect to a GraphQL endpoint.
 
 ```bash
 {
@@ -140,7 +140,7 @@ For more information, see GraphQL Mesh's [JSON Schema Config API Reference]. Not
 
 [GraphQL Mesh]: https://www.graphql-mesh.com/docs/getting-started/introduction
 [source handlers]: https://www.graphql-mesh.com/docs/handlers/handlers-introduction
-[API]: https://www.graphql-mesh.com/docs/handlers/openapi
+[OpenAPI]: https://www.graphql-mesh.com/docs/handlers/openapi
 [GraphQL]: https://www.graphql-mesh.com/docs/handlers/graphql
 [JSON]: https://www.graphql-mesh.com/docs/handlers/json-schema
 [Config API Reference]: https://www.graphql-mesh.com/docs/handlers/openapi#config-api-reference
