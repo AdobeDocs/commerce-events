@@ -35,6 +35,7 @@ The [OpenAPI] handler allows you to connect to an OpenAPI-complaint REST service
   "tenantId": "<your_tenant_id>"
 }
 ```
+
 ### API Handler Configuration
 
  Adobe Graph currently supports the following configuration options for API handlers.
