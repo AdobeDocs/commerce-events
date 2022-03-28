@@ -66,7 +66,8 @@ The [GraphQL] handler allows you to connect to a GraphQL endpoint.
           "graphql": {
             "endpoint": "your_Venia_url"
           }
-        },
+        }
+      },
       {
         "name": "AEM",
         "handler": {
