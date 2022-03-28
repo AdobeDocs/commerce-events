@@ -101,17 +101,30 @@ For more information, see GraphQL Mesh's [GraphQL Config API Reference]. Note th
 The [JSON] handler allows you to load a single remote REST endpoint and define the request and response structures using pre-defined JSON schema files.
 
 ```json
-"sources":
-  - "name": "<your_json_schema>"
-    "handler":
-      "jsonSchema":
-        "baseUrl": "<your_schema>/<endpoint>"
-        "operations":
-          - "type": "Query"
-            "field": "carts"
-            "path": "/carts"
-            "method": "GET"
-            "responseSchema": ".<your_schema>/carts.json"
+{
+  "meshConfig": {
+      "sources": [
+          {
+              "name": "carts",
+              "handler": {
+                  "JsonSchema": {
+                      "baseUrl": "<your_Magento_url>",
+                      "operations": [
+                          {
+                              "type": "Query",
+                              "field": "data",
+                              "path": "/cart",
+                              "method": "GET",
+                              "responseSchema": "./carts-response-schema.json"
+                          }
+                      ]
+                  }
+              }
+          }
+      ]
+  },
+  "tenantId": "<your_tenant_id>"
+}
 ```
 
 ### JSON Schema Handler Configuration
