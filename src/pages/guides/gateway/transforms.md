@@ -21,6 +21,53 @@ Additionally, these transforms are available but are not fully supported at this
 -  [Federation]
 
 Other [GraphQL Mesh] transforms are not supported.
+
+## Prefix
+
+[Prefix] transforms allow you to add prefixes to existing types and root operations. `prefix` is similar to `rename` in that it allows you to modify names to avoid conflicts, simplify complicated names, and change the appearance of your query. In contrast with `rename`, `prefix` is simpler and only allows you to append a prefix to the existing name. In the example below, we differentiate our sources by adding an "AEM_" prefix to the [AEM] source and a  "Venia_" prefix to the the [PWA] source.
+
+```json
+{
+  "meshConfig": {
+    "sources": [
+      {
+        "name": "AEM",
+        "handler": {
+          "graphql": {
+            "endpoint": "https://example1.com/graphql"
+          }
+        },
+        "transforms": [
+          {
+            "prefix": {
+              "includeRootOperations": true,
+              "value": "AEM_"
+            }
+          }
+        ]
+      },
+       {
+        "name": "PWA",
+        "handler": {
+          "graphql": {
+            "endpoint": "http://example2.com/graphql"
+          }
+        },
+        "transforms": [
+          {
+            "prefix": {
+              "includeRootOperations": true,
+              "value": "Venia_"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "tenantId": "<your_tenant_id"
+}
+```
+
 ## Rename
 
 [Rename] transforms allow you to rename a GraphQL field, type, or field argument. Renaming allows you to avoid conflicting names, simplify complicated names, and make queries look more like mutations. In the example below, we rename a long API field name from `integrationCustomerTokenServiceV1CreateCustomerAccessTokenPost` to the shorter `CreateCustomerToken`.
@@ -67,44 +114,6 @@ You can use [RegEx flags] to enable the use of regular expressions when renaming
 }
 ```
 
-## Prefix
-
-[Prefix] transforms allow you to append prefixes to existing types and root operations. `prefix` is similar to `rename` in that it allows you to modify names to avoid conflicts, simplify complicated names, and change the appearance of your query. In contrast with `rename`, `prefix` is simpler and only allows you to append a prefix to the existing name. In the example below, the [PWA] schema will be prefixed with "Venia_" in order to distinguish it from [AEM].
-
-```json
-{
-  "meshConfig": {
-    "sources": [
-      {
-        "name": "AEM",
-        "handler": {
-          "graphql": {
-            "endpoint": "https://example1.com/graphql"
-          }
-        }
-      },
-       {
-        "name": "PWA",
-        "handler": {
-          "graphql": {
-            "endpoint": "http://example2.com/graphql"
-          }
-        },
-        "transforms": [
-          {
-            "prefix": {
-              "includeRootOperations": true,
-              "value": "Venia_"
-            }
-          }
-        ]
-      }
-    ]
-  },
-  "tenantId": "<your_tenant_id"
-}
-```
-
 ## Filter schema
 
 The [Filter Schema] transform allows you to specify which schema elements to include or exclude in your mesh. You can include or exclude entire queries and mutations, or place restrictions on which types can appear in your calls. 
@@ -118,10 +127,18 @@ For example, you might want to exclude deprecated queries, mutations, and types 
   "meshConfig": {
     "sources": [
       {
+        "name": "AEM",
+        "handler": {
+          "graphql": {
+            "endpoint": "https://example1.com/graphql"
+          }
+        }
+      },
+      {
         "name": "PWA",
         "handler": {
           "graphql": {
-            "endpoint": "example1.com"
+            "endpoint": "https://example2.com/graphql"
           }
         },
         "transforms": [
@@ -134,14 +151,6 @@ For example, you might want to exclude deprecated queries, mutations, and types 
             }
           }
         ]
-      },
-      {
-        "name": "AEM",
-        "handler": {
-          "graphql": {
-            "endpoint": "example2.com"
-          }
-        }
       }
     ]
   },
@@ -161,7 +170,7 @@ For example, you might want to exclude deprecated queries, mutations, and types 
         "name": "PWA",
         "handler": {
           "graphql": {
-            "endpoint": "https://example1.com/graphql"
+            "endpoint": "https://example2.com/graphql"
           }
         },
           "transforms": [
@@ -198,8 +207,7 @@ For example, you might want to exclude deprecated queries, mutations, and types 
 
 ## Naming Convention
 
-[Naming Convention] transforms allow you to apply casing and other conventions to your response. In the example below, `category` fields are converted to uppercase, while `urlResolver` fields are converted to lowercase.
-
+[Naming Convention] transforms allow you to apply casing and other conventions to your response. In the example below, `enumValues` fields are converted to uppercase, while `fieldNames` are converted to lowercase to enforce consistency.
 
 ```json
 {
@@ -209,25 +217,17 @@ For example, you might want to exclude deprecated queries, mutations, and types 
         "name": "PWA",
         "handler": {
           "graphql": {
-            "endpoint": "https://example1.com/graphql"
+            "endpoint": "https://example2.com/graphql"
           }
         },
         "transforms": [
           {
             "namingConvention": {
-              "category": "upperCase",
-              "urlResolver": "camelCase"
+              "enumValues": "upperCase",
+              "fieldNames": "camelCase"
             }
           }
         ]
-      },
-      {
-        "name": "AEM",
-        "handler": {
-          "graphql": {
-            "endpoint": "<your_AEM_url>"
-          }
-        }
       }
     ]
   },
