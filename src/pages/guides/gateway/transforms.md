@@ -4,9 +4,9 @@ title: Transforms
 
 # Tranforms
 
-While [handlers] let you bring outside sources into Adobe Graph, [transforms] allow you to modify the schema in order to get a specific format for your response.
+While [handlers] let you bring outside sources into Adobe Graph, [transforms] allow you to modify the schema in order to control the contents of your GraphQL requests and responses.
 
-Although [GraphQL Mesh] supports several different [transforms], at launch Adobe Graph will only support:
+Adobe Graph currently supports the following [transforms]:
 
 -  [Rename](#rename)
 -  [Prefix](#prefix)
@@ -20,6 +20,7 @@ Additionally, these transforms are available but are not fully supported at this
 -  [Encapsulate]
 -  [Federation]
 
+Other [GraphQL Mesh] transforms are not supported.
 ## Rename
 
 [Rename] transforms allow you to rename a GraphQL field, type, or field argument. Renaming allows you to avoid conflicting names, simplify complicated names, and make queries look more like mutations. In the example below, we rename a long API field name from `integrationCustomerTokenServiceV1CreateCustomerAccessTokenPost` to the shorter `CreateCustomerToken`.
@@ -78,7 +79,7 @@ You can use [RegEx flags] to enable the use of regular expressions when renaming
         "name": "AEM",
         "handler": {
           "graphql": {
-            "endpoint": "example1.com"
+            "endpoint": "https://example1.com/graphql"
           }
         }
       },
@@ -86,7 +87,7 @@ You can use [RegEx flags] to enable the use of regular expressions when renaming
         "name": "PWA",
         "handler": {
           "graphql": {
-            "endpoint": "example2.com"
+            "endpoint": "http://example2.com/graphql"
           }
         },
         "transforms": [
@@ -104,9 +105,11 @@ You can use [RegEx flags] to enable the use of regular expressions when renaming
 }
 ```
 
-## Filter Schema
+## Filter schema
 
-The [Filter Schema] transform allows you to include or exclude fields from your configuration file. This means that queries run with this configuration will use the filtered schema. In the example below, the queries that reference the [PWA] handler will have the Category and Customer Order fields filtered out of their schema.
+The [Filter Schema] transform allows you to specify which schema elements to include or exclude in your mesh. You can include or exclude entire queries and mutations, or place restrictions on which types can appear in your calls. 
+
+For example, you might want to exclude deprecated queries, mutations, and types from your schema so that your integration is not affected when these entities are removed. In the example below, the deprecated Adobe Commerce  `category` and `customerOrders` queries are filtered out of the [PWA] handler.
 
 <!-- I'm not certain if the paragraph above is accurate. The documentation here is a little sparse: https://www.graphql-mesh.com/docs/transforms/filter-schema -->
 
@@ -158,7 +161,7 @@ The [Filter Schema] transform allows you to include or exclude fields from your 
         "name": "PWA",
         "handler": {
           "graphql": {
-            "endpoint": "example1.com"
+            "endpoint": "https://example1.com/graphql"
           }
         },
           "transforms": [
@@ -206,7 +209,7 @@ The [Filter Schema] transform allows you to include or exclude fields from your 
         "name": "PWA",
         "handler": {
           "graphql": {
-            "endpoint": "your_Venia_url"
+            "endpoint": "https://example1.com/graphql"
           }
         },
         "transforms": [
