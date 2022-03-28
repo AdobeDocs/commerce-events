@@ -18,7 +18,7 @@ We will add support for additional handlers in future releases.
 
 The [OpenAPI] handler allows you to connect to an OpenAPI-complaint REST service endpoint or static Swagger schemas using a `.json` or `.yaml` file.
 
-```bash
+```json
 {
   "meshConfig": {
     "sources": [
@@ -56,7 +56,7 @@ For more information, see GraphQL Mesh's [Config API Reference]. Note that Adobe
 
 The [GraphQL] handler allows you to connect to a GraphQL endpoint.
 
-```bash
+```json
 {
   "meshConfig": {
     "sources": [
@@ -97,9 +97,9 @@ For more information, see GraphQL Mesh's [GraphQL Config API Reference]. Note th
 
 ## JSON schemas
 
-The [JSON] handler allows you to load rest services using a `.yaml` file.
+The [JSON] handler allows you to load a single remote REST endpoint and define the request and response structures using pre-defined JSON schema files.
 
-```bash
+```json
 "sources":
   - "name": "<your_json_schema>"
     "handler":
