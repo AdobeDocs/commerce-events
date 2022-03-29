@@ -207,7 +207,7 @@ For example, you might want to exclude deprecated queries, mutations, and types 
 
 ## Naming Convention
 
-[Naming Convention] transforms allow you to apply casing and other conventions to your response. In the example below, `enumValues` fields are converted to uppercase, while `fieldNames` are converted to lowercase to enforce consistency.
+[Naming Convention] transforms allow you to apply casing and other conventions to your response. In the example below, `enumValues` fields are converted to uppercase, while `fieldNames` are converted to camel case to enforce consistency.
 
 ```json
 {
