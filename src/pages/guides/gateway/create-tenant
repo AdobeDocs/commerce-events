@@ -76,7 +76,7 @@ The following example adds both an Adobe Commerce instance (with Live Search ena
 
 After creating a tenant, you should be able to access the GraphQL endpoint by entering the following URL in any GraphQL browser:
 
-```https://<your_Adobe_Graph_Gateway>.adobe.io/api/<chosen_tenant_name>/graphql?api_key=<your_apiKey>```
+```https://graph.adobe.io/api/<chosen_tenant_name>/graphql?api_key=<your_apiKey>```
 
 ## Update your configuration
 
