@@ -24,13 +24,13 @@ Before you can begin using Adobe Graph, you must install:
 
 You will also need to have:
 
--  A working instance of Adobe Commerce with Live Search with either Luma or Venia sample data
+-  A working instance of Adobe Commerce with either Luma or Venia sample data. You can optionally include a Live Search instance.
 -  An API key (provided by Adobe)
 -  An API to integrate (for example, your own API, any public OpenAPI REST endpoint, or an [Adobe Experience Manager API])
 
 ## Configure your environment
 
-Once you have an Adobe IO account you need to access the cli tool to start configuring your APIs with the schema management service.
+Once you have an Adobe IO account, you need to access the CLI tool to start configuring your APIs with the schema management service.
 
 1. Install the [schema management plugin] in your project directory:
 
@@ -50,10 +50,10 @@ Once you have an Adobe IO account you need to access the cli tool to start confi
 1. Run the following command to load the configuration information into Adobe Graph:
 
    ``` bash
-   aio config:set aio-cli-plugin-commerce-admin <path_to_json_file>
+   aio config:set aio-cli-plugin-commerce-admin <path_to_config.json_file>
    ```
 
-   **Example**
+   **Example:**
 
    ``` bash
    aio config:set aio-cli-plugin-commerce-admin ./config.json

@@ -12,10 +12,10 @@ description: Create a configuration file for your tenants, access the gateway, a
       "meshConfig": {
         "sources": [
           {
-            "name": "PWA",
+            "name": "Commerce",
             "handler": {
               "graphql": {
-                "endpoint": "https://<your_venia>/graphql/"
+                "endpoint": "https://<your_commerce_site>/graphql/"
               }
             }
           },

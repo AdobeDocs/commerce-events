@@ -5,7 +5,7 @@ description: Learn how Adobe Graph enables you to route incoming requests from c
 
 # What is Adobe Graph?
 
-Adobe Graph is a decoupled API platform that enables enterprise and mid-market developers to integrate private or third-party APIs and other software interfaces with Adobe products via Adobe IO. This allows businesses that need to access functionality across multiple systems to provide better end-user experiences. Adobe Graph is [Multi-Tenant], which means developers can configure multiple APIs and other sources and serve them through a single gateway. Developers can query the combined sources through a single [GraphQL] query. Adobe Commerce, for example, also [supports GraphQL queries].
+Adobe Graph is a decoupled API platform that enables enterprise and mid-market developers to integrate private or third-party APIs and other software interfaces with Adobe products using Adobe IO. This allows businesses that need to access functionality across multiple systems to provide better end-user experiences. Adobe Graph is [Multi-Tenant], which means developers can configure multiple APIs and other sources and serve them through a single gateway. Developers can query the combined sources through a single [GraphQL] query. Adobe Commerce, for example, also [supports GraphQL queries].
 
 Adobe Graph enables developers to integrate a GraphQL Mesh or third-party APIs with other Adobe products, like App Builder, Adobe IO Gateway, or other serverless technologies. By subscribing to near-real-time events, developers can allow these external systems to synchronize data, participate in distributed workflows, and generally react to events as they occur. 
 
