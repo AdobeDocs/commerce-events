@@ -90,6 +90,6 @@ aio config:set aio-cli-plugin-commerce-admin config.json
 
 <!-- Link Definitions -->
 [Getting Started]:../guides/gateway/getting-started
-[Adobe IO CLI command list]:(https://github.com/adobe/aio-cli#commands)
+[Adobe IO CLI command list]:https://github.com/adobe/aio-cli#commands
 [Creating a tenant]:../guides/gateway/create-tenant
 [Updating a tenant]:../guides/gateway/create-tenant#update_an_existing_tenant
