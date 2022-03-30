@@ -2,7 +2,7 @@
 title: Transforms
 ---
 
-# Tranforms
+# Transforms
 
 While [handlers] let you bring outside sources into Adobe Graph, [transforms] allow you to modify the schema in order to control the contents of your GraphQL requests and responses.
 
