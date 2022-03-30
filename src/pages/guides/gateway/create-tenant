@@ -78,9 +78,9 @@ After creating a tenant, you should be able to access the GraphQL endpoint by en
 
 ```https://graph.adobe.io/api/<chosen_tenant_name>/graphql?api_key=<your_apiKey>```
 
-## Update your configuration
+## Update an existing tenant
 
-If you make any changes to your JSON configuration file, you must publish them before the changes will be reflected in your gateway. The `tenantId` in your `mesh.json` file is the name of the previously created tenant that you want to update.
+If you make any changes to your mesh file, such as adding [transforms], you must publish them before the changes will be reflected in your gateway. The `tenantId` in your `mesh.json` file is the name of the previously created tenant that you want to update.
 
 ```bash
 aio commerce-gateway:tenant:update tenantid ./mesh.json
