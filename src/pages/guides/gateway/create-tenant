@@ -69,7 +69,7 @@ The following example adds both an Adobe Commerce instance (with Live Search ena
 1. Run the following command to create a tenant:
 
     ```bash
-    aio commerce-gateway:tenant:create ./mesh.json
+    aio commerce-gateway:tenant:create mesh.json
     ```
 
 ## Access the gateway
@@ -87,7 +87,7 @@ If you make any changes to your mesh file, such as adding [transforms], you must
 Updating the tenant does not allow you to rename the tenantId.
 
 ```bash
-aio commerce-gateway:tenant:update tenantid ./mesh.json
+aio commerce-gateway:tenant:update tenantid mesh.json
 ```
 
 <!-- Link Definitions -->
