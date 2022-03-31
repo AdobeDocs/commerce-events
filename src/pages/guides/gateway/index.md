@@ -34,14 +34,13 @@ Adobe Commerce users can consider Adobe Graph as a low-code way to integrate oth
 -  [Create a tenant]
 
 <!-- Link Definitions -->
-<!-- i'll clean out the unused links once we get everything settled. -->
 [supports GraphQL queries]:https://devdocs.magento.com/guides/v2.4/graphql/index.html
 [GraphQL]: https://graphql.org/
 [GraphQL Mesh]: https://www.graphql-mesh.com/
 [mesh]:https://www.graphql-mesh.com/docs/getting-started/basic-usage
 [Multi-Tenant]:https://medium.com/javarevisited/understanding-of-multi-tenancy-7e9f57f00d1d
-[Getting started]:{{page.baseurl}}/overview/getting-started.md
-[Prerequisites]:{{page.baseurl}}/overview/getting-started.md#Prerequisites
-[Create an Adobe IO account]:{{page.baseurl}}/overview/getting-started.md#Create_an_Adobe_IO_account
-[Configure your environment]:{{page.baseurl}}/overview/getting-started.md#Configure_your_environment
-[Create a tenant]:{{page.baseurl}}/overview/create-a-tenant.md
+[Getting started]:getting-started.md
+[Prerequisites]:getting-started.md#Prerequisites
+[Create an Adobe IO account]:getting-started.md#Create_an_Adobe_IO_account
+[Configure your environment]:getting-started.md#Configure_your_environment
+[Create a tenant]:create-a-tenant.md
