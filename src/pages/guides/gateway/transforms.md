@@ -240,7 +240,7 @@ For example, you might want to exclude deprecated queries, mutations, and types 
 [PWA]: https://developer.adobe.com/commerce/pwa-studio/
 [Rename]: https://www.graphql-mesh.com/docs/transforms/rename
 [GraphQL Mesh]: https://www.graphql-mesh.com/docs/getting-started/introduction
-[handlers]: ../gateway/source-handlers.md
+[handlers]: source-handlers.md
 [transforms]: https://www.graphql-mesh.com/docs/transforms/transforms-introduction
 [Prefix]: https://www.graphql-mesh.com/docs/transforms/prefix
 [Rename]: https://www.graphql-mesh.com/docs/transforms/rename
