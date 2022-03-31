@@ -15,7 +15,7 @@ All commands on this page support the `--help` argument, which provides informat
 
 ## aio commerce-gateway:tenant:create
 
-Creates a new tenant based on the settings in the specified `JSON` file in your working directory. The `tenantId` key value in your `JSON` file determines the name for your tenant. For more information, see [Creating a tenant].
+Creates a new tenant based on the settings in the specified JSON `[FILE]` in your working directory. The `tenantId` key value in your `JSON` file determines the name for your tenant. For more information, see [Creating a tenant].
 
 ### Usage
 
@@ -25,11 +25,11 @@ aio commerce-gateway:tenant:create [FILE]
 
 ## aio commerce-gateway:tenant:update
 
-Updates an existing tenant based on the settings in the specified `JSON` file. Specify the `tenantId` for the tenant you want to update and the `JSON` file that contains your updated settings. For more information, see [Updating a tenant].
+Updates an existing tenant based on the settings in the specified JSON `[FILE]`. Specify the `[TENANTID]` for the tenant you want to update and the `JSON` file that contains your updated settings. For more information, see [Updating a tenant].
 
 <InlineAlert variant="info" slots="text"/>
 
-You cannot modify the `tenantId` when updating the mesh.
+You cannot modify the `tenantId` when updating a tenant.
 
 ### Usage
 
@@ -39,7 +39,7 @@ aio commerce-gateway:tenant:update [TENANTID] [FILE]
 
 ## aio commerce-gateway:tenant:get
 
-Retrieves the current `JSON` mesh file for the specified tenant. Specify the `tenantId` for the tenant you want to view.
+Retrieves the current `JSON` mesh file for the specified tenant. Specify the `[TENANTID]` for the tenant you want to view.
 
 ### Usage
 
