@@ -48,7 +48,7 @@ aio commerce-gateway:tenant:get [TENANTID]
 ```
 
 <!-- Link Definitions -->
-[Getting Started]:getting-started.md
-[Adobe IO CLI command list]:https://github.com/adobe/aio-cli#commands
-[Creating a tenant]:create-tenant.md
-[Updating a tenant]:create-tenant.md#update_an_existing_tenant
+[Getting Started]: getting-started.md
+[Adobe IO CLI command list]: https://github.com/adobe/aio-cli#commands
+[Creating a tenant]: create-tenant.md
+[Updating a tenant]: create-tenant.md#update_an_existing_tenant
