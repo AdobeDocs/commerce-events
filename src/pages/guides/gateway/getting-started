@@ -64,13 +64,13 @@ Once you have an Adobe IO account, you need to access the CLI tool to start conf
 -  Proceed to [create a tenant].
 
 <!-- Link Definitions -->
-[nvm]:https://github.com/nvm-sh/nvm
-[install Adobe IO]:https://developer.adobe.com/runtime/docs/guides/tools/cli_install
-[Adobe Experience Manager API]:https://experienceleague.adobe.com/docs/experience-manager-screens/user-guide/developing/rest-api.html
-[request access to Adobe IO]:https://developer.adobe.com/app-builder/trial/
-[npm]:https://www.npmjs.com/package/npm
-[AIO Plugin Documentation]:https://github.com/adobe/aio-cli#aio-pluginslink-plugin
-[aio CLI]:https://developer.adobe.com/runtime/docs/guides/tools/cli_install/
-[Node.js]:https://nodejs.org/en/download/
-[schema management plugin]:https://www.npmjs.com/package/@magento/aio-cli-plugin-commerce-admin
-[create a tenant]:create-a-tenant.md
+[nvm]: https://github.com/nvm-sh/nvm
+[install Adobe IO]: https://developer.adobe.com/runtime/docs/guides/tools/cli_install
+[Adobe Experience Manager API]: https://experienceleague.adobe.com/docs/experience-manager-screens/user-guide/developing/rest-api.html
+[request access to Adobe IO]: https://developer.adobe.com/app-builder/trial/
+[npm]: https://www.npmjs.com/package/npm
+[AIO Plugin Documentation]: https://github.com/adobe/aio-cli#aio-pluginslink-plugin
+[aio CLI]: https://developer.adobe.com/runtime/docs/guides/tools/cli_install/
+[Node.js]: https://nodejs.org/en/download/
+[schema management plugin]: https://www.npmjs.com/package/@magento/aio-cli-plugin-commerce-admin
+[create a tenant]: create-a-tenant.md
