@@ -91,5 +91,5 @@ aio commerce-gateway:tenant:update tenantid mesh.json
 ```
 
 <!-- Link Definitions -->
-[handlers]: /guides/gateway/handlers.md
-[transforms]: /guides/gateway/transforms.md
+[handlers]: handlers.md
+[transforms]: transforms.md
