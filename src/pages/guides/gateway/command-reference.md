@@ -27,13 +27,13 @@ Creates a new tenant based on the settings in the specified `JSON` file in your 
 ### Usage
 
 ```bash
-aio commerce-gateway:tenant:create mesh.json
+aio commerce-gateway:tenant:create [FILE]
 ```
 
-### Options
+### Arguments
 
 ```txt
---help      Information about command usage
+FILE - The mesh configuration file.
 ```
 
 ## aio commerce-gateway:tenant:update
@@ -47,10 +47,10 @@ Updating the tenant does not allow you to rename the tenantId.
 ### Usage
 
 ```bash
-aio commerce-gateway:tenant:update tenantId mesh.json
+aio commerce-gateway:tenant:update [TENANTID] [FILE]
 ```
 
-### Options
+### Arguments
 
 ```txt
 --help      Information about command usage
@@ -63,7 +63,7 @@ Retrieves the current `JSON` mesh file for the specified tenant. Specify the `te
 ### Usage
 
 ```bash
-aio commerce-gateway:tenant:get tenantId
+aio commerce-gateway:tenant:get [TENANTID]
 ```
 
 ### Options
