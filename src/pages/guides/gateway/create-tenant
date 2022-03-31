@@ -84,7 +84,7 @@ If you make any changes to your mesh file, such as adding [transforms], you must
 
 <InlineAlert variant="info" slots="text"/>
 
-Updating the tenant does not allow you to rename the tenantId.
+You cannot modify the `tenantId` when updating a tenant.
 
 ```bash
 aio commerce-gateway:tenant:update tenantid mesh.json
