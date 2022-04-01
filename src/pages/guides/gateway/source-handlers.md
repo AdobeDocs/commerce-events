@@ -2,7 +2,7 @@
 title: Add source handlers
 ---
 
-# Adding source handlers
+# Add source handlers
 
 Although [GraphQL Mesh] supports many types of [source handlers], at launch Adobe Graph only supports the following:
 
