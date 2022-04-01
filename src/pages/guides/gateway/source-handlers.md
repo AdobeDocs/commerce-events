@@ -1,5 +1,5 @@
 ---
-title: Adding source handlers
+title: Add source handlers
 ---
 
 # Adding source handlers
