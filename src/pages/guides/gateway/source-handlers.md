@@ -14,6 +14,10 @@ Although [GraphQL Mesh] supports many types of [source handlers], at launch Adob
 
 We will add support for additional handlers in future releases.
 
+<InlineAlert variant="info" slots="text"/>
+
+ Since we use hyphens to separate [header] strings, hyphens are disallowed in source handler names.
+
 ## OpenAPI
 
 The [OpenAPI] handler allows you to connect to an OpenAPI-complaint REST service endpoint or static Swagger schemas using a `.json` or `.yaml` file.
@@ -163,3 +167,4 @@ For more information, see GraphQL Mesh's [JSON Schema Config API Reference]. Not
 [Config API Reference]: https://www.graphql-mesh.com/docs/handlers/openapi#config-api-reference
 [GraphQL Config API Reference]: https://www.graphql-mesh.com/docs/handlers/graphql#config-api-reference
 [JSON Schema Config API Reference]: https://www.graphql-mesh.com/docs/handlers/json-schema#config-api-reference
+[header]: headers.md
