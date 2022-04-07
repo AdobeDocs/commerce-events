@@ -80,15 +80,62 @@ After creating a tenant, you should be able to access the GraphQL endpoint by en
 
 ## Update an existing tenant
 
-If you make any changes to your mesh file, such as adding [transforms], you must publish them before the changes will be reflected in your gateway. The `tenantId` in your `mesh.json` file is the name of the previously created tenant that you want to update.
-
-<InlineAlert variant="info" slots="text"/>
-
-You cannot modify the `tenantId` when updating a tenant.
+If you make any changes to your mesh file, such as adding [transforms], you must publish them before the changes will be reflected in your gateway. The following command will update the `tenantId` with the settings specified in the `update-mesh.json` file.
 
 ```bash
-aio commerce-gateway:tenant:update tenantid mesh.json
+aio commerce-gateway:tenant:update tenantid update-mesh.json
 ```
+
+When updating a tenant, do not include a tenantId in your mesh `JSON` file. Compare the following example to the previous [Creating a tenant](#creating_a_tenant) example on this page and note the absence of the `tenantId`.
+
+    ```json
+    {
+      "meshConfig": {
+        "sources": [
+          {
+            "name": "Commerce",
+            "handler": {
+              "graphql": {
+                "endpoint": "https://<your_commerce_site>/graphql/"
+              }
+            }
+          },
+          {
+            "name": "AEM",
+            "handler": {
+              "graphql": {
+                "endpoint": "https://<your_AEM_site>/endpoint.json"
+              }
+            }
+          },
+          {
+            "name": "LiveSearch",
+              "handler": {
+                "graphql": {
+                  "endpoint": "https://<your_commerce_site>/search/graphql",
+                  "operationHeaders": {
+                    "x-api-key": "search_gql",
+                    "Magento-Environment-Id": "<your_environment_id>",
+                    "Magento-Website-Code": "base",
+                    "Content-Type": "application/json",
+                    "Magento-Store-Code": "main_website_store",
+                    "Magento-Store-View-Code": "default"
+                  },
+                  "schemaHeaders": {
+                    "x-api-key": "search_gql",
+                    "Magento-Environment-Id": "<your_environment_id>",
+                    "Magento-Website-Code": "base",
+                    "Content-Type": "application/json",
+                    "Magento-Store-Code": "main_website_store",
+                    "Magento-Store-View-Code": "default"
+                  }
+                }
+              }
+            }
+          ]
+        }
+    }
+    ```
 
 <!-- Link Definitions -->
 [handlers]: handlers.md
