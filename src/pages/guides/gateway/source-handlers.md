@@ -16,7 +16,7 @@ We will add support for additional handlers in future releases.
 
 <InlineAlert variant="info" slots="text"/>
 
- Since we use hyphens to separate [header] strings, hyphens are disallowed in source handler names.
+Hyphens are disallowed in source handler names.
 
 ## OpenAPI
 

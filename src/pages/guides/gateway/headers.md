@@ -45,14 +45,14 @@ To add headers directly to a source handler in your mesh file, for example `mesh
 When you use GraphiQL, Postman, or other tools to interact with your mesh, you can add headers at runtime that are passed through the mesh to specified handler by using the following format:
 
 ```json
-{"GGW-SH-SourceName-my-header": "my-header-value"}
+{"GGW-SH-<SourceName>-<HeaderName>": "my-header-value"}
 ```
 
 Using this example, the components of the header name are:
 
 -  `GGW-SH` indicates to the GraphQL Gateway Server that what follows is a source header. It does not need to be modified.
 -  `SourceName` is the name of your previously created source or handler. The source name in the example in the previous section is `headersData`.
--  `my-header` is the name of the header you are adding or modifying.
+-  `HeaderName` is the name of the header you are adding or modifying.
 -  `my-header-value` is the value you are adding or modifying for the specified header.
 
 <InlineAlert variant="info" slots="text"/>
