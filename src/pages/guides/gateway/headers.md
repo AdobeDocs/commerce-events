@@ -50,7 +50,7 @@ When you use GraphiQL, Postman, or other tools to interact with your mesh, you c
 
 Using this example, the components of the header name are:
 
--  `GGW-SH` indicates to the GraphQL server that what follows is a source header. It does not need to be modified.
+-  `GGW-SH` indicates to the GraphQL Gateway Server that what follows is a source header. It does not need to be modified.
 -  `SourceName` is the name of your previously created source or handler. The source name in the example in the previous section is `headersData`.
 -  `my-header` is the name of the header you are adding or modifying.
 -  `my-header-value` is the value you are adding or modifying for the specified header.
@@ -62,7 +62,7 @@ Using this example, the components of the header name are:
 For example, if you want to send a new value (`new-store-code`) for a store code (`magento-store-code`) to a source handler (`MonolithAPI`) in your mesh, use the following:
 
 ```json
-{"GW-SH-MonolithAPI-magento-store-code":"new-store-code"}
+{"GGW-SH-MonolithAPI-magento-store-code":"new-store-code"}
 ```
 
 ### Add a header to all sources
@@ -70,12 +70,12 @@ For example, if you want to send a new value (`new-store-code`) for a store code
 If you want to send a header to all sources in your mesh, you can replace the source handler name with `*`. For example:
 
 ```json
-{"GW-*-auth-token":"new-auth-token"}
+{"GGW-SH-*-auth-token":"new-auth-token"}
 ```
 
 This can be useful for authorization, authentication, and tracking headers that could be the same across multiple sources. If you want to apply a header to all sources except one, specify that source separately. For example:
 
 ```json
-{"GW-*-auth-token":"new-auth-token"}
-{"GW-differentSource-auth-token":"different-auth-token"}
+{"GGW-SH-*-auth-token":"new-auth-token"}
+{"GGW-SH-differentSource-auth-token":"different-auth-token"}
 ```
