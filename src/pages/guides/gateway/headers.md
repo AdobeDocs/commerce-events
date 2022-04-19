@@ -7,7 +7,7 @@ description: Specifies the means, format, and restrictions for sending operation
 
 To specify request headers for your mesh, you can add them inside the `JSON` file that describes your mesh or you can add them when querying.
 
-## Add headers to your mesh file
+## Configure headers in your mesh file
 
 To add headers directly to a source handler in your mesh file, for example `mesh.json`, add the `operationHeaders` object with key value pairs for your headers. In the following example, the header `my-mesh-header` has a value of `my-mesh-header-value`.
 
@@ -21,7 +21,7 @@ To add headers directly to a source handler in your mesh file, for example `mesh
           "graphql": {
             "endpoint": "https://<host>/graphql",
             "operationHeaders": {
-              "store": "<store_view_code>"
+              "Store": "<store_view_code>"
             }
           }
         }
@@ -34,7 +34,7 @@ To add headers directly to a source handler in your mesh file, for example `mesh
             "operationHeaders": {
               "Magento-Environment-Id": "<environment_id>"
               "Magento-Website-Code": "base"
-              "Magento-Store-Code": "<main_website_store>"
+              "Magento-Store-Code": "main_website_store"
               "Magento-Store-View-Code": "default"
               "X-Api-Key": "search_gql"
             }
@@ -47,7 +47,7 @@ To add headers directly to a source handler in your mesh file, for example `mesh
 }
 ```
 
-## Add or update headers in a request
+## Add or update headers at runtime
 
 When you use GraphiQL, Postman, or other tools to interact with your mesh, you can add headers at runtime that are passed through the mesh to specified handler by using the following format:
 
