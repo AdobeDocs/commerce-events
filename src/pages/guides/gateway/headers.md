@@ -56,7 +56,6 @@ Header variables are not supported in the mesh file.
 When you use GraphiQL or another tool to interact with your mesh, you can add headers at runtime that are passed through the mesh to specified handler by using the following format:
 
 Key: `GGW-SH-<SourceName>-<HeaderName>`
-Value: `my-header-value`
 
 Using this example, the components of the header name are:
 
