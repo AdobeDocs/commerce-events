@@ -73,12 +73,6 @@ Consider a scenario where the value of the `Store` header defined in the previou
 Key: `GGW-SH-Commerce-Store`
 Value: `uk`
 
-In GraphiQL use this format:
-
-```json
-{"GGW-SH-Commerce-Store":"uk"}
-```
-
 ### Add a header to all sources
 
 If you want to send a header to all sources in your mesh, you can replace the source handler name with `*`. For example:
