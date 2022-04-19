@@ -55,7 +55,8 @@ Header variables are not supported in the mesh file.
 
 When you use GraphiQL or another tool to interact with your mesh, you can add headers at runtime that are passed through the mesh to specified handler by using the following format:
 
-`{"GGW-SH-<SourceName>-<HeaderName>":"my-header-value"}`
+Key: `GGW-SH-<SourceName>-<HeaderName>`
+Value: `my-header-value`
 
 Using this example, the components of the header name are:
 
@@ -74,11 +75,12 @@ Value: `uk`
 
 If you want to send a header to all sources in your mesh, you can replace the source handler name with `*`. For example:
 
-`{"GGW-SH-*-trackingId":"new-trackingId"}`
+Key: `GGW-SH-*-trackingId`
+Value: `new-trackingId`
 
 This can be useful for authorization, authentication, and tracking headers that could be the same across multiple sources. If you want to apply a header to all sources except one, specify that source separately. For example:
 
-```
-{"GGW-SH-*-trackingId":"new-trackingId"}
-{"GGW-SH-differentSource-trackingId":"different-trackingId"}
-```
+Key: `GGW-SH-*-trackingId`
+Value: `new-trackingId`
+Key: `GGW-SH-differentSource-trackingId`
+Value: `different-trackingId`
