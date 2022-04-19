@@ -55,16 +55,13 @@ Header variables are not supported in the mesh file.
 
 When you use GraphiQL or another tool to interact with your mesh, you can add headers at runtime that are passed through the mesh to specified handler by using the following format:
 
-```json
-{"GGW-SH-<SourceName>-<HeaderName>":"my-header-value"}
-```
+`{"GGW-SH-<SourceName>-<HeaderName>":"my-header-value"}`
 
 Using this example, the components of the header name are:
 
 -  `GGW-SH` is a required string that indicates to the GraphQL Gateway Server that what follows is a source header.
 -  `SourceName` is the name of your previously created source or handler. The source names in the example in the previous section are `Commerce` and `LiveSearch`.
--  `HeaderName` is the name of the header you are adding or modifying.
--  `my-header-value` is the value you are adding or modifying for the specified header.
+-  `HeaderName` is the name of the header you are adding or modifying. Remember to add a corresponding value for your header.
 
 ### Override a default value
 
@@ -77,13 +74,11 @@ Value: `uk`
 
 If you want to send a header to all sources in your mesh, you can replace the source handler name with `*`. For example:
 
-```json
-{"GGW-SH-*-trackingId":"new-trackingId"}
-```
+`{"GGW-SH-*-trackingId":"new-trackingId"}`
 
 This can be useful for authorization, authentication, and tracking headers that could be the same across multiple sources. If you want to apply a header to all sources except one, specify that source separately. For example:
 
-```json
+```
 {"GGW-SH-*-trackingId":"new-trackingId"}
 {"GGW-SH-differentSource-trackingId":"different-trackingId"}
 ```
