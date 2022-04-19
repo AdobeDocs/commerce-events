@@ -78,12 +78,12 @@ Value: `uk`
 If you want to send a header to all sources in your mesh, you can replace the source handler name with `*`. For example:
 
 ```json
-{"GGW-SH-*-auth-token":"new-auth-token"}
+{"GGW-SH-*-trackingId":"new-trackingId"}
 ```
 
 This can be useful for authorization, authentication, and tracking headers that could be the same across multiple sources. If you want to apply a header to all sources except one, specify that source separately. For example:
 
 ```json
-{"GGW-SH-*-auth-token":"new-auth-token"}
-{"GGW-SH-differentSource-auth-token":"different-auth-token"}
+{"GGW-SH-*-trackingId":"new-trackingId"}
+{"GGW-SH-differentSource-trackingId":"different-trackingId"}
 ```
