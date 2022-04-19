@@ -5,11 +5,11 @@ description: Specifies the means, format, and restrictions for sending operation
 
 # Headers
 
-To specify request headers for your mesh, you can add them inside the `JSON` file that describes your mesh or you can add them when querying.
+To specify request headers for your mesh, you can add them inside the `JSON` file that describes your mesh, or you can add them when querying.
 
 ## Configure headers in your mesh file
 
-To add headers directly to a source handler in your mesh file, for example `mesh.json`, add the `operationHeaders` object with key value pairs for your headers. In the following example, the `LiveSearch` source has a header named `Magento-Website-Code` with a value of `base`.
+To add headers directly to a source handler in your mesh file, for example `mesh.json`, add the `operationHeaders` object with key value pairs for your headers. The following example defines the `Store` header for the Commerce source and multiple headers for the LiveSearch source.
 
 <InlineAlert variant="info" slots="text"/>
 
@@ -25,7 +25,7 @@ Header variables are not supported in the mesh file.
           "graphql": {
             "endpoint": "https://<host>/graphql",
             "operationHeaders": {
-              "Store": "<store_view_code>"
+              "Store": "default"
             }
           }
         }
