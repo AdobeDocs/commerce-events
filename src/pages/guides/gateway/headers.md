@@ -56,7 +56,7 @@ Header variables are not supported in the mesh file.
 When you use GraphiQL or another tool to interact with your mesh, you can add headers at runtime that are passed through the mesh to specified handler by using the following format:
 
 ```json
-{"GGW-SH-<SourceName>-<HeaderName>": "my-header-value"}
+{"GGW-SH-<SourceName>-<HeaderName>":"my-header-value"}
 ```
 
 Using this example, the components of the header name are:
@@ -66,10 +66,17 @@ Using this example, the components of the header name are:
 -  `HeaderName` is the name of the header you are adding or modifying.
 -  `my-header-value` is the value you are adding or modifying for the specified header.
 
-For example, if you want to send a new value (`new-store-code`) for a store code (`Magento-Store-Code`) to a source handler (`LiveSearch`) in your mesh, use the following:
+### Override a default value
+
+Consider a scenario where the value of the `Store` header defined in the previous example is the store view with the most traffic. However, you have additional store views that allow international customers to shop in their native languages and currencies. You can override the predefined value for your UK store view by sending the following header information with your request:
+
+Key: `GGW-SH-Commerce-Store`
+Value: `uk`
+
+In GraphiQL use this format:
 
 ```json
-{"GGW-SH-LiveSearch-magento-store-code":"new-store-code"}
+{"GGW-SH-Commerce-Store":"uk"}
 ```
 
 ### Add a header to all sources
