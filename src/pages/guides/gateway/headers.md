@@ -13,7 +13,7 @@ To add headers directly to a source handler in your mesh file, for example `mesh
 
 <InlineAlert variant="info" slots="text"/>
 
-Header variables are not supported in the mesh file. 
+Header variables are not supported in the mesh file.
 
 ```json
 {

@@ -73,4 +73,4 @@ Once you have an Adobe IO account, you need to access the CLI tool to start conf
 [aio CLI]: https://developer.adobe.com/runtime/docs/guides/tools/cli_install/
 [Node.js]: https://nodejs.org/en/download/
 [schema management plugin]: https://www.npmjs.com/package/@magento/aio-cli-plugin-commerce-admin
-[create a tenant]: create-a-tenant.md
+[create a tenant]: create-tenant.md

@@ -9,9 +9,9 @@ The Adobe Graph CLI allows you to manage and modify tenants. This page covers co
 
 All commands on this page support the `--help` argument, which provides information about the command.
 
--  [aio commerce-gateway:tenant:create](aio_commerce-gateway:tenant:create)
--  [aio commerce-gateway:tenant:update](#aio_commerce-gateway:tenant:update)
--  [aio commerce-gateway:tenant:get](#aio_commerce-gateway:tenant:get)
+-  [aio commerce-gateway:tenant:create](#aio-commerce-gatewaytenantcreate)
+-  [aio commerce-gateway:tenant:update](#aio-commerce-gatewaytenantupdate)
+-  [aio commerce-gateway:tenant:get](#aio-commerce-gatewaytenantget)
 
 ## aio commerce-gateway:tenant:create
 
@@ -114,4 +114,4 @@ Config : [object Object]
 [Getting Started]: getting-started.md
 [Adobe IO CLI command list]: https://github.com/adobe/aio-cli#commands
 [Creating a tenant]: create-tenant.md
-[Updating a tenant]: create-tenant.md#update_an_existing_tenant
+[Updating a tenant]: create-tenant.md#update-an-existing-tenant

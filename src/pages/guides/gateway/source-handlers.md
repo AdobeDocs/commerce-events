@@ -7,8 +7,8 @@ title: Add source handlers
 Although [GraphQL Mesh] supports many types of [source handlers], at launch Adobe Graph only supports the following:
 
 -  [OpenAPI](#OpenAPI)
--  [GraphQL endpoints](#graphql_endpoints)
--  [JSON schemas](#json_schemas)
+-  [GraphQL endpoints](#graphql-endpoints)
+-  [JSON schemas](#json-schemas)
 
 <InlineAlert variant="info" slots="text"/>
 

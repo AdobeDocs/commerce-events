@@ -5,13 +5,13 @@ description: Create a configuration file for your tenants, access the gateway, a
 
 # Create a tenant
 
-1. Create and save a JSON configuration file that defines the properties of your mesh. Your mesh is defined by a combination of [handlers] and [transforms]. In this example, the file name is `mesh.json`. The `tenantId` is the case-sensitive name you want to assign to your mesh configuration.
+1. Create and save a JSON configuration file that defines the properties of your mesh. Your mesh is defined by a combination of handlers and [transforms]. In this example, the file name is `mesh.json`. The `tenantId` is the case-sensitive name you want to assign to your mesh configuration.
 
 <InlineAlert variant="info" slots="text"/>
 
 The following example adds both an Adobe Commerce instance (with Live Search enabled) and an Adobe Experience Manager instance to the mesh. The GraphQL endpoints for Commerce and Live Search are different, therefore you must configure them separately.
 
-    ```json
+```json
     {
       "meshConfig": {
         "sources": [
@@ -59,6 +59,7 @@ The following example adds both an Adobe Commerce instance (with Live Search ena
         },
       "tenantId": "<your_tenant_Id>"
     }
+    ```
 
 1. Run the login command and provide your credentials in the browser window.
 
@@ -76,7 +77,9 @@ The following example adds both an Adobe Commerce instance (with Live Search ena
 
 After creating a tenant, you should be able to access the GraphQL endpoint by entering the following URL in any GraphQL browser:
 
-```https://graph.adobe.io/api/<chosen_tenant_name>/graphql?api_key=<your_apiKey>```
+```text
+https://graph.adobe.io/api/<chosen_tenant_name>/graphql?api_key=<your_apiKey>
+```
 
 ## Update an existing tenant
 
@@ -86,9 +89,9 @@ If you make any changes to your mesh file, such as adding [transforms], you must
 aio commerce-gateway:tenant:update tenantid update-mesh.json
 ```
 
-When updating a tenant, do not include a tenantId in your mesh `JSON` file. Compare the following example to the previous [Creating a tenant](#creating_a_tenant) example on this page and note the absence of the `tenantId`.
+When updating a tenant, do not include a tenantId in your mesh `JSON` file. Compare the following example to the previous [Creating a tenant](#create -a-tenant) example on this page and note the absence of the `tenantId`.
 
-    ```json
+```json
     {
       "meshConfig": {
         "sources": [
@@ -138,5 +141,5 @@ When updating a tenant, do not include a tenantId in your mesh `JSON` file. Comp
     ```
 
 <!-- Link Definitions -->
-[handlers]: handlers.md
+
 [transforms]: transforms.md

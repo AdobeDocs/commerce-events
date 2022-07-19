@@ -10,7 +10,7 @@ Adobe Graph currently supports the following [transforms]:
 
 -  [Rename](#rename)
 -  [Prefix](#prefix)
--  [Filter](#filter)
+-  [Filter](#filter-schema)
 -  [Replace](#replace)
 -  [Type Merge](#type-merge)
 -  [Naming Convention](#naming-convention)
@@ -116,7 +116,7 @@ You can use [RegEx flags] to enable the use of regular expressions when renaming
 
 ## Filter schema
 
-The [Filter Schema] transform allows you to specify which schema elements to include or exclude in your mesh. You can include or exclude entire queries and mutations, or place restrictions on which types can appear in your calls. 
+The [Filter Schema] transform allows you to specify which schema elements to include or exclude in your mesh. You can include or exclude entire queries and mutations, or place restrictions on which types can appear in your calls.
 
 For example, you might want to exclude deprecated queries, mutations, and types from your schema so that your integration is not affected when these entities are removed. In the example below, the deprecated Adobe Commerce  `category` and `customerOrders` queries are filtered out of the [PWA] handler.
 
