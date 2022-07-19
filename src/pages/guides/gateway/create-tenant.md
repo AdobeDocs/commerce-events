@@ -59,6 +59,7 @@ The following example adds both an Adobe Commerce instance (with Live Search ena
         },
       "tenantId": "<your_tenant_Id>"
     }
+    ```
 
 1. Run the login command and provide your credentials in the browser window.
 
@@ -76,7 +77,9 @@ The following example adds both an Adobe Commerce instance (with Live Search ena
 
 After creating a tenant, you should be able to access the GraphQL endpoint by entering the following URL in any GraphQL browser:
 
-```https://graph.adobe.io/api/<chosen_tenant_name>/graphql?api_key=<your_apiKey>```
+```text
+https://graph.adobe.io/api/<chosen_tenant_name>/graphql?api_key=<your_apiKey>
+```
 
 ## Update an existing tenant
 
