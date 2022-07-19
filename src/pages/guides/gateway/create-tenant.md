@@ -11,7 +11,7 @@ description: Create a configuration file for your tenants, access the gateway, a
 
 The following example adds both an Adobe Commerce instance (with Live Search enabled) and an Adobe Experience Manager instance to the mesh. The GraphQL endpoints for Commerce and Live Search are different, therefore you must configure them separately.
 
-    ```json
+```json
     {
       "meshConfig": {
         "sources": [
@@ -88,7 +88,7 @@ aio commerce-gateway:tenant:update tenantid update-mesh.json
 
 When updating a tenant, do not include a tenantId in your mesh `JSON` file. Compare the following example to the previous [Creating a tenant](#create -a-tenant) example on this page and note the absence of the `tenantId`.
 
-    ```json
+```json
     {
       "meshConfig": {
         "sources": [
