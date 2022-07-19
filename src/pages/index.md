@@ -40,7 +40,7 @@ Get started with the Adobe Analytics APIs.
 
 ### Guides
 
-[Calculated Metrics API](guides/calculated_metrics_api/) 
+<!-- [Calculated Metrics API]() 
      
 Returns information on the user's company that is necessary for making other Adobe Analytics API calls.
 
@@ -68,17 +68,17 @@ For help migrating from the 1.4 versions of the Analytics API to the newer and m
 
 [Try the API](api/) 
 
-Try the Analytics API with Swagger UI. Explore, make calls, with full endpoint descriptions.
+Try the Analytics API with Swagger UI. Explore, make calls, with full endpoint descriptions. -->
 
 ## Contributing 
 
 We encourage you to participate in our open documentation initiative, if you have suggestions, corrections, additions 
 or deletions for this documentation, check out the source from [this github repo](https://github.com/adobe/gatsby-theme-spectrum-example), and submit a pull 
-request with your contribution. For more information, refer to the [contributing page](support/contribute/).
+request with your contribution.
 
 ## API Requests & Rate Limits
 
 The timeout for API requests through adobe.io is currently *60 seconds*.
 
 The default rate limit for an Adobe Analytics Company is *120 requests per minute*. (The limit is enforced as *12 requests every 6 seconds*).
-When rate limiting is being enforced you will get `429` HTTP response codes with the following response body: `{"error_code":"429050","message":"Too many requests"}`    
+When rate limiting is being enforced you will get `429` HTTP response codes with the following response body: `{"error_code":"429050","message":"Too many requests"}`
