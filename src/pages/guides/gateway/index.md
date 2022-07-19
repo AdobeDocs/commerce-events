@@ -37,7 +37,7 @@ Adobe Commerce users can consider Adobe Graph as a low-code way to integrate oth
 
 -  [Getting started]
    -  [Prerequisites]
-   -  [Create an Adobe IO account]
+   -  Create an Adobe IO account
    -  [Configure your environment]
 -  [Create a tenant]
 
@@ -49,6 +49,5 @@ Adobe Commerce users can consider Adobe Graph as a low-code way to integrate oth
 [Multi-Tenant]: https://medium.com/javarevisited/understanding-of-multi-tenancy-7e9f57f00d1d
 [Getting started]: getting-started.md
 [Prerequisites]: getting-started.md#Prerequisites
-[Create an Adobe IO account]: getting-started.md#Create_an_Adobe_IO_account
-[Configure your environment]: getting-started.md#Configure_your_environment
-[Create a tenant]: create-a-tenant.md
+[Configure your environment]: getting-started.md#configure-your-environment
+[Create a tenant]: create-tenant.md
