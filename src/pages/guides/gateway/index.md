@@ -36,9 +36,9 @@ Adobe Commerce users can consider Adobe Graph as a low-code way to integrate oth
 ## Where to go next
 
 -  [Getting started]
-  -  [Prerequisites]
-  -  [Create an Adobe IO account]
-  -  [Configure your environment]
+   -  [Prerequisites]
+   -  [Create an Adobe IO account]
+   -  [Configure your environment]
 -  [Create a tenant]
 
 <!-- Link Definitions -->
