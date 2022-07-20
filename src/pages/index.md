@@ -32,6 +32,8 @@ You can also create reports to explore, get insights, or answer important questi
 
 ### Get Started
 
+<!-- [Calculated Metrics API]() 
+
 [Quickstart Guide](guides/)
 
 Get started with the Adobe Analytics APIs.
@@ -40,7 +42,6 @@ Get started with the Adobe Analytics APIs.
 
 ### Guides
 
-<!-- [Calculated Metrics API]() 
      
 Returns information on the user's company that is necessary for making other Adobe Analytics API calls.
 

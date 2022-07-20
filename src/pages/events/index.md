@@ -32,6 +32,8 @@ You can also create reports to explore, get insights, or answer important questi
 
 ### Get Started
 
+<!-- [Calculated Metrics API]() 
+
 [Quickstart Guide](guides/)
 
 Get started with the Adobe Analytics APIs.
