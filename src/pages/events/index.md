@@ -42,6 +42,7 @@ Get started with the Adobe Analytics APIs.
 
 ### Guides
 
+<!-- [Calculated Metrics API]() 
      
 Returns information on the user's company that is necessary for making other Adobe Analytics API calls.
 
