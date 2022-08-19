@@ -7,6 +7,10 @@ module.exports = [
           title: 'Set up a project',
           path: '/events/project-setup.md',
       },
+      {
+        title: 'Command reference',
+        path: '/events/commands.md',
+    },
   ],
   },
 ];

@@ -38,7 +38,9 @@ A new event provider has been created with ID <ID>.
 
 The `events:subscribe` command subscribes the current provider to the specified event. You must define the event code using the following pattern:
 
+```text
 <type>.<event_name>
+```
 
 where:
 
@@ -83,7 +85,7 @@ Do not include `com.adobe.commerce.` in the event code. The code must begin with
 ### Example
 
 ```bash
-`bin/magento events:unsubscribe observer.catalog_product_save_after`
+bin/magento events:unsubscribe observer.catalog_product_save_after
 ```
 
 ### Response
