@@ -9,7 +9,7 @@ Adobe I/O Events allow you to receive notifications of real-time events taking p
 
 ## Create an event provider
 
-The `events:create-event-provider` command generates an event provider ID. Add the generated ID as the value of the **Stores** > Configuration > **Adobe Services** > **Adobe IO Events** > **Adobe I/O Event Provider ID** field in the Commerce Admin.
+The `events:create-event-provider` command creates an event provider ID in Adobe IO Events and returns this ID. Add the generated ID as the value of the **Stores** > Configuration > **Adobe Services** > **Adobe IO Events** > **Adobe I/O Event Provider ID** field in the Commerce Admin.
 
 <InlineAlert variant="info" slots="text"/>
 Ensure the Commerce root directory contains a valid `app/etc/event-types.json` file before running this command.
