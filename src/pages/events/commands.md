@@ -72,11 +72,12 @@ The subscription catalog_product_save_after was successfully created
 The `events:unsubscribe` command causes the current provider to unsubscribe from the specified event. Use the `bin/magento events:list` command to retrieve list of subscribed events.
 
 <InlineAlert variant="info" slots="text"/>
+
 Do not include `com.adobe.commerce.` in the event code. The code must begin with `observer` or `plugin`.
 
 ### Usage
 
-`bin/magento events:subscribe <event_code>`
+`bin/magento events:unsubscribe <event_code>`
 
 ### Arguments
 
@@ -91,7 +92,7 @@ bin/magento events:unsubscribe observer.catalog_product_save_after
 ### Response
 
 ```terminal
-Successfully unsubscribed from the `observer.catalog_product_save_after` event"
+Successfully unsubscribed from the `observer.catalog_product_save_after` event
 ```
 
 ## List subscribed Commerce events
@@ -105,7 +106,7 @@ The `events:list` command returns a list of subscribed events.
 ### Example
 
 ```bash
-bin/magento events:create-event-provider
+bin/magento events:list
 ```
 
 ### Response
