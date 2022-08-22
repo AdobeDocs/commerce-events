@@ -44,7 +44,7 @@ The `events:subscribe` command subscribes the current provider to the specified 
 
 where:
 
--  `type` specifies the origin of the event. This value must be either `observer` or `plugin`.
+-  `type` specifies the origin of the event. Specify `observer` if the event is emitted by a Commerce observer, or specify `plugin` if the event is emitted by a plugin.
 -  `event_name` identifies the event to subscribe. For example: `catalog_product_save_after`.
 
 ### Usage
@@ -53,7 +53,7 @@ where:
 
 ### Arguments
 
-`<event_code>` Required. Specifies the event to subscribe to.
+`<event_code>` Required. Specifies the event to subscribe to. The value must in the format `<type.event_name>`.
 
 ### Example
 
