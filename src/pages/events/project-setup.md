@@ -11,14 +11,13 @@ Adobe I/O Events for Adobe Commerce allows you to send and monitor custom Adobe 
 
 To get started with Adobe I/O Events, you will need:
 
-*  An Adobe Developer account. (Getting started with Adobe Developer Console
-)[https://developer.adobe.com/developer-console/docs/guides/getting-started/] describes how to enroll in the Adobe developer program.
+*  An Adobe Developer account with System Administrator or Developer Role permissions. [Getting started with Adobe Developer Console](https://developer.adobe.com/developer-console/docs/guides/getting-started/) describes how to enroll in the Adobe developer program.
 
 *  An Adobe Commerce on cloud infrastructure or on-premises instance.
 
 ## Set up a project
 
-[Projects Overview](https://developer.adobe.com/developer-console/docs/guides/projects/) describes the different types of projects and how to manage them. Here, we'll create a templated project. 
+[Projects Overview](https://developer.adobe.com/developer-console/docs/guides/projects/) describes the different types of projects and how to manage them. Here, we'll create a templated project.
 
 1. In the Adobe Developer Console, select the desired organization from the dropdown menu in the top-right corner.
 
@@ -26,7 +25,7 @@ To get started with Adobe I/O Events, you will need:
 
    ![Create a project](../_images/create-project.png)
 
-1. On the **Set up templated project** page, specify a project title and app name. Then click **Save**.
+1. On the **Set up templated project** page, specify a project title and app name. Then click **Save**. The Console creates a Production and a Stage workspace.
 
    ![Add an api](../_images/set-up-templated-project.png)
 
@@ -39,19 +38,18 @@ To get started with Adobe I/O Events, you will need:
 1. Select the **Generate a key pair** option and click **Generate keypair**. The `config.zip` file downloads automatically.
 
    ![generate a key pair](../_images/generate-key-pair.png)
-   
-   **Note**: If you want to manually [create a public key certificate], you can select the **Upload your public key** option.
+
+   **Note**: If you want to manually [create a public key certificate](https://developer.adobe.com/developer-console/docs/guides/authentication/JWT/JWTCertificate/), you can select the **Upload your public key** option.
 
 1. Click **Save configured API**.
 
 1. Unzip the downloaded `config.zip` file. The extracted `config` directory should contain a `certificate_pub.crt` and a `private.key` file.
 
-
-## Download the workspace configuration
+## Download the workspace configuration file
 
 To download a `.json` file containing your workspace configuration:
 
-1. Open the corresponding project on the [Adobe Developer Console].
+1. Open the corresponding project on the Adobe Developer Console.
 
 1. Select the **Project Overview** and click the **Download** button.
 
@@ -59,17 +57,18 @@ To download a `.json` file containing your workspace configuration:
 
    The `<Workspace-name>.json` file downloads automatically.
 
-## Set up App Builder locally (optional)
+## Set up App Builder and define a runtime action {#runtime-action}
 
+[Setting up Your Environment](https://developer.adobe.com/runtime/docs/guides/getting-started/setup/)
 
 1. Log in to Adobe IO:
 
    ```bash
    aio login
    ```
-   
+
    Your web browser displays the log in page. Enter your Adobe ID credentials.
-   
+
 1. Return to your terminal and navigate to where you want to initialize your project. Enter the following command:
 
    ```bash
@@ -78,22 +77,16 @@ To download a `.json` file containing your workspace configuration:
 
    The terminal prompts you to select the path to your workspace.
 
-1. Select the organization that your project was created under.
+1. Select your project's organization.
 
-1. Select the project that you created.
+1. Select your project.
 
-1. Select the extension point to implement. The DX Experience Cloud SPA option initializes a project with a default UI and creates a default Adobe I/O Runtime Action named "generic".
+1. Select the  **DX Experience Cloud SPA** option. The command then initializes a project with a default UI and creates a default Adobe I/O Runtime Action with a name similar to `dx-excshell-1/__secured_generic-<organization-id>-<project-name>-<workspace-name>`. The event configuration process requires that at least one action be defined.
 
-   To run the project locally, run:
+To run the project locally, run:
 
    ```bash
    aio app run
-   ```
-   
-   To deploy the project, run:
-   
-   ```bash
-   aio app deploy
    ```
 
 ## Begin configuring events on Commerce
@@ -118,7 +111,6 @@ You must configure Commerce to communicate with your project. You will need the 
 
 You cannot create an event provider until after you have configured and saved the private key, workspace file, and instance ID values.
 
-
 1. Create a `<Commerce-root-directory>/app/etc/event-types.json` file and add the following contents:
 
    ```json
@@ -135,21 +127,53 @@ You cannot create an event provider until after you have configured and saved th
    bin/magento events:create-event-provider
    ```
 
-   The commane displays a message similar to the the following:
+   The command displays a message similar to the the following:
 
    ```terminal
    No event provider found, a new event provider will be created
    A new event provider has been created with ID 63a1f8fe-e911-45a4-9d3f
    ```
 
-1. Copy the ID returned in the command output into the **Adobe I/O Event Provider ID** field in the Admin. 
+1. Copy the ID returned in the command output into the **Adobe I/O Event Provider ID** field in the Admin.
 
 1. Click **Save Config**.
 
-## Test
-If you already have an event provider, add the ID to the "Adobe I/O Event Provider ID" field
+## Subscribe and register events
 
-<!-- Link Definitions -->
-[Adobe Developer Console]: 
-[create a new project]: https://developer.adobe.com/developer-console/docs/guides/projects/#create-a-new-project
-[create a public key certificate]: https://developer.adobe.com/developer-console/docs/guides/authentication/JWT/JWTCertificate/
+You must define which Commerce events to subscribe to, then register them in the project.
+
+Commerce provides two sources for events: observers and plugins. You must specify the source as part of the event name. See [Subscribe to a Commerce event](./commands.md#subscribe-to-a-commerce-event) for details about the syntax of the `events:subscribe` command.
+
+1. Use the `events:subscribe` command to subscribe to Commerce events, as shown in the following examples:
+
+   ```bash
+   bin/magento events:subscribe observer.observer.catalog_product_save_after
+   ```
+
+   ```bash
+   bin/magento events:subscribe observer.customer_login
+   ```
+
+   ```bash
+   bin/magento events:subscribe plugin.magento.customer.api.account_management.create_account
+   ```
+
+1. Return to your Stage workspace. Click the **Add service** pop-up menu and select **Event**.
+
+   ![Click Add service in your workspace](../_images/add-event.png)
+
+1. On the **Add events** page, select your event provider, then click **Next**.
+
+   ![Select your event provider](../_images/download-workspace-config.png)
+
+1. Select the events to subscribe to. Then click **Next**.
+
+   ![Select the events to subscribe to](../_images/download-workspace-config.png)
+
+1. Optionally create a new JWT credential. Then click **Next**.
+
+1. Update the **Event registration name** and **Event registration description** fields. In the **How to receive events** section, under "Option 2", select the runtime action you created in [Set up App Builder and define a runtime action](#runtime-action).
+
+   ![Select a runtime action](../_images/select-runtime-action.png)
+
+1. Select **Save configured events**.
