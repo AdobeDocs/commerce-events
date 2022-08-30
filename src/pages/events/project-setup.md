@@ -124,6 +124,7 @@ You cannot create an event provider until after you have configured and saved th
         "description": "Provides out-of-process extensibility for Adobe Commerce"
         }
     }
+    ```
 
 1. Run the following command to create an event provider:
 
