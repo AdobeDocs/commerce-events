@@ -57,9 +57,9 @@ To download a `.json` file containing your workspace configuration:
 
    The `<Workspace-name>.json` file downloads automatically.
 
-## Set up App Builder and define a runtime action {#runtime-action}
+## Set up App Builder and define a runtime action
 
-[Setting up Your Environment](https://developer.adobe.com/runtime/docs/guides/getting-started/setup/)
+The first step to setting up your App Builder template is to set up your environment and crete a runtime action. For details about this process, see [Setting up Your Environment](https://developer.adobe.com/runtime/docs/guides/getting-started/setup/).
 
 1. Log in to Adobe IO:
 
@@ -83,7 +83,7 @@ To download a `.json` file containing your workspace configuration:
 
 1. Select the  **DX Experience Cloud SPA** option. The command then initializes a project with a default UI and creates a default Adobe I/O Runtime Action with a name similar to `dx-excshell-1/__secured_generic-<organization-id>-<project-name>-<workspace-name>`. The event configuration process requires that at least one action be defined.
 
-To run the project locally, run:
+1. You can optionally launch App Builder by running the following command:
 
    ```bash
    aio app run
@@ -116,7 +116,7 @@ You cannot create an event provider until after you have configured and saved th
    ```json
    {
     "provider": {
-        "label": "Adobe Commerce Events",
+        "label": "My Adobe Commerce Events",
         "description": "Provides out-of-process extensibility for Adobe Commerce"
         }
     }
@@ -172,7 +172,7 @@ Commerce provides two sources for events: observers and plugins. You must specif
 
 1. Optionally create a new JWT credential. Then click **Next**.
 
-1. Update the **Event registration name** and **Event registration description** fields. In the **How to receive events** section, under "Option 2", select the runtime action you created in [Set up App Builder and define a runtime action](#runtime-action).
+1. Update the **Event registration name** and **Event registration description** fields. In the **How to receive events** section, under **Option 2**, select the runtime action you created in [Set up App Builder and define a runtime action](#set-up-app-builder-and-define-a-runtime-action).
 
    ![Select a runtime action](../_images/select-runtime-action.png)
 
