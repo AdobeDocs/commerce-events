@@ -59,7 +59,7 @@ To download a `.json` file containing your workspace configuration:
 
 ## Set up App Builder and define a runtime action
 
-The first step to setting up your App Builder template is to set up your environment and crete a runtime action. For details about this process, see [Setting up Your Environment](https://developer.adobe.com/runtime/docs/guides/getting-started/setup/).
+The first step to setting up your App Builder template is to set up your environment and create a runtime action. For details about this process, see [Setting up Your Environment](https://developer.adobe.com/runtime/docs/guides/getting-started/setup/).
 
 1. Log in to Adobe IO:
 
@@ -83,11 +83,15 @@ The first step to setting up your App Builder template is to set up your environ
 
 1. Select the  **DX Experience Cloud SPA** option. The command then initializes a project with a default UI and creates a default Adobe I/O Runtime Action with a name similar to `dx-excshell-1/__secured_generic-<organization-id>-<project-name>-<workspace-name>`. The event configuration process requires that at least one action be defined.
 
-1. You can optionally launch App Builder by running the following command:
+   **Note**: The action has an internal name of `dx-excshell-1/generic`. You might see this referenced in the output in the next step.
+
+1. Launch App Builder by running the following command:
 
    ```bash
    aio app run
    ```
+
+   The command displays the URL where you can access the default UI. Running the command enables the runtime action that referenced in [Subscribe and register events](#subscribe-and-register-events).
 
 ## Begin configuring events on Commerce
 
@@ -147,7 +151,7 @@ Commerce provides two sources for events: observers and plugins. You must specif
 1. Use the `events:subscribe` command to subscribe to Commerce events, as shown in the following examples:
 
    ```bash
-   bin/magento events:subscribe observer.observer.catalog_product_save_after
+   bin/magento events:subscribe observer.catalog_product_save_after
    ```
 
    ```bash
