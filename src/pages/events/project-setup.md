@@ -51,7 +51,7 @@ To download a `.json` file containing your workspace configuration:
 
 1. Open the corresponding project on the Adobe Developer Console.
 
-1. Select the **Project Overview** and click the **Download All** button.
+1. Select a project workspace and click the **Download All** button.
 
    ![download the workspace config](../_images/download-workspace-config.png)
 
