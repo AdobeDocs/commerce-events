@@ -81,7 +81,7 @@ The first step to setting up your App Builder template is to set up your environ
 
 1. Select your project.
 
-1. Select the  **DX Experience Cloud SPA** option. The command then initializes a project with a default UI and creates a default Adobe I/O Runtime Action with a name similar to `dx-excshell-1/__secured_generic-<organization-id>-<project-name>-<workspace-name>`. The event configuration process requires that at least one defined action.
+1. Select the  **DX Experience Cloud SPA** option. The command then initializes a project with a default UI and creates a default Adobe I/O Runtime Action with a name similar to `dx-excshell-1/__secured_generic-<organization-id>-<project-name>-<workspace-name>`. The event configuration process requires at least one defined action.
 
    **Note**: The action has an internal name of `dx-excshell-1/generic`. You might see this referenced in the output in the next step.
 
@@ -167,7 +167,7 @@ Commerce provides two sources for events: observers and plugins. You must specif
 
    ![Click Add service in your workspace](../_images/add-event.png)
 
-1. On the **Add events** page and select your event provider. Then click **Next**.
+1. On the **Add events** page, select your event provider. Then click **Next**.
 
    ![Select your event provider](../_images/download-workspace-config.png)
 
