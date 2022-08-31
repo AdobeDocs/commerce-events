@@ -67,9 +67,9 @@ The first step to setting up your App Builder template is to set up your environ
    aio login
    ```
 
-   Your web browser displays the log in page. Enter your Adobe ID credentials.
+   Your web browser displays the login page. Enter your Adobe ID credentials.
 
-1. Return to your terminal and navigate to where you want to initialize your project. Enter the following command:
+1. Return to your terminal and navigate to the directory where you want to initialize your project. Enter the following command:
 
    ```bash
    aio app init
@@ -81,7 +81,7 @@ The first step to setting up your App Builder template is to set up your environ
 
 1. Select your project.
 
-1. Select the  **DX Experience Cloud SPA** option. The command then initializes a project with a default UI and creates a default Adobe I/O Runtime Action with a name similar to `dx-excshell-1/__secured_generic-<organization-id>-<project-name>-<workspace-name>`. The event configuration process requires that at least one action be defined.
+1. Select the  **DX Experience Cloud SPA** option. The command then initializes a project with a default UI and creates a default Adobe I/O Runtime Action with a name similar to `dx-excshell-1/__secured_generic-<organization-id>-<project-name>-<workspace-name>`. The event configuration process requires that at least one defined action.
 
    **Note**: The action has an internal name of `dx-excshell-1/generic`. You might see this referenced in the output in the next step.
 
@@ -107,15 +107,15 @@ You must configure Commerce to communicate with your project. You will need the 
 
 1. Copy the contents of the `<workspace-name>.json` file into the **Adobe I/O Workspace Configuration** field.
 
-1. Enter a unique identifier in the **Adobe Commerce Instance ID** field. This value can be any string, but it must be unique.
+1. Enter a unique identifier in the **Adobe Commerce Instance ID** field. This value can be any unique string.
 
-1. Click **Save Config** but do not leave the page.
+1. Click **Save Config**, but do not leave the page.
 
 ## Create an event provider and finish Commerce configuration
 
-You cannot create an event provider until after you have configured and saved the private key, workspace file, and instance ID values.
+You cannot create an event provider until you have configured and saved a private key, workspace file, and instance ID values.
 
-1. Create a `<Commerce-root-directory>/app/etc/event-types.json` file and add the following contents:
+1. Create a `<Commerce-root-directory>/app/etc/event-types.json` file and add the following:
 
    ```json
    {
@@ -167,7 +167,7 @@ Commerce provides two sources for events: observers and plugins. You must specif
 
    ![Click Add service in your workspace](../_images/add-event.png)
 
-1. On the **Add events** page, select your event provider, then click **Next**.
+1. On the **Add events** page and select your event provider. Then click **Next**.
 
    ![Select your event provider](../_images/download-workspace-config.png)
 
