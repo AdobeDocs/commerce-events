@@ -109,7 +109,7 @@ You must configure Commerce to communicate with your project. You will need the 
 
 1. Enter a unique identifier in the **Adobe Commerce Instance ID** field. This value can be any unique string.
 
-1. Click **Save Config**, but do not leave the page.
+1. Click **Save Config**, but do not leave the page. The next section creates an event provider, which is necessary to complete the configuration.
 
 ## Create an event provider and finish Commerce configuration
 
