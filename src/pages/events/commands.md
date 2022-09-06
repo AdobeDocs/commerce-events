@@ -7,9 +7,24 @@ description: Learn about the commands needed to set up eventing on an Adobe Comm
 
 Adobe I/O Events allow you to receive notifications of real-time events taking place in Adobe services.
 
+Adobe Commerce provides the following commands to configure and process events:
+
+*  Enable integration between Commerce and Adobe I/O events
+   *  [events:create-event-provider](#create-an-event-provider)  
+   *  [events:sync-events-metadata](#synchronize-event-metadata)
+
+*  Manage events subscriptions
+   *  [events:subscribe](#subscribe-to-a-commerce-event)
+   *  [events:metadata:populate](#create-event-metadata-in-adobe-io)
+   *  [events:unsubscribe](#unsubscribe-from-a-commerce-event)
+   *  [events:list](#list-subscribed-commerce-events)
+
+*  Generate a Commerce module
+   *  [events:generate:module](#generate-a-commerce-module-based-on-a-list-of-subscribed-events)
+
 ## Create an event provider
 
-The `events:create-event-provider` command creates an event provider ID in Adobe IO Events and returns this ID. Add the generated ID as the value of the **Stores** > Configuration > **Adobe Services** > **Adobe IO Events** > **Adobe I/O Event Provider ID** field in the Commerce Admin.
+The `events:create-event-provider` command creates an event provider ID in Adobe IO Events and displays this ID. Add the generated ID as the value of the **Stores** > Configuration > **Adobe Services** > **Adobe IO Events** > **Adobe I/O Event Provider ID** field in the Commerce Admin.
 
 <InlineAlert variant="info" slots="text"/>
 Ensure the Commerce root directory contains a valid `app/etc/event-types.json` file before running this command.
@@ -44,8 +59,8 @@ The `events:subscribe` command subscribes the current provider to the specified 
 
 where:
 
--  `type` specifies the origin of the event. Specify `observer` if the event is emitted by a Commerce observer, or specify `plugin` if the event is emitted by a plugin.
--  `event_name` identifies the event to subscribe. For example: `catalog_product_save_after`.
+*  `type` specifies the origin of the event. Specify `observer` if the event is emitted by a Commerce observer, or specify `plugin` if the event is emitted by a plugin.
+*  `event_name` identifies the event to subscribe. For example: `catalog_product_save_after`.
 
 ### Usage
 
@@ -115,4 +130,78 @@ bin/magento events:list
 com.adobe.commerce.observer.catalog_product_save_after
 com.adobe.commerce.plugin.magento.sales.api.order_repository.delete
 com.adobe.commerce.plugin.magento.sales.api.order_repository.save
+```
+
+## Synchronize event metadata
+
+By default, the `events:sync-events-metadata` command causes Commerce to update event metadata. If you specify the `--delete` option, the command deletes the event metadata instead.
+
+<InlineAlert variant="info" slots="text"/>
+
+An event provider must be defined before running this command.
+
+### Usage
+
+`bin/magento events:sync-events-metadata [options]`
+
+### Options
+
+`--delete`, `-d` Deletes event metadata
+
+### Example
+
+```bash
+bin/magento events:sync-events-metadata
+```
+
+### Response
+
+```terminal
+Event provider with ID <ID> retrieved from configuration
+
+The following events are declared on your instance:
+
+- com.adobe.commerce.observer.catalog_product_save_after
+- com.adobe.commerce.plugin.magento.sales.api.order_repository.delete
+- com.adobe.commerce.plugin.magento.sales.api.order_repository.save
+```
+
+## Create event metadata in Adobe I/O
+
+The `events:metadata:populate` command creates event metadata based on XML and application configurations.
+
+### Usage
+
+`events:metadata:populate`
+
+### Example
+
+```bash
+bin/magento events:metadata:populate
+```
+
+### Response
+
+```terminal
+The events metadata was successfully created:
+```
+
+## Generate a Commerce module based on a list of subscribed events
+
+The `events:generate:module` command generates a module with plugins based on your configuration and places it into the Commerce `app/code/Magento/AdobeCommerceEvents` directory.
+
+### Usage
+
+`bin/magento events:generate:module`
+
+### Example
+
+```bash
+bin/magento events:generate:module
+```
+
+### Response
+
+```terminal
+Module was generated in the app/code/Magento directory
 ```
