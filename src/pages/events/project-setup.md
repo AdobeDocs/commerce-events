@@ -1,33 +1,43 @@
 ---
-title: Set up an eventing project
+title: Create an Adobe I/O Events for Adobe Commerce project
 details: Create a project in the Adobe Developer Console, generate API credentials, and download the workspace configuration.
 ---
 
-# Set up an eventing project
+# Create an Adobe I/O Events for Adobe Commerce project
 
 Adobe I/O Events for Adobe Commerce allows you to send and monitor custom Adobe Commerce user-driven events. Follow the instructions on this page to create and configure a project for Adobe I/O Events.
 
 ## Requirements
 
-To get started with Adobe I/O Events, you will need:
+To get started with Adobe I/O Events, you must:
 
-*  An Adobe Developer account with System Administrator or Developer Role permissions. [Getting started with Adobe Developer Console](https://developer.adobe.com/developer-console/docs/guides/getting-started/) describes how to enroll in the Adobe developer program.
+*  Have an Adobe Developer account with System Administrator or Developer Role permissions. [Getting started with Adobe Developer Console](https://developer.adobe.com/developer-console/docs/guides/getting-started/) describes how to enroll in the Adobe developer program.
 
-*  An Adobe Commerce on cloud infrastructure or on-premises instance.
+*  Be familiar with [Adobe I/O Runtime](https://developer.adobe.com/runtime/docs/guides/getting-started/).
+
+*  Install the [`aio CLI`](https://developer.adobe.com/runtime/docs/guides/getting-started/setup/)
+
+*  Have access to an Adobe Commerce on cloud infrastructure or to an on-premises instance.
 
 ## Set up a project
 
 [Projects Overview](https://developer.adobe.com/developer-console/docs/guides/projects/) describes the different types of projects and how to manage them. Here, we'll create a templated project.
 
-1. In the Adobe Developer Console, select the desired organization from the dropdown menu in the top-right corner.
+1. Log in to the Adobe Developer Console and select the desired organization from the dropdown menu in the top-right corner.
 
-1. Select **Create project from template**.
+1. Click **Create new project** > **Project from template**.
 
    ![Create a project](../_images/create-project.png)
 
-1. On the **Set up templated project** page, specify a project title and app name. Then click **Save**. The Console creates a Production and a Stage workspace.
+1. Select **App Builder**. The **Set up templated project** page displays.
 
    ![Add an api](../_images/set-up-templated-project.png)
+
+1. Specify a project title and app name. Make sure the **Include Runtime with each workspace** check box is selected. Click **Save**. The Console creates a Production and a Stage workspace.
+
+   ![Add an api](../_images/workspaces.png)
+
+   Each App Builder project has two default workspaces: Production and Stage. You can add more workspaces as needed. In this procedure, we'll set up the Stage workspace.
 
 1. In the Stage workspace, click the **Add service** pop-up menu and select **API**.
 
@@ -43,36 +53,46 @@ To get started with Adobe I/O Events, you will need:
 
 1. Click **Save configured API**.
 
-1. Unzip the downloaded `config.zip` file. The extracted `config` directory should contain a `certificate_pub.crt` and a `private.key` file.
+1. Unzip the downloaded `config.zip` file. The extracted `config` directory should contain a `certificate_pub.crt` and a `private.key` file. The `private.key` file is required to configure the Commerce Admin.
 
 ## Download the workspace configuration file
 
+The console can generate a JSON file that defines the configuration of your workspace. You will use this file to configure the Commerce Admin.
+
 To download a `.json` file containing your workspace configuration:
 
-1. Open the corresponding project on the Adobe Developer Console.
+1. Go the overview page of your workspace (Staging).
 
-1. Select a project workspace and click the **Download All** button.
+1. Click the **Download All** button at the top right corner.
 
    ![download the workspace config](../_images/download-workspace-config.png)
 
-   The `<Workspace-name>.json` file downloads automatically.
+   The `<Workspace-name>.json` file downloads automatically. In this example, the file is named `485PeachHare-283976-Stage.json`.
 
 ## Set up App Builder and define a runtime action
 
 The first step to setting up your App Builder template is to set up your environment and create a runtime action. For details about this process, see [Setting up Your Environment](https://developer.adobe.com/runtime/docs/guides/getting-started/setup/).
 
-1. Log in to Adobe IO:
+1. Create a project directory on your local filesystem and change to that directory.
+
+   ```bash
+   mkdir myproject && cd myproject
+   ```
+
+1. Log in to Adobe IO from a terminal:
 
    ```bash
    aio login
    ```
 
-   Your web browser displays the login page. Enter your Adobe ID credentials.
+   Your web browser displays the login page.
 
-1. Return to your terminal and navigate to the directory where you want to initialize your project. Enter the following command:
+1. Enter your Adobe ID credentials.
+
+1. Close the browser tab and return to your terminal. Enter the following command to bootstrap your application.
 
    ```bash
-   aio app init
+   aio app init   
    ```
 
    The terminal prompts you to select the path to your workspace.
@@ -81,7 +101,9 @@ The first step to setting up your App Builder template is to set up your environ
 
 1. Select your project.
 
-1. Select the  **DX Experience Cloud SPA** option. The command then initializes a project with a default UI and creates a default Adobe I/O Runtime Action with a name similar to `dx-excshell-1/__secured_generic-<organization-id>-<project-name>-<workspace-name>`. The event configuration process requires at least one defined action.
+1. Select the  **DX Experience Cloud SPA** option.
+
+   The command initializes a project with a default UI and creates a default Adobe I/O Runtime Action with an internal name of `dx-excshell-1/generic`. This action will be specified later when configuring your workspace to register events.
 
    **Note**: The action has an internal name of `dx-excshell-1/generic`. You might see this referenced in the output in the next step.
 
@@ -93,92 +115,4 @@ The first step to setting up your App Builder template is to set up your environ
 
    The command displays the URL where you can access the default UI. Running the command enables the runtime action that referenced in [Subscribe and register events](#subscribe-and-register-events).
 
-## Begin configuring events on Commerce
-
-You must configure Commerce to communicate with your project. You will need the files that you downloaded from the the Adobe Developer Console.
-
-1. In the Commerce Admin, navigate to **Stores** > Settings > **Configuration** > **Adobe Services** > **Adobe I/O Events** > **General configuration**.
-
-1. Copy and paste the contents of the `private.key` file into the **Service Account Private Key** field. Use the following command to copy the contents.
-
-   ```bash
-   cat config/private.key | pbcopy
-   ```
-
-1. Copy the contents of the `<workspace-name>.json` file into the **Adobe I/O Workspace Configuration** field.
-
-1. Enter a unique identifier in the **Adobe Commerce Instance ID** field. This value can be any unique string.
-
-1. Click **Save Config**, but do not leave the page. The next section creates an event provider, which is necessary to complete the configuration.
-
-## Create an event provider and finish Commerce configuration
-
-You cannot create an event provider until you have configured and saved a private key, workspace file, and instance ID values.
-
-1. Create a `<Commerce-root-directory>/app/etc/event-types.json` file and add the following:
-
-   ```json
-   {
-    "provider": {
-        "label": "My Adobe Commerce Events",
-        "description": "Provides out-of-process extensibility for Adobe Commerce"
-        }
-    }
-    ```
-
-1. Run the following command to create an event provider:
-
-   ```bash
-   bin/magento events:create-event-provider
-   ```
-
-   The command displays a message similar to the the following:
-
-   ```terminal
-   No event provider found, a new event provider will be created
-   A new event provider has been created with ID 63a1f8fe-e911-45a4-9d3f
-   ```
-
-1. Copy the ID returned in the command output into the **Adobe I/O Event Provider ID** field in the Admin.
-
-1. Click **Save Config**.
-
-## Subscribe and register events
-
-You must define which Commerce events to subscribe to, then register them in the project.
-
-Commerce provides two sources for events: observers and plugins. You must specify the source as part of the event name. See [Subscribe to a Commerce event](./commands.md#subscribe-to-a-commerce-event) for details about the syntax of the `events:subscribe` command.
-
-1. Use the `events:subscribe` command to subscribe to Commerce events, as shown in the following examples:
-
-   ```bash
-   bin/magento events:subscribe observer.catalog_product_save_after
-   ```
-
-   ```bash
-   bin/magento events:subscribe observer.customer_login
-   ```
-
-   ```bash
-   bin/magento events:subscribe plugin.magento.customer.api.account_management.create_account
-   ```
-
-1. Return to your Stage workspace. Click the **Add service** pop-up menu and select **Event**.
-
-   ![Click Add service in your workspace](../_images/add-event.png)
-
-1. On the **Add events** page, select your event provider. Then click **Next**.
-
-   ![Select your event provider](../_images/download-workspace-config.png)
-
-1. Select the events to subscribe to. Then click **Next**.
-
-   ![Select the events to subscribe to](../_images/download-workspace-config.png)
-
-1. Optionally create a new JWT credential. Then click **Next**.
-
-1. Update the **Event registration name** and **Event registration description** fields. In the **How to receive events** section, under **Option 2**, select the runtime action you created in [Set up App Builder and define a runtime action](#set-up-app-builder-and-define-a-runtime-action).
-
-   ![Select a runtime action](../_images/select-runtime-action.png)
-
-1. Select **Save configured events**.
+You've completed the basic setup of your project. The next step is to install Adobe I/O Events for Adobe Commerce.
