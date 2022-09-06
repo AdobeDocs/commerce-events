@@ -1,37 +1,35 @@
 ---
-title: Overview - Adobe Analytics
-description: This is the overview page of Adobe Analytics
-contributors:
-  - https://github.com/icaraps 
+title: Commerce Extensibility
+description: 
 ---
 
-<Hero slots="heading, text"/>
+<Hero slots="image, heading, text"/>
 
-# Adobe Analytics API
+![Commerce Extensibility](_images/home-bg.jpeg)
 
-Adobe Product API offers limitless ways to integrate your most important customer data into key business processes. Adobe Product API offer limitless ways.
+# Adobe Commerce Extensibility
+
+Learn how to create extensions for Adobe Commerce and Magento Open Source using the Adobe infrastructure.
 
 <Resources slots="heading, links"/>
 
 #### Resources
 
-* [Quickstart Guide](https://www.adobe.io/apis/experiencecloud/analytics/docs.html)
-* [Adobe Analytics Github Repo](https://github.com/AdobeDocs/analytics-2.0-apis)
+* [PHP Developer Guide](https://developer.adobe.com/commerce/php/development/)
 
 ## Overview
 
-This documentation provides instructions for Adobe Analytics 2.0 APIs. For working with Analytics 1.4 APIs, see [Analytics 1.4 API Documentation](https://github.com/AdobeDocs/analytics-1.4-apis).
-
-The Adobe Analytics APIs are a collection of APIs that power Adobe Analytics products like Analysis Workspace.
-The APIs allow for the creation of data rich user interfaces that you can use to manipulate and integrate data.
-You can also create reports to explore, get insights, or answer important questions about your data.
+This documentation provides resources for developing extensions for Adobe Commerce and Magento Open Source using the Adobe infrastructure.
 
 ## Discover
 
-<DiscoverBlock width="100%" slots="heading, link, text"/>
+Use these sections to learn more.
 
-### Get Started
+<DiscoverBlock slots="heading, link, text"/>
 
+### Sections
+
+[]()
 <!-- [Calculated Metrics API]() 
 
 [Quickstart Guide](guides/)
