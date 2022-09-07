@@ -55,8 +55,6 @@ Save your changes. The remaining installation steps vary, depending on your envi
 
 1. Update your `.magento.app.yaml` file to include the following build hook:
 
-Add module generation and module enablement command to the build hook after composer install.
-
 ```yaml
 hooks:
   build: |
@@ -68,7 +66,9 @@ hooks:
     php ./vendor/bin/ece-tools run scenario/build/transfer.xml
 ```
 
-If the Event Provider was not configured during deployment, you should configure it according to step 2.5.1 and re-run deployment or run ./bin/magento setup:upgrade --keep-generated command or you can synchronize eventmetadata by running a command (will be added in the task
+This hook generates then enables the `AdobeCommerceEvents` module. This module registers custom events.
+
+If the Event Provider was not configured during deployment, you should configure it according to step 2.5.1 and re-run deployment or run ./bin/magento setup:upgrade --keep-generated command or you can synchronize event metadata by running a command (will be added in the task
 
 ### Local and on-premises installation
 
@@ -78,7 +78,7 @@ If the Event Provider was not configured during deployment, you should configure
   composer update
   ```
 
-1. Run the following command to generate the `AdobeCommerceEvents` module, This module helps register customer events. At this point, the module is empty.
+1. Run the following command to generate the `AdobeCommerceEvents` module. This module helps register  events. At this point, the module is empty.
 
    ```bash
    bin/magento events:generate:module
@@ -150,6 +150,12 @@ You cannot create an event provider until you have configured and saved a privat
 
 1. Copy the ID returned in the command output into the **Adobe I/O Event Provider ID** field in the Admin.
 
+1. Enter the provided URL as the value of the **Endpoint** fields.
+
+1. Enter the provided value for the **Merchant ID** field.
+
+1. Enter the provided value for the **Environment ID** field.
+
 1. Click **Save Config**.
 
 ## Subscribe and register events
@@ -168,21 +174,15 @@ Commerce provides two sources for events: observers and plugins. You must specif
    bin/magento events:subscribe observer.customer_login
    ```
 
-   ```bash
-   bin/magento events:subscribe plugin.magento.customer.api.account_management.create_account
-   ```
-
 1. Return to your Stage workspace. Click the **Add service** pop-up menu and select **Event**.
 
    ![Click Add service in your workspace](../_images/add-event.png)
 
 1. On the **Add events** page, select your event provider. Then click **Next**.
 
-   ![Select your event provider](../_images/download-workspace-config.png)
-
 1. Select the events to subscribe to. Then click **Next**.
 
-   ![Select the events to subscribe to](../_images/download-workspace-config.png)
+   ![Select the events to subscribe to](../_images/config-event-registration.png)
 
 1. Optionally create a new JWT credential. Then click **Next**.
 

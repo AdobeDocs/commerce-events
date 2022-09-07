@@ -41,7 +41,7 @@ To get started with Adobe I/O Events, you must:
 
 1. In the Stage workspace, click the **Add service** pop-up menu and select **API**.
 
-1. On the **Add an API** page, filter by Adobe Services, select **I/O Events**, and click **Next**.
+1. On the **Add an API** page, filter by Adobe Services, select **I/O Management API**, and click **Next**.
 
    ![Select IO events](../_images/adobe-io-events.png)
 
