@@ -17,19 +17,15 @@ Make the following modifications to your `composer.json` file:
    "repositories": {
     "module-adobe-io-events": {
         "type": "git",
-        "url": "git@github.com:magento-commerce/module-adobe-io-events.git"
-    },
-    "repo": {
-        "type": "composer",
-        "url": "https://repo.magento.com"
+        "url": "git@github.com:magento/module-adobe-io-events.git"
     },
     "event-plugin-generator": {
         "type": "git",
-        "url": "git@github.com:magento-commerce/event-plugin-generator.git"
+        "url": "git@github.com:magento/event-plugin-generator.git"
     },
     "module-commerce-events-client": {
         "type": "git",
-        "url": "git@github.com:magento-commerce/module-commerce-events-client.git"
+        "url": "git@github.com:magento/module-commerce-events-client.git"
     }
    },
    ```
@@ -66,9 +62,9 @@ hooks:
     php ./vendor/bin/ece-tools run scenario/build/transfer.xml
 ```
 
-This hook generates then enables the `AdobeCommerceEvents` module. This module registers custom events.
+This hook generates and enables the `AdobeCommerceEvents` module, which allows you to register custom events.
 
-If the Event Provider was not configured during deployment, you should configure it according to step 2.5.1 and re-run deployment or run ./bin/magento setup:upgrade --keep-generated command or you can synchronize event metadata by running a command (will be added in the task
+<!--Note to reviewer: I deleted references of bin/magento events:metadata:populate because I'm going to assume that a custom module with specific pre-defined events isn't available at initial installation/configuration. I will create a separate "Module development/integration" topic that addresses this command. -->
 
 ### Local and on-premises installation
 
@@ -108,13 +104,13 @@ You must configure Commerce to communicate with your project. You will need two 
 
 1. In the Commerce Admin, navigate to **Stores** > Settings > **Configuration** > **Adobe Services** > **Adobe I/O Events** > **General configuration**.
 
-1. Copy and paste the contents of the `private.key` file into the **Service Account Private Key** field. Use the following command to copy the contents.
+1. Copy and paste the contents of the [`private.key` file](./project-setup.md#set-up-a-project) into the **Service Account Private Key** field. Use the following command to copy the contents.
 
    ```bash
    cat config/private.key | pbcopy
    ```
 
-1. Copy the contents of the `<workspace-name>.json` file into the **Adobe I/O Workspace Configuration** field.
+1. Copy the contents of the [`<workspace-name>.json` file](./project-setup.md#download-the-workspace-configuration-file) into the **Adobe I/O Workspace Configuration** field.
 
 1. Enter a unique identifier in the **Adobe Commerce Instance ID** field. This value can be any unique string.
 
@@ -191,3 +187,5 @@ Commerce provides two sources for events: observers and plugins. You must specif
    ![Select a runtime action](../_images/select-runtime-action.png)
 
 1. Select **Save configured events**.
+
+You are now set up to develop your App Builder extension

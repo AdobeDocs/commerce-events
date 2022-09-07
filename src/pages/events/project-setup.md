@@ -105,8 +105,6 @@ The first step to setting up your App Builder template is to set up your environ
 
    The command initializes a project with a default UI and creates a default Adobe I/O Runtime Action with an internal name of `dx-excshell-1/generic`. This action will be specified later when configuring your workspace to register events.
 
-   **Note**: The action has an internal name of `dx-excshell-1/generic`. You might see this referenced in the output in the next step.
-
 1. Launch App Builder by running the following command:
 
    ```bash
