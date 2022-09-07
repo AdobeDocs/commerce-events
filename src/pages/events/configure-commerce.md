@@ -188,4 +188,4 @@ Commerce provides two sources for events: observers and plugins. You must specif
 
 1. Select **Save configured events**.
 
-You are now set up to develop your App Builder extension
+You are now set up to develop your App Builder extension.
