@@ -82,7 +82,7 @@ This hook generates and enables the `AdobeCommerceEvents` module, which allows y
    bin/magento events:generate:module
    ```
 
-1. Enable the newly-installed modules:
+1. Enable the newly installed modules:
 
    ```bash
    bin/magento module:enable --all
