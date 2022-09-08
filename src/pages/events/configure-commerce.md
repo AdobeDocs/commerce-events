@@ -5,32 +5,32 @@ description: Learn how to install the Commerce modules needed for Adobe I/O Even
 
 # Install and configure Adobe I/O Events
 
-After you've created an [App Builder project](./project-setup.md), you must install the Commerce modules that enable integrations with Adobe I/O Events.
+After you have created an [App Builder project](./project-setup.md), you must install the Commerce modules that enable integrations with Adobe I/O Events.
 
 ## Install Adobe I/O modules on Commerce
 
 Make the following modifications to your `composer.json` file:
 
-*  Add a `repositories` section beneath the `config` section. If the `repositories` section already exists, add the lines to the bottom of the section.
+*  Add a `repositories` section beneath the `config` section. If the `repositories` section already exists, add the following lines to the bottom of the section.
 
    ```json
    "repositories": {
-    "module-adobe-io-events": {
+      "module-adobe-io-events": {
         "type": "git",
         "url": "git@github.com:magento/module-adobe-io-events.git"
-    },
-    "event-plugin-generator": {
+      },
+      "event-plugin-generator": {
         "type": "git",
         "url": "git@github.com:magento/event-plugin-generator.git"
-    },
-    "module-commerce-events-client": {
+      },
+      "module-commerce-events-client": {
         "type": "git",
         "url": "git@github.com:magento/module-commerce-events-client.git"
-    }
+      }
    },
    ```
 
-*  Add the following lines to the bottom of the `require` section.
+*  Add the following lines to the bottom of the `require` section:
 
    ```json
    "magento/module-adobe-io-events": "dev-master as 0.99",
@@ -51,18 +51,18 @@ Save your changes. The remaining installation steps vary, depending on your envi
 
 1. Update your `.magento.app.yaml` file to include the following build hook:
 
-```yaml
-hooks:
-  build: |
-   set -e
-   composer install
-   php ./bin/magento events:generate:module
-   php ./bin/magento module:enable Magento_AdobeCommerceEvents
-   php ./bin/magento module:enable Magento_AdobeCommerceEventsClient
-   php ./bin/magento module:enable Magento_AdobeCommerceEventsGenerator
-   php ./vendor/bin/ece-tools run scenario/build/generate.xml
-   php ./vendor/bin/ece-tools run scenario/build/transfer.xml
-```
+   ```yaml
+   hooks:
+      build: |
+         set -e
+         composer install
+         php ./bin/magento events:generate:module
+         php ./bin/magento module:enable Magento_AdobeCommerceEvents
+         php ./bin/magento module:enable Magento_AdobeCommerceEventsClient
+         php ./bin/magento module:enable Magento_AdobeCommerceEventsGenerator
+         php ./vendor/bin/ece-tools run scenario/build/generate.xml
+         php ./vendor/bin/ece-tools run scenario/build/transfer.xml
+   ```
 
 This hook generates and enables the `AdobeCommerceEvents` module, which allows you to register custom events.
 
@@ -76,7 +76,7 @@ This hook generates and enables the `AdobeCommerceEvents` module, which allows y
   composer update
   ```
 
-1. Run the following command to generate the `AdobeCommerceEvents` module. This module helps register  events. At this point, the module is empty.
+1. Run the following command to generate the `AdobeCommerceEvents` module. This module helps register events. Initially, the module is empty.
 
    ```bash
    bin/magento events:generate:module
@@ -104,6 +104,9 @@ This hook generates and enables the `AdobeCommerceEvents` module, which allows y
 
 You must configure Commerce to communicate with your project. You will need two files that you downloaded from the the Adobe Developer Console.
 
+*  [Private key](./project-setup.md#set-up-a-project)
+*  [Workspace configuration](./project-setup.md#download-the-workspace-configuration-file)
+
 1. In the Commerce Admin, navigate to **Stores** > Settings > **Configuration** > **Adobe Services** > **Adobe I/O Events** > **General configuration**.
 
 1. Copy and paste the contents of the `private.key` file into the **Service Account Private Key** field. Use the following command to copy the contents.
@@ -118,7 +121,7 @@ You must configure Commerce to communicate with your project. You will need two 
 
 1. Click **Save Config**, but do not leave the page. The next section creates an event provider, which is necessary to complete the configuration.
 
-## Create an event provider and finish Commerce configuration
+## Create an event provider and complete the Commerce configuration
 
 You cannot create an event provider until you have configured and saved a private key, workspace file, and instance ID values.
 
@@ -148,7 +151,7 @@ You cannot create an event provider until you have configured and saved a privat
 
 1. Copy the ID returned in the command output into the **Adobe I/O Event Provider ID** field in the Admin.
 
-1. Enter the provided URL as the value of the **Endpoint** fields.
+1. Enter the provided URL as the value of the **Endpoint** field.
 
 1. Enter the provided value for the **Merchant ID** field.
 

@@ -33,11 +33,11 @@ To get started with Adobe I/O Events, you must:
 
    ![Add an api](../_images/set-up-templated-project.png)
 
-1. Specify a project title and app name. Make sure the **Include Runtime with each workspace** check box is selected. Click **Save**. The Console creates a Production and a Stage workspace.
+1. Specify a project title and app name. Make sure the **Include Runtime with each workspace** checkbox is selected. Click **Save**. The Console creates a Production and a Stage workspace.
 
    ![Add an api](../_images/workspaces.png)
 
-   Each App Builder project has two default workspaces: Production and Stage. You can add more workspaces as needed. In this procedure, we'll set up the Stage workspace.
+   Each App Builder project has two default workspaces: Production and Stage. You can add more workspaces as needed. In this procedure, we will set up the Stage workspace.
 
 1. In the Stage workspace, click the **Add service** pop-up menu and select **API**.
 
@@ -63,7 +63,7 @@ To download a `.json` file containing your workspace configuration:
 
 1. Go the overview page of your workspace (Staging).
 
-1. Click the **Download All** button at the top right corner.
+1. Click the **Download All** button in the top-right corner.
 
    ![download the workspace config](../_images/download-workspace-config.png)
 
@@ -89,10 +89,10 @@ The first step to setting up your App Builder template is to set up your environ
 
 1. Enter your Adobe ID credentials.
 
-1. Close the browser tab and return to your terminal. Enter the following command to bootstrap your application.
+1. Close the browser tab and return to your terminal. Enter the following command to bootstrap your application:
 
    ```bash
-   aio app init   
+   aio app init
    ```
 
    The terminal prompts you to select the path to your workspace.
