@@ -5,7 +5,7 @@ description: Learn how to install the Commerce modules needed for Adobe I/O Even
 
 # Install and configure Adobe I/O Events
 
-After you've created an [App Builder project](project-setup.md), you must install the Commerce modules that enable integrations with Adobe I/O Events.
+After you've created an [App Builder project](./project-setup.md), you must install the Commerce modules that enable integrations with Adobe I/O Events.
 
 ## Install Adobe I/O modules on Commerce
 
@@ -54,12 +54,14 @@ Save your changes. The remaining installation steps vary, depending on your envi
 ```yaml
 hooks:
   build: |
-    set -e
-    composer install
-    php ./bin/magento events:generate:module
-    php ./bin/magento module:enable Magento_AdobeCommerceEvents
-    php ./vendor/bin/ece-tools run scenario/build/generate.xml
-    php ./vendor/bin/ece-tools run scenario/build/transfer.xml
+   set -e
+   composer install
+   php ./bin/magento events:generate:module
+   php ./bin/magento module:enable Magento_AdobeCommerceEvents
+   php ./bin/magento module:enable Magento_AdobeCommerceEventsClient
+   php ./bin/magento module:enable Magento_AdobeCommerceEventsGenerator
+   php ./vendor/bin/ece-tools run scenario/build/generate.xml
+   php ./vendor/bin/ece-tools run scenario/build/transfer.xml
 ```
 
 This hook generates and enables the `AdobeCommerceEvents` module, which allows you to register custom events.
@@ -104,13 +106,13 @@ You must configure Commerce to communicate with your project. You will need two 
 
 1. In the Commerce Admin, navigate to **Stores** > Settings > **Configuration** > **Adobe Services** > **Adobe I/O Events** > **General configuration**.
 
-1. Copy and paste the contents of the [`private.key` file](project-setup.md#set-up-a-project) into the **Service Account Private Key** field. Use the following command to copy the contents.
+1. Copy and paste the contents of the `private.key` file into the **Service Account Private Key** field. Use the following command to copy the contents.
 
    ```bash
    cat config/private.key | pbcopy
    ```
 
-1. Copy the contents of the [`<workspace-name>.json` file](project-setup.md#download-the-workspace-configuration-file) into the **Adobe I/O Workspace Configuration** field.
+1. Copy the contents of the `<workspace-name>.json` file into the **Adobe I/O Workspace Configuration** field.
 
 1. Enter a unique identifier in the **Adobe Commerce Instance ID** field. This value can be any unique string.
 
@@ -158,7 +160,7 @@ You cannot create an event provider until you have configured and saved a privat
 
 You must define which Commerce events to subscribe to, then register them in the project.
 
-Commerce provides two sources for events: observers and plugins. You must specify the source as part of the event name. See [Subscribe to a Commerce event](./commands.md#subscribe-to-a-commerce-event) for details about the syntax of the `events:subscribe` command.
+Commerce provides two sources for events: observers and plugins. You must specify the source as part of the event name. See [Subscribe to a Commerce event](./commands.md) for details about the syntax of the `events:subscribe` command.
 
 1. Use the `events:subscribe` command to subscribe to Commerce events, as shown in the following examples:
 
