@@ -104,13 +104,13 @@ You must configure Commerce to communicate with your project. You will need two 
 
 1. In the Commerce Admin, navigate to **Stores** > Settings > **Configuration** > **Adobe Services** > **Adobe I/O Events** > **General configuration**.
 
-1. Copy and paste the contents of the [`private.key` file](./project-setup.md#set-up-a-project) into the **Service Account Private Key** field. Use the following command to copy the contents.
+1. Copy and paste the contents of the [`private.key` file](project-setup.md#set-up-a-project) into the **Service Account Private Key** field. Use the following command to copy the contents.
 
    ```bash
    cat config/private.key | pbcopy
    ```
 
-1. Copy the contents of the [`<workspace-name>.json` file](./project-setup.md#download-the-workspace-configuration-file) into the **Adobe I/O Workspace Configuration** field.
+1. Copy the contents of the [`<workspace-name>.json` file](project-setup.md#download-the-workspace-configuration-file) into the **Adobe I/O Workspace Configuration** field.
 
 1. Enter a unique identifier in the **Adobe Commerce Instance ID** field. This value can be any unique string.
 

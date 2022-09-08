@@ -111,6 +111,6 @@ The first step to setting up your App Builder template is to set up your environ
    aio app run
    ```
 
-   The command displays the URL where you can access the default UI. Running the command enables the runtime action that referenced in [Subscribe and register events](#subscribe-and-register-events).
+   The command displays the URL where you can access the default UI. Running the command enables the runtime action referenced in [Subscribe and register events](configure-commerce.md/#subscribe-and-register-events).
 
 You've completed the basic setup of your project. The next step is to install Adobe I/O Events for Adobe Commerce.
