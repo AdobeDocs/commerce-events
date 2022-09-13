@@ -11,13 +11,17 @@ Adobe Commerce provides the following commands to configure and process events:
 
 *  Enable integration between Commerce and Adobe I/O events
    *  [events:create-event-provider](#create-an-event-provider)  
-   *  [events:sync-events-metadata](#synchronize-event-metadata)
 
 *  Manage events subscriptions
    *  [events:subscribe](#subscribe-to-a-commerce-event)
    *  [events:metadata:populate](#create-event-metadata-in-adobe-io)
    *  [events:unsubscribe](#unsubscribe-from-a-commerce-event)
    *  [events:list](#list-subscribed-commerce-events)
+
+*  Manage registrants
+   *  [events:registration:create](#create-a-registrant)
+   *  [events:registration:delete](#delete-a-registrant)
+   *  [events:registration:get-all](#get-registrant-details)
 
 *  Generate a Commerce module
    *  [events:generate:module](#generate-a-commerce-module-based-on-a-list-of-subscribed-events)
@@ -26,19 +30,33 @@ Adobe Commerce provides the following commands to configure and process events:
 
 The `events:create-event-provider` command creates an event provider ID in Adobe IO Events and displays this ID. Add the generated ID as the value of the **Stores** > Configuration > **Adobe Services** > **Adobe IO Events** > **Adobe I/O Event Provider ID** field in the Commerce Admin.
 
-<InlineAlert variant="info" slots="text"/>
-Ensure the Commerce root directory contains a valid `app/etc/event-types.json` file before running this command.
+The `--label` and `--description` arguments are optional. However, if you do not specify them, then you must create a system `app/etc/event-types.json` file and define the values in that file before running the `events:create-event-provider` command. We recommend specifying the `--label` and `--description` arguments when you run the command.
 
-<!--Add a cross reference to the discussion about this file when it becomes available. -->
+If you decide to omit the arguments, the `event-types.json` file must have the following format:
+
+```json
+{
+ "provider": {
+     "label": "My Adobe Commerce Events",
+     "description": "Provides out-of-process extensibility for Adobe Commerce"
+     }
+ }
+```
 
 ### Usage
 
-`bin/magento events:create-event-provider`
+`bin/magento events:create-event-provider` --label "<unique provider label>" --description "<provider description>"
+
+### Arguments
+
+`--label` A name that distinguishes your event provider from others in the project. 
+
+`--description` A string that describes your event provider.
 
 ### Example
 
 ```bash
-bin/magento events:create-event-provider
+   bin/magento events:create-event-provider --label "My new event provider" --description "Event provider in the Stage workspace"
 ```
 
 ### Response
@@ -73,13 +91,13 @@ where:
 ### Example
 
 ```bash
-bin/magento events:subscribe observer.catalog_product_save_after
+bin/magento events:subscribe observer.customer_login
 ```
 
 ### Response
 
 ```terminal
-The subscription catalog_product_save_after was successfully created
+The subscription observer.customer_login was successfully created
 ```
 
 ## Unsubscribe from a Commerce event
@@ -127,43 +145,74 @@ bin/magento events:list
 ### Response
 
 ```terminal
-com.adobe.commerce.observer.catalog_product_save_after
-com.adobe.commerce.plugin.magento.sales.api.order_repository.delete
-com.adobe.commerce.plugin.magento.sales.api.order_repository.save
+observer.catalog_product_save_after
+observer.customer_login
 ```
 
-## Synchronize event metadata
+## Create a registrant
 
-By default, the `events:sync-events-metadata` command causes Commerce to update event metadata. If you specify the `--delete` option, the command deletes the event metadata instead.
-
-<InlineAlert variant="info" slots="text"/>
-
-An event provider must be defined before running this command.
+The `events:registration:create` command registers the merchant to Adobe Adobe Identity Management Services. You must configure the **Stores** > Configuration > **Adobe Services** > **Adobe I/O Events** > **Commerce Events** > **Merchant ID** and **Environment ID** fields before running this command.
 
 ### Usage
 
-`bin/magento events:sync-events-metadata [options]`
+`bin/magento events:registration:create <ims-org-id>`
 
-### Options
+### Arguments
 
-`--delete`, `-d` Deletes event metadata
+`<ims-org-id>` Required. A 24-digit hexadecimal ID followed by the string `@AdobeOrg`. Go to the Service Account (JWT) page in the Adobe Console to view this value. Example value: `12345678901234567890ABCD@AdobeOrg`.
 
 ### Example
 
 ```bash
-bin/magento events:sync-events-metadata
+bin/magento events:registration:create 12345678901234567890ABCD@AdobeOrg
 ```
 
 ### Response
 
 ```terminal
-Event provider with ID <ID> retrieved from configuration
+Registration created
+```
 
-The following events are declared on your instance:
+## Delete a registrant
 
-- com.adobe.commerce.observer.catalog_product_save_after
-- com.adobe.commerce.plugin.magento.sales.api.order_repository.delete
-- com.adobe.commerce.plugin.magento.sales.api.order_repository.save
+The `events:registration:delete` command deletes the specified registrant from the IMS organization.
+
+### Usage
+
+`bin/magento events:registration:delete <registration-id>`
+
+### Arguments
+
+`<registration-id>` Required. The ID assigned to the registration. Use the `events:registration:get-all` command to retrieve the ID.
+
+### Example
+
+```bash
+bin/magento events:registration:delete 12345678901234567890ABCD@AdobeOrg
+```
+
+### Response
+
+## Get registrant details
+
+The `events:registration:get-all` command returns details about a registrant. The response includes the registration ID, merchant ID, environment ID, IMS organization ID, and instance ID.
+
+### Usage
+
+`bin/magento events:registration:get-all`
+
+### Example
+
+```bash
+bin/magento events:registration:get-all
+```
+
+### Response
+
+```terminal
++--------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| e037f0de-3489-49c7-9366-df86491072b4 | {"id":"e037f0de-3489-49c7-9366-df86491072b4","merchant_id":"extension-docs","environment_id":"extension-docs","ims_org_id":"12345678901234567890ABCD@AdobeOrg","instance_id":"extensibility-docs2","event_provider_metadata":"3rd_party_custom_events"} |
++--------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ```
 
 ## Create event metadata in Adobe I/O
