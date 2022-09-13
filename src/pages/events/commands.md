@@ -196,6 +196,7 @@ bin/magento events:registration:delete e037f0de-3489-49c7-9366-df86491072b4
 ```terminal
 Registration was deleted
 ```
+
 ## Get registration details
 
 The `events:registration:get-all` command returns details about a registrant. The response includes the registration ID, merchant ID, environment ID, IMS organization ID, and instance ID.
