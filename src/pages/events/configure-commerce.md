@@ -160,11 +160,19 @@ You cannot create an event provider until you have configured and saved a privat
 
 1. Enter the provided URL as the value of the **Endpoint** field.
 
-1. Enter the provided value for the **Merchant ID** field.
+1. Enter the name of the merchant in the **Merchant ID** field.
 
-1. Enter the provided value for the **Environment ID** field.
+1. Enter the name of the workspace, such as Stage or Production, in the **Environment ID** field.
 
 1. Click **Save Config**.
+
+1. Register your instance with to Adobe Identity Management Services by running the following command:
+
+   ```bash
+   bin/magento events:registration:create <ims-org-id>
+   ```
+
+   To determine your IMS organization ID, go to the Service Account (JWT) page of your workspace in the Adobe Console.
 
 ## Subscribe and register events
 
