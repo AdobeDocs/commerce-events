@@ -45,7 +45,7 @@ If you decide to omit the arguments, the `event-types.json` file must have the f
 
 ### Usage
 
-`bin/magento events:create-event-provider` --label "<unique provider label>" --description "<provider description>"
+`bin/magento events:create-event-provider` --label "<unique provider label>" --description "<provider description>"`
 
 ### Arguments
 
