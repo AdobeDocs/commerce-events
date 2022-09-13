@@ -45,7 +45,7 @@ If you decide to omit the arguments, the `event-types.json` file must have the f
 
 ### Usage
 
-`bin/magento events:create-event-provider` --label "<unique provider label>" --description "<provider description>"`
+`bin/magento events:create-event-provider --label "<unique provider label>" --description "<provider description>"`
 
 ### Arguments
 
@@ -102,11 +102,7 @@ The subscription observer.customer_login was successfully created
 
 ## Unsubscribe from a Commerce event
 
-The `events:unsubscribe` command causes the current provider to unsubscribe from the specified event. Use the `bin/magento events:list` command to retrieve list of subscribed events.
-
-<InlineAlert variant="info" slots="text"/>
-
-Do not include `com.adobe.commerce.` in the event code. The code must begin with `observer` or `plugin`.
+The `events:unsubscribe` command causes the current provider to unsubscribe from the specified event. Use the `bin/magento events:list` command to retrieve a list of subscribed events.
 
 ### Usage
 
