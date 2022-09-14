@@ -49,7 +49,7 @@ Save your changes. The remaining installation steps vary, depending on your envi
 
 ### Cloud installation
 
-1. On your local environment, run the following command to enable the new modules:
+1. In your local environment, run the following command to enable the new modules:
 
    ```bash
       bin/magento module:enable --all
@@ -166,7 +166,7 @@ You cannot create an event provider until you have configured and saved a privat
 
 1. Click **Save Config**.
 
-1. Register your instance with to Adobe Identity Management Services by running the following command:
+1. Register your instance with Adobe Identity Management Services by running the following command:
 
    ```bash
    bin/magento events:registration:create <ims-org-id>
