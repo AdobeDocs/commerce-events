@@ -1,15 +1,15 @@
 ---
 title: Commerce module development
-description: 
+description: Learn what you need to do to enable your modules for Adobe I/O Events.
 ---
 
 # Commerce module development
 
-This topic 
+This topic describes how to enable your custom modules for Adobe I/O Events. You can also manually register observer events using the [`events:subscribe` command](./commands.md#subscribe-to-a-commerce-event).
 
 ## Register events
 
-You can register events in two ways:
+You can register events 
 
 ### io_events.xml
 

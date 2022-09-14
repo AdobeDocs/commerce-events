@@ -12,6 +12,10 @@ module.exports = [
         path: "/events/configure-commerce.md"
       },
       {
+        title: "Module development"
+        path: "/events/module-development.md"
+      }
+      {
         title: "Command reference",
         path: "/events/commands.md",
     },
