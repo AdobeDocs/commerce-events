@@ -80,6 +80,10 @@ where:
 *  `type` specifies the origin of the event. Specify `observer` if the event is emitted by a Commerce observer, or specify `plugin` if the event is emitted by a plugin.
 *  `event_name` identifies the event to subscribe. For example: `catalog_product_save_after`.
 
+<InlineAlert variant="info" slots="text"/>
+
+You can subscribe to any available observer event. You cannot subscribe to a plugin event unless it was registered in the `app/etc/config.php` file and subsequently unsubscribed with the [`events:unsubscribe` command](#unsubscribe-from-a-commerce-event).
+
 ### Usage
 
 `bin/magento events:subscribe <event_code>`
@@ -102,7 +106,9 @@ The subscription observer.customer_login was successfully created
 
 ## Unsubscribe from a Commerce event
 
-The `events:unsubscribe` command causes the current provider to unsubscribe from the specified event. Use the `bin/magento events:list` command to retrieve a list of subscribed events.
+The `events:unsubscribe` command causes the current provider to unsubscribe from the specified event. You cannot unsubscribe from events defined in a module's `etc/io_events.xml` file. However, you can unsubscribe events that were registered in the `app/etc/config.php` file or from the [`events:subscribe` command](#subscribe-to-a-commerce-event).
+
+Use the [`events:list` command](#list-subscribed-commerce-events) to retrieve a list of subscribed events.
 
 ### Usage
 
