@@ -44,6 +44,7 @@ Run the [events:generate:module command](./commands.md#generate-a-commerce-modul
 You can also create an `io_events` section in the Commerce [`app/etc/config.php file`](https://experienceleague.adobe.com/docs/commerce-operations/configuration-guide/files/deployment-files.html). Events registered using this mechanism cannot be disabled from the command line.
 
 For example:
+
 ```php
 'io_events' => [
     'observer.customer_login' => 1,
