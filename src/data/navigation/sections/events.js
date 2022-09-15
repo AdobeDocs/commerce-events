@@ -9,12 +9,12 @@ module.exports = [
       },
       {
         title: "Install and configure Adobe I/O Events on Adobe Commerce",
-        path: "/events/configure-commerce.md"
+        path: "/events/configure-commerce.md",
       },
       {
         title: "Module development"
-        path: "/events/module-development.md"
-      }
+        path: "/events/module-development.md",
+      },
       {
         title: "Command reference",
         path: "/events/commands.md",
