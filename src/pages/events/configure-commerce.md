@@ -49,6 +49,18 @@ Save your changes. The remaining installation steps vary, depending on your envi
 
 ### Cloud installation
 
+1. In your local environment, run the following command to enable the new modules:
+
+   ```bash
+      bin/magento module:enable --all
+   ```
+
+1. Add the `app/etc/config.php` file to your working repository:
+
+   ```bash
+   git add app/etc/config.php
+   ```
+
 1. Update your `.magento.app.yaml` file to include the following build hook:
 
    ```yaml
@@ -82,7 +94,7 @@ This hook generates and enables the `AdobeCommerceEvents` module, which allows y
    bin/magento events:generate:module
    ```
 
-1. Enable the newly installed modules:
+1. Enable the new modules:
 
    ```bash
    bin/magento module:enable --all
@@ -125,21 +137,16 @@ You must configure Commerce to communicate with your project. You will need two 
 
 You cannot create an event provider until you have configured and saved a private key, workspace file, and instance ID values.
 
-1. Create a `<Commerce-root-directory>/app/etc/event-types.json` file and add the following:
-
-   ```json
-   {
-    "provider": {
-        "label": "My Adobe Commerce Events",
-        "description": "Provides out-of-process extensibility for Adobe Commerce"
-        }
-    }
-    ```
-
 1. Run the following command to create an event provider:
 
    ```bash
-   bin/magento events:create-event-provider
+   bin/magento events:create-event-provider --label "<unique provider label>" --description "<provider description>"
+   ```
+
+   For example:
+
+   ```bash
+   bin/magento events:create-event-provider --label "Staging server provider" --description "Provides out-of-process extensibility for Adobe Commerce"
    ```
 
    The command displays a message similar to the the following:
@@ -153,11 +160,19 @@ You cannot create an event provider until you have configured and saved a privat
 
 1. Enter the provided URL as the value of the **Endpoint** field.
 
-1. Enter the provided value for the **Merchant ID** field.
+1. Enter the name of the merchant in the **Merchant ID** field.
 
-1. Enter the provided value for the **Environment ID** field.
+1. Enter the name of the workspace, such as Stage or Production, in the **Environment ID** field.
 
 1. Click **Save Config**.
+
+1. Register your instance with Adobe Identity Management Services by running the following command:
+
+   ```bash
+   bin/magento events:registration:create <ims-org-id>
+   ```
+
+   To determine your IMS organization ID, go to the Service Account (JWT) page of your workspace in the Adobe Console.
 
 ## Subscribe and register events
 
