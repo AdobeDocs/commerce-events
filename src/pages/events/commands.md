@@ -82,7 +82,7 @@ where:
 
 <InlineAlert variant="info" slots="text"/>
 
-You can subscribe to any available observer event. You cannot subscribe to a plugin event unless it was registered in the `app/etc/config.php` file and subsequently unsubscribed with the [`events:unsubscribe` command](#unsubscribe-from-a-commerce-event).
+You can subscribe to any available observer event. You cannot subscribe to a plugin event unless it was registered in the `app/etc/config.php` file and subsequently unsubscribed with the [`events:unsubscribe` command](#unsubscribe-from-a-commerce-event). [Register events](./module-development.md#register-events describes the format of these files.)
 
 ### Usage
 

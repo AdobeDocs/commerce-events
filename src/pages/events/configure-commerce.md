@@ -180,7 +180,7 @@ You must define which Commerce events to subscribe to, then register them in the
 
 Commerce provides two sources for events: observers and plugins. You must specify the source as part of the event name. See [Subscribe to a Commerce event](./commands.md) for details about the syntax of the `events:subscribe` command.
 
-1. Use the `events:subscribe` command to subscribe to Commerce events, as shown in the following examples:
+1. If you don't have a module ready for integration with Adobe I/O Events, or you don't know exactly which events to register at this point, use the `events:subscribe` command to subscribe to some sample events, as shown in the following example commands:
 
    ```bash
    bin/magento events:subscribe observer.catalog_product_save_after
@@ -189,6 +189,8 @@ Commerce provides two sources for events: observers and plugins. You must specif
    ```bash
    bin/magento events:subscribe observer.customer_login
    ```
+
+   If you have a module ready or have specific events in mind, see [Register events](./module-development.md#register-events) for more information.
 
 1. Return to your Stage workspace. Click the **Add service** pop-up menu and select **Event**.
 
