@@ -9,7 +9,10 @@ This topic describes how to enable your custom modules for Adobe I/O Events. You
 
 ## Register events
 
-You can register events 
+You can programmatically register events using the following methods:
+
+*  Create an `io_events.xml` file in your module
+*  Declare them in the system `config.php` file
 
 ### io_events.xml
 
