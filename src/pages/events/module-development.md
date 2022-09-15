@@ -16,27 +16,47 @@ You can programmatically register events using the following methods:
 
 ### io_events.xml
 
-Add `app/etc/io_events.xml` file to your module with a list of events that should be always emitted (can be disabled during runtime). For example:
+Create an `app/etc/io_events.xml` file in your module and define a list of events that should always be emitted. Events listed in this file can be disabled with the [`events:unsubscribe` command](./commands.md#unsubscribe-from-a-commerce-event).
+
+The following example registers multiple events.
 
 ```xml
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module-commerce-events-client/etc/io_events.xsd">
-    <event name="observer.store_group_save_after" />
-    <event name="plugin.magento.sales.api.invoice_item_repository.save" />
-    <event name="plugin.magento.configurable_product.api.option_repository.save" />
-    <event name="plugin.magento.gift_wrapping.model.resource_model.wrapping.save" />
+   <event name="observer.customer_login" />
+   <event name="observer.customer_logout" />
+   <event name="plugin.magento.catalog.api.category_repository.save" />
+   <event name="plugin.magento.catalog.api.category_repository.save" />
+   <event name="plugin.magento.catalog.api.category_repository.delete" />
+   <event name="plugin.magento.catalog.api.product_repository.save" />
+   <event name="plugin.magento.catalog.api.product_repository.delete" />
+   <event name="plugin.magento.customer.api.customer_repository.save" />
+   <event name="plugin.magento.customer.api.customer_repository.delete" />
+   <event name="plugin.magento.sales.api.order_repository.save" />
+   <event name="plugin.magento.sales.api.order_management.place" />
 </config>
 ```
 
+Run the [events:generate:module command](./commands.md#generate-a-commerce-module-based-on-a-list-of-subscribed-events) to generate the required plugins.
+
 ### config.php
 
-Or add a list of events to the io_events section in app/etc/config.php file, for example:
+You can also create an `io_events` section in the Commerce [`app/etc/config.php file`](https://experienceleague.adobe.com/docs/commerce-operations/configuration-guide/files/deployment-files.html). Events registered using this mechanism cannot be disabled from the command line.
 
+For example:
 ```php
 'io_events' => [
-    'plugin.magento.catalog.api.product_link_repository.save' => 1,
+    'observer.customer_login' => 1,
+    'observer.customer_logout' => 1,
+    'plugin.magento.catalog.api.category_repository.save' => 1,
+    'plugin.magento.catalog.api.category_repository.delete' => 1,
     'plugin.magento.catalog.api.product_repository.save' => 1,
-    'plugin.magento.theme.model.resource_model.theme.file.save' => 0,
-    'observer.catalog_product_save_after' => 1
+    'plugin.magento.catalog.api.product_repository.delete' => 1,
+    'plugin.magento.customer.api.customer_repository.save' => 1,
+    'plugin.magento.customer.api.customer_repository.delete' => 1,
+    'plugin.magento.sales.api.order_management.save' => 1,
+    'plugin.magento.sales.api.order_management.place' => 1
 ]
 ```
+
+Run the [events:generate:module command](./commands.md#generate-a-commerce-module-based-on-a-list-of-subscribed-events) to generate the required plugins.
