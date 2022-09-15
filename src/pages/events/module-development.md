@@ -16,7 +16,7 @@ You can programmatically register events using the following methods:
 
 ### io_events.xml
 
-Create the `<module-root>/app/etc/io_events.xml` file and define a list of events that should always be emitted. Events listed in this file cannot be disabled with the [`events:unsubscribe` command](./commands.md#unsubscribe-from-a-commerce-event).
+Create the `<module-root>/etc/io_events.xml` file and define a list of events that should always be emitted. Events listed in this file cannot be disabled with the [`events:unsubscribe` command](./commands.md#unsubscribe-from-a-commerce-event).
 
 The following example registers multiple events.
 
