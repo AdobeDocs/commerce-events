@@ -12,7 +12,7 @@ module.exports = [
         path: "/events/configure-commerce.md",
       },
       {
-        title: "Module development"
+        title: "Module development",
         path: "/events/module-development.md",
       },
       {
