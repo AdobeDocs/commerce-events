@@ -1,9 +1,9 @@
 ---
-title: Adobe Commerce eventing commands 
-description: Learn about the commands needed to set up eventing on an Adobe Commerce instance.
+title: Adobe Commerce event management commands 
+description: Provides details about the commands needed to set up Adobe I/O Events for Adobe Commerce.
 ---
 
-# Eventing commands
+# Event management commands
 
 Adobe I/O Events allow you to receive notifications of real-time events taking place in Adobe services.
 
