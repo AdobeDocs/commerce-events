@@ -1,6 +1,6 @@
 ---
 title: Commerce Extensibility
-description: 
+description: An overview of the Adobe Commerce extensibility platform.
 ---
 
 <Hero slots="image, heading, text"/>
@@ -9,75 +9,10 @@ description:
 
 # Adobe Commerce Extensibility
 
-Learn how to create extensions for Adobe Commerce and Magento Open Source using the Adobe infrastructure.
+Learn how to use the Adobe infrastructure to create extensions for Adobe Commerce and Magento Open Source.
 
-<Resources slots="heading, links"/>
+*  [App Builder](https://developer.adobe.com/app-builder/docs/overview/) is a complete framework that enables enterprise developers to build and deploy custom web applications that extend Adobe Experience Cloud solutions and run on Adobe infrastructure.
 
-#### Resources
+*  [Adobe I/O Events for Adobe Commerce](./events/index.md) makes all Commerce transactional data available to App Builder using Adobe I/O. Once the data is available in I/O, developers can use App Builder to build extensions and run custom integrations with 3rd party applications.
 
-* [PHP Developer Guide](https://developer.adobe.com/commerce/php/development/)
-
-## Overview
-
-This documentation provides resources for developing extensions for Adobe Commerce and Magento Open Source using the Adobe infrastructure.
-
-## Discover
-
-Use these sections to learn more.
-
-<DiscoverBlock slots="heading, link, text"/>
-
-### Sections
-
-[]()
-<!-- [Calculated Metrics API]() 
-
-[Quickstart Guide](guides/)
-
-Get started with the Adobe Analytics APIs.
-
-<DiscoverBlock slots="heading, link, text"/>
-
-### Guides
-
-     
-Returns information on the user's company that is necessary for making other Adobe Analytics API calls.
-
-<DiscoverBlock slots="link, text"/>
-
-[Segments API](guides/segments_api/) 
-
-Provides configuration guidance and best practices for the /segments endpoint.
-
-<DiscoverBlock slots="link, text"/>
-
-[Reporting Guide API](guides/reporting_api/)
-
-Provides configuration guidance and best practices for the /reports endpoint.
-
-<DiscoverBlock slots="link, text"/>
-
-[Migrating from 1.4 to 2.0](guides/migrating/)
-
-For help migrating from the 1.4 versions of the Analytics API to the newer and more capable /reports API.   
-
-<DiscoverBlock width="100%" slots="heading, link, text"/>
-
-### API References
-
-[Try the API](api/) 
-
-Try the Analytics API with Swagger UI. Explore, make calls, with full endpoint descriptions. -->
-
-## Contributing
-
-We encourage you to participate in our open documentation initiative, if you have suggestions, corrections, additions
-or deletions for this documentation, check out the source from [this github repo](https://github.com/adobe/gatsby-theme-spectrum-example), and submit a pull
-request with your contribution.
-
-## API Requests & Rate Limits
-
-The timeout for API requests through adobe.io is currently *60 seconds*.
-
-The default rate limit for an Adobe Analytics Company is *120 requests per minute*. (The limit is enforced as *12 requests every 6 seconds*).
-When rate limiting is being enforced you will get `429` HTTP response codes with the following response body: `{"error_code":"429050","message":"Too many requests"}`
+*  [API Mesh for Adobe Developer App Builder](https://developer.adobe.com/graphql-mesh-gateway/) allows developers to configure multiple APIs and other sources and serve them through a single GraphQL gateway.
