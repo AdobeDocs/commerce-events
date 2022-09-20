@@ -222,7 +222,7 @@ The `magento/module-commerce-events-client` module uses the `event_data_batch_se
 
 Cron must be enabled so that Commerce can send events to the endpoint defined in **Stores** > Settings > **Configuration** > **Adobe Services** > **Adobe I/O Events** > **General configuration**.
 
-The procedures for managing cron varies for Adobe Commerce on cloud infrastructure and on-premises instances:
+Cloud infrastructure and on-premises instances require different cron management procedures as described here:
 
 *  [Adobe Commerce on cloud infrastructure](https://devdocs.magento.com/cloud/configure/setup-cron-jobs.html)
 
