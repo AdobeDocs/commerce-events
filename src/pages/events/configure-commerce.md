@@ -160,7 +160,9 @@ You cannot create an event provider until you have configured and saved a privat
 
 1. Enter the provided URL as the value of the **Endpoint** field.
 
-1. Enter the name of the merchant in the **Merchant ID** field.
+   **Note**: You must [enable cron](#check-cron-configuration) so that Commerce can send events to the endpoint.
+
+1. Enter the merchant's company name in the **Merchant ID** field. You must use alphanumeric and underscores only.
 
 1. Enter the name of the workspace, such as Stage or Production, in the **Environment ID** field.
 
@@ -211,3 +213,17 @@ Commerce provides two sources for events: observers and plugins. You must specif
 1. Select **Save configured events**.
 
 You are now set up to develop your App Builder extension.
+
+## Check cron configuration
+
+The `magento/module-commerce-events-client` module uses the `event_data_batch_send` cron job to transmit batches of event messages. This cron job is part of the `default` group.
+
+<InlineAlert variant="info" slots="text"/>
+
+Cron must be enabled so that Commerce can send events to the endpoint defined in **Stores** > Settings > **Configuration** > **Adobe Services** > **Adobe I/O Events** > **General configuration**.
+
+Cloud infrastructure and on-premises instances require different cron management procedures as described here:
+
+*  [Adobe Commerce on cloud infrastructure](https://devdocs.magento.com/cloud/configure/setup-cron-jobs.html)
+
+*  [On premises](https://experienceleague.adobe.com/docs/commerce-operations/configuration-guide/crons/custom-cron-reference.html)
