@@ -1,7 +1,9 @@
 ---
 title: Adobe I/O Events for Adobe Commerce Overview
-description:
+description: An architectural overview of Adobe I/O Events for Adobe Commerce
 ---
+
+# Adobe I/O Events for Adobe Commerce Overview
 
 With [Adobe I/O Events](https://developer.adobe.com/events/docs/), developers can create event-driven applications that take action when a shopper performs an action on an Adobe product. These capabilities are now available Adobe Commerce, and as a result, Commerce can now make all transactional data available to applications created with [Adobe App Builder](https://developer.adobe.com/app-builder/docs/getting_started/first_app/).
 
