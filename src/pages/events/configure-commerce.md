@@ -65,20 +65,21 @@ Save your changes. The remaining installation steps vary, depending on your envi
 
    * Update the `repositories` section so that it matches the following:
 
-   ```json
-   "repositories": {
-      "ece-tools": {
-         "type": "git",
-         "url": "git@github.com:magento-commerce/ece-tools.git"
-      },
-    ```
+      ```json
+      "repositories": {
+         "ece-tools": {
+            "type": "git",
+            "url": "git@github.com:magento-commerce/ece-tools.git"
+         },
+      ```
 
    * Add the following line to the `require` section:
 
-   ```json
-   "require": {
-      "magento/ece-tools": "dev-develop as 2002.1.99"
-   },
+     ```json
+     "require": {
+         "magento/ece-tools": "dev-develop as 2002.1.99"
+      },
+     ```
 
 1. Enable eventing in the `.magento.env.yaml` file:
 
