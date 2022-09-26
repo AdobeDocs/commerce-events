@@ -61,24 +61,34 @@ Save your changes. The remaining installation steps vary, depending on your envi
    git add app/etc/config.php
    ```
 
-1. Update your `.magento.app.yaml` file to include the following build hook:
+1. If your version of ece-tools is less than `2002.1.13`, make the following modifications to the `composer.json` file. These modifications install ece-tools from the develop branch.
+
+   * Update the `repositories` section so that it matches the following:
+
+   ```json
+   "repositories": {
+      "ece-tools": {
+         "type": "git",
+         "url": "git@github.com:magento-commerce/ece-tools.git"
+      },
+    ```
+
+   * Add the following line to the `require` section:
+
+   ```json
+   "require": {
+      "magento/ece-tools": "dev-develop as 2002.1.99"
+   },
+
+1. Enable eventing in the `.magento.env.yaml` file:
 
    ```yaml
-   hooks:
-      build: |
-         set -e
-         composer install
-         php ./bin/magento events:generate:module
-         php ./bin/magento module:enable Magento_AdobeCommerceEvents
-         php ./bin/magento module:enable Magento_AdobeCommerceEventsClient
-         php ./bin/magento module:enable Magento_AdobeCommerceEventsGenerator
-         php ./vendor/bin/ece-tools run scenario/build/generate.xml
-         php ./vendor/bin/ece-tools run scenario/build/transfer.xml
+   stage:
+      global:
+         ENABLE_EVENTING: true
    ```
 
-This hook generates and enables the `AdobeCommerceEvents` module, which allows you to register custom events.
-
-<!--Note to reviewer: I deleted references of bin/magento events:metadata:populate because I'm going to assume that a custom module with specific pre-defined events isn't available at initial installation/configuration. I will create a separate "Module development/integration" topic that addresses this command. -->
+1. Commit and push updated files to the Cloud environment.
 
 ### Local and on-premises installation
 
@@ -158,7 +168,7 @@ You cannot create an event provider until you have configured and saved a privat
 
 1. Copy the ID returned in the command output into the **Adobe I/O Event Provider ID** field in the Admin.
 
-1. Enter the provided URL as the value of the **Endpoint** field.
+1. Set the URL in the **Endpoint** field to either `https://commerce-eventing-stage.adobe.io` for Stage environments or `https://commerce-eventing-stage.adobe.io` for Production environments.
 
    **Note**: You must [enable cron](#check-cron-configuration) so that Commerce can send events to the endpoint.
 
