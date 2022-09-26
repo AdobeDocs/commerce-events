@@ -71,6 +71,7 @@ Save your changes. The remaining installation steps vary, depending on your envi
             "type": "git",
             "url": "git@github.com:magento-commerce/ece-tools.git"
          },
+      },
       ```
 
    * Add the following line to the `require` section:
