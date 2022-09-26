@@ -52,7 +52,7 @@ Save your changes. The remaining installation steps vary, depending on your envi
 1. In your local environment, run the following command to enable the new modules:
 
    ```bash
-      bin/magento module:enable --all
+   bin/magento module:enable --all
    ```
 
 1. Add the `app/etc/config.php` file to your working repository:
