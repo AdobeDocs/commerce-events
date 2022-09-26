@@ -63,7 +63,7 @@ Save your changes. The remaining installation steps vary, depending on your envi
 
 1. If your version of ece-tools is less than `2002.1.13`, make the following modifications to the `composer.json` file. These modifications install ece-tools from the develop branch.
 
-   * Update the `repositories` section so that it matches the following:
+   *  Update the `repositories` section so that it matches the following:
 
       ```json
       "repositories": {
@@ -74,13 +74,13 @@ Save your changes. The remaining installation steps vary, depending on your envi
       },
       ```
 
-   * Add the following line to the `require` section:
+   *  Add the following line to the `require` section:
 
-     ```json
-     "require": {
+      ```json
+      "require": {
          "magento/ece-tools": "dev-develop as 2002.1.99"
       },
-     ```
+      ```
 
 1. Enable eventing in the `.magento.env.yaml` file:
 
@@ -170,7 +170,7 @@ You cannot create an event provider until you have configured and saved a privat
 
 1. Copy the ID returned in the command output into the **Adobe I/O Event Provider ID** field in the Admin.
 
-1. Set the URL in the **Endpoint** field to either `https://commerce-eventing-stage.adobe.io` for Stage environments or `https://commerce-eventing-stage.adobe.io` for Production environments.
+1. Set the URL in the **Endpoint** field to either `https://commerce-eventing-stage.adobe.io` for Stage environments or `https://commerce-eventing.adobe.io` for Production environments.
 
    **Note**: You must [enable cron](#check-cron-configuration) so that Commerce can send events to the endpoint.
 
