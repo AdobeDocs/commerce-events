@@ -157,16 +157,12 @@ The `events:registration:create` command registers the merchant to Adobe Identit
 
 ### Usage
 
-`bin/magento events:registration:create <ims-org-id>`
-
-### Arguments
-
-`<ims-org-id>` Required. A 24-digit hexadecimal ID followed by the string `@AdobeOrg`. Go to the Service Account (JWT) page of your workspace in the Adobe Console to view this value. Example value: `12345678901234567890ABCD@AdobeOrg`.
+`bin/magento events:registration:create`
 
 ### Example
 
 ```bash
-bin/magento events:registration:create 12345678901234567890ABCD@AdobeOrg
+bin/magento events:registration:create
 ```
 
 ### Response
