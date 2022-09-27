@@ -30,7 +30,18 @@ Adobe Commerce provides the following commands to configure and process events:
 
 The `events:create-event-provider` command creates an event provider ID in Adobe IO Events and displays this ID. Add the generated ID as the value of the **Stores** > Configuration > **Adobe Services** > **Adobe IO Events** > **Adobe I/O Event Provider ID** field in the Commerce Admin.
 
-The `--label` and `--description` arguments are optional but recommended.
+The `--label` and `--description` arguments are optional. However, if you do not specify them, then you must create a system `app/etc/event-types.json` file and define the values in that file before running the `events:create-event-provider` command. We recommend specifying the `--label` and `--description` arguments when you run the command.
+
+If you decide to omit the arguments, the `event-types.json` file must have the following format:
+
+```json
+{
+ "provider": {
+     "label": "My Adobe Commerce Events",
+     "description": "Provides out-of-process extensibility for Adobe Commerce"
+     }
+ }
+```
 
 ### Usage
 
