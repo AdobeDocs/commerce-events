@@ -30,18 +30,7 @@ Adobe Commerce provides the following commands to configure and process events:
 
 The `events:create-event-provider` command creates an event provider ID in Adobe IO Events and displays this ID. Add the generated ID as the value of the **Stores** > Configuration > **Adobe Services** > **Adobe IO Events** > **Adobe I/O Event Provider ID** field in the Commerce Admin.
 
-The `--label` and `--description` arguments are optional. However, if you do not specify them, then you must create a system `app/etc/event-types.json` file and define the values in that file before running the `events:create-event-provider` command. We recommend specifying the `--label` and `--description` arguments when you run the command.
-
-If you decide to omit the arguments, the `event-types.json` file must have the following format:
-
-```json
-{
- "provider": {
-     "label": "My Adobe Commerce Events",
-     "description": "Provides out-of-process extensibility for Adobe Commerce"
-     }
- }
-```
+The `--label` and `--description` arguments are optional but recommended.
 
 ### Usage
 
@@ -157,16 +146,12 @@ The `events:registration:create` command registers the merchant to Adobe Identit
 
 ### Usage
 
-`bin/magento events:registration:create <ims-org-id>`
-
-### Arguments
-
-`<ims-org-id>` Required. A 24-digit hexadecimal ID followed by the string `@AdobeOrg`. Go to the Service Account (JWT) page of your workspace in the Adobe Console to view this value. Example value: `12345678901234567890ABCD@AdobeOrg`.
+`bin/magento events:registration:create`
 
 ### Example
 
 ```bash
-bin/magento events:registration:create 12345678901234567890ABCD@AdobeOrg
+bin/magento events:registration:create
 ```
 
 ### Response

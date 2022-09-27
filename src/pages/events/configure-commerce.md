@@ -7,6 +7,7 @@ description: Learn how to install the Commerce modules needed for Adobe I/O Even
 
 After you have created an [App Builder project](./project-setup.md), you must install the Commerce modules that enable integrations with Adobe I/O Events.
 
+<!-- This info will change as we get closer to GA. The modules will install autmatically on Cloud, while on-premises customers will get the modules from Marketplace. --> 
 ## Install Adobe I/O modules on Commerce
 
 Make the following modifications to your `composer.json` file:
@@ -183,10 +184,8 @@ You cannot create an event provider until you have configured and saved a privat
 1. Register your instance with Adobe Identity Management Services by running the following command:
 
    ```bash
-   bin/magento events:registration:create <ims-org-id>
+   bin/magento events:registration:create
    ```
-
-   To determine your IMS organization ID, go to the Service Account (JWT) page of your workspace in the Adobe Console.
 
 ## Subscribe and register events
 
