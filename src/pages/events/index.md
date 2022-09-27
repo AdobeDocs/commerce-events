@@ -1,85 +1,18 @@
 ---
-title: Overview - Adobe Analytics
-description: This is the overview page of Adobe Analytics
-contributors:
-  - https://github.com/icaraps 
+title: Adobe I/O Events for Adobe Commerce Overview
+description: An architectural overview of Adobe I/O Events for Adobe Commerce
 ---
 
-<Hero slots="heading, text"/>
+# Adobe I/O Events for Adobe Commerce Overview
 
-# Adobe Analytics API
+With [Adobe I/O Events](https://developer.adobe.com/events/docs/), developers can create event-driven applications that take action when a shopper performs an action on an Adobe product. These capabilities are now available in Adobe Commerce and, as a result, Commerce can now make all transactional data available to applications created with [Adobe App Builder](https://developer.adobe.com/app-builder/docs/getting_started/first_app/).
 
-Adobe Product API offers limitless ways to integrate your most important customer data into key business processes. Adobe Product API offer limitless ways.
+The following architectural diagram provides an overview of how Adobe I/O Events for Adobe Commerce works.
 
-<Resources slots="heading, links"/>
+![Architectural diagram](../_images/event-architecture.png)
 
-#### Resources
+Imagine that you want to build an extension that notifies a third-party Enterprise Resource Planning (ERP) system every time a shopper places an order. In your Commerce module, you register the `plugin.magento.sales.api.order_management.place` event and possibly related events. When a shopper places an order, Commerce sends the event to Adobe I/O Events, which then routes the events to the appropriate App Builder application.
 
-* [Quickstart Guide](https://www.adobe.io/apis/experiencecloud/analytics/docs.html)
-* [Adobe Analytics Github Repo](https://github.com/AdobeDocs/analytics-2.0-apis)
+Your App Builder application uses any applicable details provided with the event to construct a REST or GraphQL request (pull) to Commerce to gather details about the transaction. It then pushes that information to the ERP system. The ERP system responds to the request, and then the App Builder application pushes any new data to Commerce.
 
-## Overview
-
-This documentation provides instructions for Adobe Analytics 2.0 APIs. For working with Analytics 1.4 APIs, see [Analytics 1.4 API Documentation](https://github.com/AdobeDocs/analytics-1.4-apis).
-
-The Adobe Analytics APIs are a collection of APIs that power Adobe Analytics products like Analysis Workspace.
-The APIs allow for the creation of data rich user interfaces that you can use to manipulate and integrate data.
-You can also create reports to explore, get insights, or answer important questions about your data.
-
-## Discover
-
-<DiscoverBlock width="100%" slots="heading, link, text"/>
-
-### Get Started
-
-<!-- [Calculated Metrics API]() 
-
-[Quickstart Guide](guides/)
-
-Get started with the Adobe Analytics APIs.
-
-<DiscoverBlock slots="heading, link, text"/>
-
-### Guides
-
-     
-Returns information on the user's company that is necessary for making other Adobe Analytics API calls.
-
-<DiscoverBlock slots="link, text"/>
-
-[Segments API](guides/segments_api/) 
-
-Provides configuration guidance and best practices for the /segments endpoint.
-
-<DiscoverBlock slots="link, text"/>
-
-[Reporting Guide API](guides/reporting_api/)
-
-Provides configuration guidance and best practices for the /reports endpoint.
-
-<DiscoverBlock slots="link, text"/>
-
-[Migrating from 1.4 to 2.0](guides/migrating/)
-
-For help migrating from the 1.4 versions of the Analytics API to the newer and more capable /reports API.   
-
-<DiscoverBlock width="100%" slots="heading, link, text"/>
-
-### API References
-
-[Try the API](api/) 
-
-Try the Analytics API with Swagger UI. Explore, make calls, with full endpoint descriptions. -->
-
-## Contributing
-
-We encourage you to participate in our open documentation initiative, if you have suggestions, corrections, additions
-or deletions for this documentation, check out the source from [this github repo](https://github.com/adobe/gatsby-theme-spectrum-example), and submit a pull
-request with your contribution.
-
-## API Requests & Rate Limits
-
-The timeout for API requests through adobe.io is currently *60 seconds*.
-
-The default rate limit for an Adobe Analytics Company is *120 requests per minute*. (The limit is enforced as *12 requests every 6 seconds*).
-When rate limiting is being enforced you will get `429` HTTP response codes with the following response body: `{"error_code":"429050","message":"Too many requests"}`
+This architecture helps merchants efficiently customize processes and integrate systems while maintaining SaaS-like upgradeability. Before event-driven applications, developers had to use API polling to determine if something had occurred. Lags in polling could result in merchants missing realtime activities, which could prevent shoppers from having an optimal experience.
