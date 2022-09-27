@@ -7,7 +7,7 @@ description: Learn how to install the Commerce modules needed for Adobe I/O Even
 
 After you have created an [App Builder project](./project-setup.md), you must install the Commerce modules that enable integrations with Adobe I/O Events.
 
-<!-- This info will change as we get closer to GA. The modules will install autmatically on Cloud, while on-premises customers will get the modules from Marketplace. --> 
+<!-- This info will change as we get closer to GA. The modules will install automatically on Cloud, while on-premises customers will get the modules from Marketplace. -->
 
 ## Install Adobe I/O modules on Commerce
 
