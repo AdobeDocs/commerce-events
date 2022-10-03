@@ -17,7 +17,9 @@ name: Latest Pull Request
 ######################################################
 on:
   pull_request:
-    branches: [main]
+    branches:
+      - main
+      - beta
 
 ###############
 # Set the Job #
