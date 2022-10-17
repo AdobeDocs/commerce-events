@@ -71,7 +71,10 @@ For each event you register, you must define which fields to transmit to your Ap
     media_gallery: { images: [], values: [] },
     tier_price: [],
     tier_price_changed: 0,
-    quantity_and_stock_status: { is_in_stock: '1', qty: '333' },
+    quantity_and_stock_status: {
+        is_in_stock: '1', 
+        qty: '333'
+    },
     category_ids: [ '4' ],
     is_salable: 1,
     stock_data: {
@@ -256,7 +259,7 @@ The `MODULE2/etc/io_events.xml` file registers the same event with the `entity_i
     <event name="commerce.observer.catalog_product_save_after">
         <fields>
             <field name="entity_id" />
-            <field name="quantity_and_stock_status.gty" />
+            <field name="quantity_and_stock_status.qty" />
             <field name="stock_data.min_qty" />
         </fields>
     </event>
@@ -270,7 +273,7 @@ The resulting configuration:
         <fields>             
             <field name="entity_id" />
             <field name="sku" />
-            <field name="quantity_and_stock_status.gty" />
+            <field name="quantity_and_stock_status.qty" />
             <field name="stock_data.min_qty" />
         </fields>
     </event>
