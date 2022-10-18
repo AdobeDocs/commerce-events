@@ -136,7 +136,7 @@ For each event you register, you must define which fields to transmit to your Ap
 }
 ```
 
-You define an array of fields to transmit in your configuration file. Specify any field within an event's `value` object to ensure it is transmitted to an application. If the field is part of a secondary object, such `stock_data` in the above example, use the format `<object-name>.field`. For example: `stock_data.product_id`.
+You define an array of fields to transmit in your configuration file. Specify any field within an event's `value` object to ensure it is transmitted to an application. If the field is part of a secondary object, such as `stock_data` in the above example, use the format `<object-name>.field`. For example: `stock_data.product_id`.
 
 After you've registered at least one event, run the [events:generate:module command](./commands.md#generate-a-commerce-module-based-on-a-list-of-subscribed-events) to generate the required plugins.
 
@@ -182,7 +182,7 @@ The following example registers multiple events. The `<fields>` element defines 
 </config>
 ```
 
-The contents of an `commerce.observer.catalog_product_save_after` event are similar to the following:
+The contents of a `commerce.observer.catalog_product_save_after` event are similar to the following:
 
 ```json
 {
