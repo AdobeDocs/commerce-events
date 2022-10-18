@@ -101,7 +101,7 @@ Adobe Commerce does not send all event fields to your external application by de
 ### Example
 
 ```bash
-bin/magento events:subscribe com.adobe.commerce.observer.catalog_product_save_after --fields sku --fields stock_data.qty 
+bin/magento events:subscribe observer.catalog_product_save_after --fields sku --fields stock_data.qty 
 ```
 
 ### Response
