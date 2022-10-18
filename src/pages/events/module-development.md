@@ -173,6 +173,7 @@ The contents of an `observer.catalog_product_save_after` event are similar to th
     "sku": "test2",
     "is_new": "0"
   },
+}
 ```
 
 ### config.php
@@ -181,7 +182,7 @@ You can also create an `io_events` section in the Commerce [`app/etc/config.php 
 
 For example:
 
-```php
+```config
 'io_events' => [
     'observer.catalog_product_save_after' => [
         'fields' => [
