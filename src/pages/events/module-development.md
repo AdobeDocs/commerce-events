@@ -137,30 +137,17 @@ The following example registers multiple events. The `<fields>` element defines 
             <field name="is_new" />
         </fields>
     </event>
-    <event name="plugin.magento.gift_wrapping.model.resource_model.wrapping.save">
-        <fields>
-            <field name="id" />
-            <field name="name" />
-            <field name="status" />
-        </fields>
-    </event>
     <event name="plugin.magento.sales.api.invoice_item_repository.save">         
         <fields>
-            <field name="id" />
-            <field name="name" />
-            <field name="status" />
+            <field name="entity_id" />
+            <field name="parent_id" />
+            <field name="base_price" />
+            <field name="tax_amount" />
+            <field name="base_row_total" />
+            <field name="discount_amount" />
+            <field name="qty" />
         </fields>
     </event>
-    <event name="observer.store_group_save_after">
-        <fields>
-            <field name="id" />
-            <field name="name" />
-        </fields>
-    </event>
-</config>
-
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module-commerce-events-client/etc/io_events.xsd">
-
 </config>
 ```
 
@@ -168,7 +155,7 @@ The contents of an `observer.catalog_product_save_after` event are similar to th
 
 ```json
 {
-  "value": {
+    "value": {
     "entity_id": "3",
     "sku": "test2",
     "is_new": "0"
@@ -192,16 +179,15 @@ For example:
         ],
         'enabled' => 1
     ],
-    'plugin.magento.catalog.api.product_link_repository.save' => [
+    'plugin.magento.sales.api.invoice_item_repository.save' => [
         'fields' => [
-            'id',
-            'name',
-        ],
-        'enabled' => 1
-    ],
-     'plugin.magento.catalog.api.product_link_repository.delete' => [
-        'fields' => [
-            'id',
+            'entity_id',
+            'parent_id',
+            'base_price',
+            'tax_amount',
+            'base_row_total',
+            'discount_amount',
+            'qty',
         ],
         'enabled' => 1
     ],
