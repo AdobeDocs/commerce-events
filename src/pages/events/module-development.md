@@ -194,7 +194,7 @@ For example:
 ]
 ```
 
-The payload for the `observer.catalog_product_save_after` event is the same as shown in [`io_events.xml`](#io_events.xml).
+The payload for the `observer.catalog_product_save_after` event is the same as shown in [`io_events.xml`](#io_eventsxml).
 
 ## Configuration merging from different modules
 
