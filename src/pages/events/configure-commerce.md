@@ -199,11 +199,11 @@ Commerce provides two sources for events: observers and plugins. You must specif
 1. If you don't have a module ready for integration with Adobe I/O Events, or you don't know exactly which events to register at this point, use the `events:subscribe` command to subscribe to some sample events, as shown in the following example commands:
 
    ```bash
-   bin/magento events:subscribe observer.catalog_product_save_after
+   bin/magento events:subscribe observer.catalog_product_save_after --fields=sku --fields=stock_data.qty
    ```
 
    ```bash
-   bin/magento events:subscribe observer.customer_login
+   bin/magento events:subscribe observer.customer_login --fields=firstname --fields=lastname --fields=entity_id
    ```
 
    If you have a module ready or have specific events in mind, see [Register events](./module-development.md#register-events) for more information.

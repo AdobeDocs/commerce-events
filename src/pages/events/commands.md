@@ -96,12 +96,12 @@ Adobe Commerce does not send all event fields to your external application by de
 
 ### Options
 
-`--fields <field_name>` Required. An event field to transmit to the Adobe App Builder application. You can specify this option multiple times. Each instance can contain only one field name.
+`--fields=<field_name>` Required. An event field to transmit to the Adobe App Builder application. You can specify this option multiple times. Each instance can contain only one field name.
 
 ### Example
 
 ```bash
-bin/magento events:subscribe observer.catalog_product_save_after --fields sku --fields stock_data.qty 
+bin/magento events:subscribe observer.catalog_product_save_after --fields=sku --fields=stock_data.qty 
 ```
 
 ### Response
