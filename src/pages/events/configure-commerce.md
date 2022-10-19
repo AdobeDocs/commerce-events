@@ -13,7 +13,7 @@ After you have created an [App Builder project](./project-setup.md), you must in
 
 Make the following modifications to your `composer.json` file:
 
-*  Add a `repositories` section beneath the `config` section. If the `repositories` section already exists, add the following lines to the bottom of the section.
+*  Add a `repositories` section beneath the `config` section. If your `composer.json` file contains a `repositories` section already, add these lines so that they appear before any repository that points to `https://repo.magento.com`. This placement causes the Git repositories to have a lower priority when the same package exists both places.
 
    ```json
    "repositories": {
@@ -154,14 +154,16 @@ You cannot create an event provider until you have configured and saved a privat
 1. Run the following command to create an event provider:
 
    ```bash
-   bin/magento events:create-event-provider --label "<unique provider label>" --description "<provider description>"
+   bin/magento events:create-event-provider --label "<unique_provider_label>" --description "<provider description>"
    ```
 
    For example:
 
    ```bash
-   bin/magento events:create-event-provider --label "Staging server provider" --description "Provides out-of-process extensibility for Adobe Commerce"
+   bin/magento events:create-event-provider --label "Staging_server_provider" --description "Provides out-of-process extensibility for Adobe Commerce"
    ```
+
+   **Note**: The label can contain English alphanumeric characters and underscores (_) only. The first character must be a letter.
 
    The command displays a message similar to the the following:
 
