@@ -56,7 +56,7 @@ If you decide to omit the arguments, the `event-types.json` file must have the f
 ### Example
 
 ```bash
-bin/magento events:create-event-provider --label "My new event provider" --description "Event provider in the Stage workspace"
+bin/magento events:create-event-provider --label "My_new_event_provider" --description "Event provider in the Stage workspace"
 ```
 
 ### Response

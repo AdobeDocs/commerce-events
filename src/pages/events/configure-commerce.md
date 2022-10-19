@@ -13,7 +13,7 @@ After you have created an [App Builder project](./project-setup.md), you must in
 
 Make the following modifications to your `composer.json` file:
 
-*  Add a `repositories` section beneath the `config` section. If your `composer.json` file contains a `repositories` section already, add these lines so that they appear before any repository that points to `https://repo.magento.com`. This placement causes the Git repositories to have a lower priority when the same package exists both places.
+*  Add a `repositories` section beneath the `config` section. If your `composer.json` file contains a `repositories` section already, add these lines so that they appear before any repository that points to `https://repo.magento.com`. This placement causes the Git repositories to have a higher priority when the same package exists in both places.
 
    ```json
    "repositories": {
