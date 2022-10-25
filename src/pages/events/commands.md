@@ -45,18 +45,18 @@ If you decide to omit the arguments, the `event-types.json` file must have the f
 
 ### Usage
 
-`bin/magento events:create-event-provider --label "<unique provider label>" --description "<provider description>"`
+`bin/magento events:create-event-provider --label "<unique_provider_label>" --description "<provider description>"`
 
 ### Arguments
 
-`--label` A name that distinguishes your event provider from others in the project.
+`--label` A name that distinguishes your event provider from others in the project. The name can contain English alphanumeric characters and underscores (_) only. The first character must be a letter.
 
 `--description` A string that describes your event provider.
 
 ### Example
 
 ```bash
-bin/magento events:create-event-provider --label "My new event provider" --description "Event provider in the Stage workspace"
+bin/magento events:create-event-provider --label "my_new_event_provider" --description "Event provider for my workspace"
 ```
 
 ### Response

@@ -13,7 +13,7 @@ After you have created an [App Builder project](./project-setup.md), you must in
 
 Make the following modifications to your `composer.json` file:
 
-*  Add a `repositories` section beneath the `config` section. If the `repositories` section already exists, add the following lines to the bottom of the section.
+*  Add a `repositories` section beneath the `config` section. If your `composer.json` file contains a `repositories` section already, add these lines so that they appear before any repository that points to `https://repo.magento.com`. This placement causes the Git repositories to have a higher priority when the same package exists in both places.
 
    ```json
    "repositories": {
@@ -154,14 +154,16 @@ You cannot create an event provider until you have configured and saved a privat
 1. Run the following command to create an event provider:
 
    ```bash
-   bin/magento events:create-event-provider --label "<unique provider label>" --description "<provider description>"
+   bin/magento events:create-event-provider --label "<unique_provider_label>" --description "<provider description>"
    ```
 
    For example:
 
    ```bash
-   bin/magento events:create-event-provider --label "Staging server provider" --description "Provides out-of-process extensibility for Adobe Commerce"
+   bin/magento events:create-event-provider --label "Staging_server_provider" --description "Provides out-of-process extensibility for Adobe Commerce"
    ```
+
+   **Note**: The label can contain English alphanumeric characters and underscores (_) only. The first character must be a letter.
 
    The command displays a message similar to the the following:
 
@@ -172,13 +174,13 @@ You cannot create an event provider until you have configured and saved a privat
 
 1. Copy the ID returned in the command output into the **Adobe I/O Event Provider ID** field in the Admin.
 
-1. Set the URL in the **Endpoint** field to either `https://commerce-eventing-stage.adobe.io` for Stage environments or `https://commerce-eventing.adobe.io` for Production environments.
+1. Set the URL in the **Endpoint** field to `https://commerce-eventing.adobe.io`.
 
    **Note**: You must [enable cron](#check-cron-configuration) so that Commerce can send events to the endpoint.
 
 1. Enter the merchant's company name in the **Merchant ID** field. You must use alphanumeric and underscores only.
 
-1. Enter the name of the workspace, such as Stage or Production, in the **Environment ID** field.
+1. In the **Environment ID** field, enter a temporary name for your workspaces while you are in development mode. When you are ready for production, change this value to a permanent value, such as **Production**.
 
 1. Click **Save Config**.
 
@@ -206,7 +208,7 @@ Commerce provides two sources for events: observers and plugins. You must specif
 
    If you have a module ready or have specific events in mind, see [Register events](./module-development.md#register-events) for more information.
 
-1. Return to your Stage workspace. Click the **Add service** pop-up menu and select **Event**.
+1. Return to your workspace. Click the **Add service** pop-up menu and select **Event**.
 
    ![Click Add service in your workspace](../_images/add-event.png)
 

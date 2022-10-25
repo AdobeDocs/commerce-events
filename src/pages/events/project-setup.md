@@ -33,13 +33,11 @@ To get started with Adobe I/O Events, you must:
 
    ![Add an api](../_images/set-up-templated-project.png)
 
-1. Specify a project title and app name. Make sure the **Include Runtime with each workspace** checkbox is selected. Click **Save**. The Console creates a Production and a Stage workspace.
+1. Specify a project title and app name. Make sure the **Include Runtime with each workspace** checkbox is selected. Click **Save**. The Console creates a workspace.
 
    ![Add an api](../_images/workspaces.png)
 
-   Each App Builder project has two default workspaces: Production and Stage. You can add more workspaces as needed. In this procedure, we will set up the Stage workspace.
-
-1. In the Stage workspace, click the **Add service** pop-up menu and select **API**.
+1. In your workspace, click the **Add service** pop-up menu and select **API**.
 
 1. On the **Add an API** page, filter by Adobe Services, select **I/O Management API**, and click **Next**.
 
