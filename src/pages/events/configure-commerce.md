@@ -174,13 +174,13 @@ You cannot create an event provider until you have configured and saved a privat
 
 1. Copy the ID returned in the command output into the **Adobe I/O Event Provider ID** field in the Admin.
 
-1. Set the URL in the **Endpoint** field to either `https://commerce-eventing-stage.adobe.io` for Stage environments or `https://commerce-eventing.adobe.io` for Production environments.
+1. Set the URL in the **Endpoint** field to `https://commerce-eventing.adobe.io`.
 
    **Note**: You must [enable cron](#check-cron-configuration) so that Commerce can send events to the endpoint.
 
 1. Enter the merchant's company name in the **Merchant ID** field. You must use alphanumeric and underscores only.
 
-1. Enter the name of the workspace, such as Stage or Production, in the **Environment ID** field.
+1. In the **Environment ID** field, enter a temporary name for your workspaces while you are in development mode. When you are ready for production, change this value to a permanent value, such as **Production**.
 
 1. Click **Save Config**.
 
@@ -208,7 +208,7 @@ Commerce provides two sources for events: observers and plugins. You must specif
 
    If you have a module ready or have specific events in mind, see [Register events](./module-development.md#register-events) for more information.
 
-1. Return to your Stage workspace. Click the **Add service** pop-up menu and select **Event**.
+1. Return to your workspace. Click the **Add service** pop-up menu and select **Event**.
 
    ![Click Add service in your workspace](../_images/add-event.png)
 
