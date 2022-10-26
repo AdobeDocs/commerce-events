@@ -84,7 +84,7 @@ Adobe Commerce does not send all event fields to your external application by de
 
 The command supports observer events by default. You must perform additional steps to subscribe to a plugin event:
 
-1. Run the `bin/magento events:subscribe` command with the `--force` option. to force the subscription.
+1. Run the `bin/magento events:subscribe --fields <event_code> --force` command to force the subscription.
 
 1. Run the `bin/magento events:generate:module` command to generate or regenerate the `AdobeCommerceEvents` module.
 
@@ -92,7 +92,7 @@ The command supports observer events by default. You must perform additional ste
 
 <InlineAlert variant="info" slots="text"/>
 
-You also subscribe to a plugin event if it was registered in the `app/etc/config.php` file and subsequently unsubscribed with the [`events:unsubscribe` command](#unsubscribe-from-a-commerce-event). [Register events](./module-development.md#register-events) describes the format of these files.)
+You can also subscribe to a plugin event if it was registered in the `app/etc/config.php` file and subsequently unsubscribed with the [`events:unsubscribe` command](#unsubscribe-from-a-commerce-event). [Register events](./module-development.md#register-events) describes the format of these files.)
 
 ### Usage
 
