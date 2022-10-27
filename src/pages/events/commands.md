@@ -80,11 +80,19 @@ where:
 *  `type` specifies the origin of the event. Specify `observer` if the event is emitted by a Commerce observer, or specify `plugin` if the event is emitted by a plugin.
 *  `event_name` identifies the event to subscribe. For example: `catalog_product_save_after`.
 
+Adobe Commerce does not send all event fields to your external application by default. Instead, you must use the `--fields` option to specify which fields to transmit. To send all event fields, you must specify a separate `--fields` option for each field. This practice keeps data transmission to a minimum and helps prevent accidentally sending sensitive information. If the Commerce event contains objects, use dotted notation to specify fields within an object. For example, if your event contains a `stock_data` object, and you want to send its `product_id` and `qty` fields, you would specify the `--fields stock_data.product_id` and `--fields stock_data.qty` command options. [Commerce module development](./module-development.md) provides a detailed example of using files to register events.
+
+The command supports observer events by default. You must perform additional steps to subscribe to a plugin event:
+
+1. Run the `bin/magento events:subscribe --fields <event_code> --force` command to force the subscription.
+
+1. Run the `bin/magento events:generate:module` command to generate or regenerate the `AdobeCommerceEvents` module.
+
+1. Run the `bin/magento setup:di:compile` command to create the classes necessary to handle the event.
+
 <InlineAlert variant="info" slots="text"/>
 
-You can subscribe to any available observer event. You cannot subscribe to a plugin event unless it was registered in the `app/etc/config.php` file and subsequently unsubscribed with the [`events:unsubscribe` command](#unsubscribe-from-a-commerce-event). [Register events](./module-development.md#register-events describes the format of these files.)
-
-Adobe Commerce does not send all event fields to your external application by default. Instead, you must use the `--field` option to specify which fields to transmit. To send all event fields, you must specify a separate `--field` option for each field. This practice keeps data transmission to a minimum and helps prevent accidentally sending sensitive information. If the Commerce event contains objects, use dotted notation to specify fields within an object. For example, For example, if your event contains a `stock_data` object, and you want to send its `product_id` and `qty` fields, you would specify the `--fields stock_data.product_id` and `--fields stock_data.qty` command options. [Commerce module development](./module-development.md) provides a detailed example of using files to register events.
+You can also subscribe to a plugin event if it was registered in the `app/etc/config.php` file and subsequently unsubscribed with the [`events:unsubscribe` command](#unsubscribe-from-a-commerce-event). [Register events](./module-development.md#register-events) describes the format of these files.)
 
 ### Usage
 
@@ -97,6 +105,8 @@ Adobe Commerce does not send all event fields to your external application by de
 ### Options
 
 `--fields=<field_name>` Required. An event field to transmit to the Adobe App Builder application. You can specify this option multiple times. Each instance can contain only one field name.
+
+`--force`, `-f` Forces subscription to the event, even if it hasn't been defined locally.
 
 ### Example
 
