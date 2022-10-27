@@ -63,26 +63,7 @@ Save your changes. The remaining installation steps vary, depending on your envi
    git add app/etc/config.php
    ```
 
-1. If your version of ece-tools is less than `2002.1.13`, make the following modifications to the `composer.json` file. These modifications install ece-tools from the develop branch.
-
-   *  Update the `repositories` section so that it matches the following:
-
-      ```json
-      "repositories": {
-         "ece-tools": {
-            "type": "git",
-            "url": "git@github.com:magento-commerce/ece-tools.git"
-         },
-      },
-      ```
-
-   *  Add the following line to the `require` section:
-
-      ```json
-      "require": {
-         "magento/ece-tools": "dev-develop as 2002.1.99"
-      },
-      ```
+1. Run the `php vendor/bin/ece-tools -V` command to determine your version of ece-tools. If the version is less than `2002.1.13`, [update to the most recent version](https://devdocs.magento.com/cloud/project/ece-tools-update.html).
 
 1. Enable eventing in the `.magento.env.yaml` file:
 
@@ -143,7 +124,7 @@ You must configure Commerce to communicate with your project. You will need two 
 
 1. Copy the contents of the `<workspace-name>.json` file into the **Adobe I/O Workspace Configuration** field.
 
-1. Enter a unique identifier in the **Adobe Commerce Instance ID** field. This value can be any unique string.
+1. Enter a unique identifier in the **Adobe Commerce Instance ID** field. This value must contain English alphanumeric characters, underscores (_), and hyphens (-) only.
 
 1. Click **Save Config**, but do not leave the page. The next section creates an event provider, which is necessary to complete the configuration.
 
