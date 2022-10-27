@@ -63,26 +63,7 @@ Save your changes. The remaining installation steps vary, depending on your envi
    git add app/etc/config.php
    ```
 
-1. If your version of ece-tools is less than `2002.1.13`, make the following modifications to the `composer.json` file. These modifications install ece-tools from the develop branch.
-
-   *  Update the `repositories` section so that it matches the following:
-
-      ```json
-      "repositories": {
-         "ece-tools": {
-            "type": "git",
-            "url": "git@github.com:magento-commerce/ece-tools.git"
-         },
-      },
-      ```
-
-   *  Add the following line to the `require` section:
-
-      ```json
-      "require": {
-         "magento/ece-tools": "dev-develop as 2002.1.99"
-      },
-      ```
+1. Run the `php vendor/bin/ece-tools -V` command to determine your version of ece-tools. If the version is less than `2002.1.13`, [update to the most recent version](https://devdocs.magento.com/cloud/project/ece-tools-update.html).
 
 1. Enable eventing in the `.magento.env.yaml` file:
 
