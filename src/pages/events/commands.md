@@ -170,7 +170,7 @@ observer.customer_login
 
 ## Return event details
 
-The `events:info` command returns the payload of the specified event.
+The `events:info` command returns the payload of the specified event in JSON format.
 
 ### Usage
 
