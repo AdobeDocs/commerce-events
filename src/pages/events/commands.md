@@ -12,11 +12,12 @@ Adobe Commerce provides the following commands to configure and process events:
 *  Enable integration between Commerce and Adobe I/O events
    *  [events:create-event-provider](#create-an-event-provider)  
 
-*  Manage events subscriptions
+*  Manage event subscriptions
    *  [events:subscribe](#subscribe-to-a-commerce-event)
    *  [events:metadata:populate](#create-event-metadata-in-adobe-io)
    *  [events:unsubscribe](#unsubscribe-from-a-commerce-event)
    *  [events:list](#list-subscribed-commerce-events)
+   *  [events:info](#return-event-details)
 
 *  Manage registrations
    *  [events:registration:create](#create-a-registration)
@@ -165,6 +166,28 @@ bin/magento events:list
 ```terminal
 observer.catalog_product_save_after
 observer.customer_login
+```
+
+## Return event details
+
+The `events:info` command returns the payload of the specified event.
+
+### Usage
+
+`bin/magento events:info <event_code>`
+
+### Arguments
+
+`<event_code>` Required. Specifies the event to.
+
+### Example
+
+`bin/magento events:info <something>`
+
+### Response
+
+```json
+xyx
 ```
 
 ## Create a registration
