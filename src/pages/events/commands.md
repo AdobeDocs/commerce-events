@@ -213,9 +213,9 @@ If the depth value of `2` was specified, the response would also include details
     "store_id": "int",
     "taxvat": "string",
     "website_id": "int",
-    "addresses": "\\Magento\\Customer\\Api\\Data\\AddressInterface[]",
+    "addresses": "\Magento\Customer\Api\Data\AddressInterface[]",
     "disable_auto_group_change": "int",
-    "extension_attributes": "\\Magento\\Customer\\Api\\Data\\CustomerExtensionInterface"
+    "extension_attributes": "\Magento\Customer\Api\Data\CustomerExtensionInterface"
 }
 ```
 
