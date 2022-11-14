@@ -165,12 +165,6 @@ You cannot create an event provider until you have configured and saved a privat
 
 1. Click **Save Config**.
 
-1. Register your instance with Adobe Identity Management Services by running the following command:
-
-   ```bash
-   bin/magento events:registration:create
-   ```
-
 ## Subscribe and register events
 
 You must define which Commerce events to subscribe to, then register them in the project.
