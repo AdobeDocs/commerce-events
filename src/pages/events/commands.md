@@ -174,20 +174,49 @@ The `events:info` command returns the payload of the specified event in JSON for
 
 ### Usage
 
-`bin/magento events:info <event_code>`
+`bin/magento events:info [--depth=<integer>] <event_code>`
 
 ### Arguments
 
-`<event_code>` Required. Specifies the event to.
+`<event_code>` Required. Specifies the event to query.
+
+### Options
+
+`--depth=<integer>` Optional. Determines how many nested levels of the payload to return. The default value is `2`.
 
 ### Example
 
-`bin/magento events:info <something>`
+`bin/magento events:info events:info plugin.magento.customer.api.customer_repository.save --depth=1`
 
 ### Response
 
+If the depth value of `2` was specified, the response would also include details about the `addresses` and `extension_attributes` objects.
+
 ```json
-xyx
+{
+    "id": "int",
+    "group_id": "int",
+    "default_billing": "string",
+    "default_shipping": "string",
+    "confirmation": "string",
+    "created_at": "string",
+    "updated_at": "string",
+    "created_in": "string",
+    "dob": "string",
+    "email": "string",
+    "firstname": "string",
+    "lastname": "string",
+    "middlename": "string",
+    "prefix": "string",
+    "suffix": "string",
+    "gender": "int",
+    "store_id": "int",
+    "taxvat": "string",
+    "website_id": "int",
+    "addresses": "\\Magento\\Customer\\Api\\Data\\AddressInterface[]",
+    "disable_auto_group_change": "int",
+    "extension_attributes": "\\Magento\\Customer\\Api\\Data\\CustomerExtensionInterface"
+}
 ```
 
 ## Create a registration
