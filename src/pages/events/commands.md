@@ -186,7 +186,7 @@ The `events:info` command returns the payload of the specified event in JSON for
 
 ### Example
 
-`bin/magento events:info events:info plugin.magento.customer.api.customer_repository.save --depth=1`
+`bin/magento events:info plugin.magento.customer.api.customer_repository.save --depth=1`
 
 ### Response
 
