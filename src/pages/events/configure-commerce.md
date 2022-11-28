@@ -157,7 +157,7 @@ You cannot create an event provider until you have configured and saved a privat
 
 1. Set **Adobe I/O Environment** to `Production`.
 
-1. Enable Commerce Eventing by changing the value of field **Enabled** to **Yes**
+1. Enable Commerce Eventing by setting **Enabled** to `Yes`.
 
    **Note**: You must [enable cron](#check-cron-configuration) so that Commerce can send events to the endpoint.
 
