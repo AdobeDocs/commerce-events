@@ -155,7 +155,9 @@ You cannot create an event provider until you have configured and saved a privat
 
 1. Copy the ID returned in the command output into the **Adobe I/O Event Provider ID** field in the Admin.
 
-1. Set the URL in the **Endpoint** field to `https://commerce-eventing.adobe.io`.
+1. Set the **Adobe I/O Environment** to be **Production** (if different)
+
+1. Enable Commerce Eventing by changing the value of field **Enabled** to **Yes**
 
    **Note**: You must [enable cron](#check-cron-configuration) so that Commerce can send events to the endpoint.
 
