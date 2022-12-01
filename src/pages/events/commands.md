@@ -17,6 +17,7 @@ Adobe Commerce provides the following commands to configure and process events:
    *  [events:metadata:populate](#create-event-metadata-in-adobe-io)
    *  [events:unsubscribe](#unsubscribe-from-a-commerce-event)
    *  [events:list](#list-subscribed-commerce-events)
+   *  [events:list:all](#list-subscribable-events)
 
 *  Manage registrations
    *  [events:registration:create](#create-a-registration)
@@ -165,6 +166,53 @@ bin/magento events:list
 ```terminal
 observer.catalog_product_save_after
 observer.customer_login
+```
+
+## List subscribable events
+
+The `events:list:all` command returns a list of subscribable events defined in the specified module. The command filters out events that cannot be subscribed to. The command returns an error if the module has been disabled.
+
+<InlineAlert variant="info" slots="text"/>
+
+If the module does not define any subscribable events, the command does not return any results.
+
+### Usage
+
+`bin/magento events:list:all <module_name>`
+
+### Arguments
+
+`<module_name>` Required. Specifies the module to query.
+
+### Example
+
+```bash
+bin/magento events:list:all Magento_Store
+```
+
+### Response
+
+```terminal
+observer.store_add
+observer.store_address_format
+observer.store_delete_after
+observer.store_delete_commit_after
+observer.store_group_delete_after
+observer.store_group_delete_commit_after
+observer.store_group_save_after
+observer.store_group_save_commit_after
+observer.store_save_after
+observer.store_save_commit_after
+observer.website_delete_after
+observer.website_delete_commit_after
+observer.website_save_after
+observer.website_save_commit_after
+plugin.magento.store.model.resource_model.group.delete
+plugin.magento.store.model.resource_model.group.save
+plugin.magento.store.model.resource_model.store.delete
+plugin.magento.store.model.resource_model.store.save
+plugin.magento.store.model.resource_model.website.delete
+plugin.magento.store.model.resource_model.website.save
 ```
 
 ## Create a registration
