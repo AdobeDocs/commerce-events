@@ -225,6 +225,7 @@ The `MODULE2/etc/io_events.xml` file registers the same event with the `entity_i
         </fields>
     </event>
 </config>
+```
 
 The resulting configuration:
 
