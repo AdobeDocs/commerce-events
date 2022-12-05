@@ -9,9 +9,9 @@ This topic describes how to enable your custom modules for Adobe I/O Events. You
 
 ## Find supported events
 
-Adobe Commerce is capable of emitting nearly 2,000 different observer and plugin events, but most of them aren't good candidates for use with an external App Builder application. For example, Commerce emits events before and after a customer address is loaded, saved, or deleted, but the only events of consequence are those that indicate a change of status after the address is saved or deleted.
+Adobe Commerce is capable of emitting thousands of different observer and plugin events, but most of them aren't good candidates for integrating with an external App Builder application. For example, Commerce emits events before and after a customer address is loaded, saved, or deleted, but the only events of consequence are those that indicate a change of status after the address is saved or deleted.
 
-You can use the Commerce Admin or the command line to find supported events for your application:
+You can use the Commerce Admin or the command line to find supported events and their payloads:
 
 *  In the Admin, select **System** > Events > **Events** to display the _Event list_ page.
 
