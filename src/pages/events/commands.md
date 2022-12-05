@@ -165,11 +165,11 @@ observer.customer_login
 
 ## List subscribable events
 
-The `events:list:all` command returns a list of subscribable events defined in the specified module. The command filters out events that cannot be subscribed to. The command returns an error if the module has been disabled.
+The `events:list:all` command returns a list of supported events defined in the specified module. The command filters out events that cannot be subscribed to. The command returns an error if the module has been disabled.
 
 <InlineAlert variant="info" slots="text"/>
 
-If the module does not define any subscribable events, the command does not return any results.
+If the module does not contain any supported events, the command does not return any results.
 
 ### Usage
 
