@@ -17,7 +17,7 @@ Adobe Commerce provides the following commands to configure and process events:
    *  [events:metadata:populate](#create-event-metadata-in-adobe-io)
    *  [events:unsubscribe](#unsubscribe-from-a-commerce-event)
    *  [events:list](#list-subscribed-commerce-events)
-   *  [events:list:all](#list-subscribable-events)
+   *  [events:list:all](#list-supported-events)
 
 *  Generate a Commerce module
    *  [events:generate:module](#generate-a-commerce-module-based-on-a-list-of-subscribed-events)
@@ -163,7 +163,7 @@ observer.catalog_product_save_after
 observer.customer_login
 ```
 
-## List subscribable events
+## List supported events
 
 The `events:list:all` command returns a list of supported events defined in the specified module. The command filters out events that cannot be subscribed to. The command returns an error if the module has been disabled.
 
