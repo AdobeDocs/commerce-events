@@ -165,7 +165,7 @@ observer.customer_login
 
 ## List supported events
 
-The `events:list:all` command returns a list of supported events defined in the specified module. The command filters out events that cannot be subscribed to. The command returns an error if the module has been disabled.
+The `events:list:all` command returns a list of supported events defined in the specified module. The command filters out events that Commerce Eventing does not support. If the specified module has been disabled, the command returns an error.
 
 <InlineAlert variant="info" slots="text"/>
 
