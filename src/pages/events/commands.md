@@ -18,11 +18,6 @@ Adobe Commerce provides the following commands to configure and process events:
    *  [events:unsubscribe](#unsubscribe-from-a-commerce-event)
    *  [events:list](#list-subscribed-commerce-events)
 
-*  Manage registrations
-   *  [events:registration:create](#create-a-registration)
-   *  [events:registration:delete](#delete-a-registration)
-   *  [events:registration:get-all](#get-registration-details)
-
 *  Generate a Commerce module
    *  [events:generate:module](#generate-a-commerce-module-based-on-a-list-of-subscribed-events)
 
@@ -165,72 +160,6 @@ bin/magento events:list
 ```terminal
 observer.catalog_product_save_after
 observer.customer_login
-```
-
-## Create a registration
-
-The `events:registration:create` command registers the merchant to Adobe Identity Management Services. You must configure the **Stores** > Configuration > **Adobe Services** > **Adobe I/O Events** > **Commerce Events** > **Merchant ID** and **Environment ID** fields before running this command.
-
-### Usage
-
-`bin/magento events:registration:create`
-
-### Example
-
-```bash
-bin/magento events:registration:create
-```
-
-### Response
-
-```terminal
-Registration created
-```
-
-## Delete a registration
-
-The `events:registration:delete` command deletes the specified registrant from the IMS organization.
-
-### Usage
-
-`bin/magento events:registration:delete <registration-id>`
-
-### Arguments
-
-`<registration-id>` Required. The ID assigned to the registration. Use the `events:registration:get-all` command to retrieve the ID.
-
-### Example
-
-```bash
-bin/magento events:registration:delete e037f0de-3489-49c7-9366-df86491072b4
-```
-
-### Response
-
-```terminal
-Registration was deleted
-```
-
-## Get registration details
-
-The `events:registration:get-all` command returns details about a registrant. The response includes the registration ID, merchant ID, environment ID, IMS organization ID, and instance ID.
-
-### Usage
-
-`bin/magento events:registration:get-all`
-
-### Example
-
-```bash
-bin/magento events:registration:get-all
-```
-
-### Response
-
-```terminal
-+--------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| e037f0de-3489-49c7-9366-df86491072b4 | {"id":"e037f0de-3489-49c7-9366-df86491072b4","merchant_id":"extension-docs","environment_id":"extension-docs","ims_org_id":"12345678901234567890ABCD@AdobeOrg","instance_id":"extensibility-docs2","event_provider_metadata":"3rd_party_custom_events"} |
-+--------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ```
 
 ## Create event metadata in Adobe I/O
