@@ -12,6 +12,10 @@ module.exports = [
         path: "/events/configure-commerce.md",
       },
       {
+        title: "Adding custom event",
+        path: "/events/custom-events.md",
+      },
+      {
         title: "Module development",
         path: "/events/module-development.md",
       },
