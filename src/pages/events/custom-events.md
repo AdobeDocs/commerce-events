@@ -16,7 +16,7 @@ case, if no subscription to original events was defined - only custom event will
 
 ## Defining custom event
 
-To create a custom event, it has to be defined in `io_events.xml` configuration.
+To create a custom event, it has to be defined in both `io_events.xml` and `config.php` configurations.
 
 In the following example, we define a new event
 called `plugin.magento.catalog.model.resource_model.product.save_low_stock_event` when original
@@ -35,11 +35,11 @@ The required criteria for the event is when `qty` fields of original event is `l
             <field name="qty"/>
         </fields>
         <rules>
-            <AndRule>
+            <rule>
                 <field>qty</field>
                 <operator>lessThan</operator>
                 <value>20</value>
-            </AndRule>
+            </rule>
         </rules>
     </event>
 </config>
@@ -56,14 +56,13 @@ Next configuration is required for custom event:
 
 ## Rules
 
-Rules can be defined as set or logical operators.
+Rules can be defined as set or logical operators where each rule is represented by `field`, `operator`, and `value`.
 
-| Rule    | Description      |
-|---------|------------------|
-| AndRule | Logical AND rule |
-| OrRule  | Logical OR rule  |
+**Note**: All defined rules must be satisfied so custom event can be triggered
 
-A combination of rules can be used together.
+- `field` - one of fields in original event to perform comparison with
+- `operator` - a logical operator to apply
+- `value` - a specific value to use as a comparison
 
 ```xml
 
@@ -77,26 +76,26 @@ A combination of rules can be used together.
             <field name="qty"/>
         </fields>
         <rules>
-            <AndRule>
+            <rule>
                 <field>qty</field>
                 <operator>lessThan</operator>
                 <value>20</value>
-            </AndRule>
-            <AndRule>
+            </rule>
+            <rule>
                 <field>price</field>
                 <operator>greaterThan</operator>
                 <value>100</value>
-            </AndRule>
-            <AndRule>
+            </rule>
+            <rule>
                 <field>category_id</field>
                 <operator>in</operator>
                 <value>3,4,5</value>
-            </AndRule>
-            <AndRule>
+            </rule>
+            <rule>
                 <field>name</field>
                 <operator>Regex</operator>
                 <value>/^TV .*/i</value>
-            </AndRule>
+            </rule>
         </rules>
     </event>
 </config>
@@ -104,7 +103,7 @@ A combination of rules can be used together.
 
 ## Operators
 
-Operators are represented as a comparison statements between desired and original values
+Operators are represented as a comparison statements between desired and original values in the original event's payload
 
 | Operator    | Description                                                                                                     |
 |-------------|-----------------------------------------------------------------------------------------------------------------|
