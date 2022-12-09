@@ -109,14 +109,14 @@ Operators are represented as a comparison statements between desired and origina
 |-------------|-----------------------------------------------------------------------------------------------------------------|
 | greaterThan | Greater than original value                                                                                     |
 | lessThan    | Less than original value                                                                                        |
-| equal       | Equal to original value                                                                                         | 
+| equal       | Equal to original value                                                                                         |
 | regex       | Value must be compatible with [regular expression match](https://www.php.net/manual/en/function.preg-match.php) |
 | in          | Value presents in a comma-separated list of value                                                               |
 
 ## Known limitations
 
-* If the event is registered with custom rules the plugin will be generated for the original event if it's a plugin-type
+- If the event is registered with custom rules the plugin will be generated for the original event if it's a plugin-type
   event. For observer-type events, no additional generation is required.
-* Before storing event data in the database for batch sending will be added additional checking if the rules were met (
+- Before storing event data in the database for batch sending will be added additional checking if the rules were met (
   in case the event is registered with rules). If rules weren't met event won't be stored in the database and won't be
   sent to the Eventing Service.
