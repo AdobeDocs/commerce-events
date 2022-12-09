@@ -5,7 +5,7 @@ description: An architectural overview of Adobe I/O Events for Adobe Commerce
 
 # Adobe I/O Events for Adobe Commerce Overview
 
-With [Adobe I/O Events](https://developer.adobe.com/events/docs/), developers can create event-driven applications that take action when a shopper performs an action on an Adobe product. These capabilities are now available in Adobe Commerce and, as a result, Commerce can now make all transactional data available to applications created with [Adobe App Builder](https://developer.adobe.com/app-builder/docs/getting_started/first_app/).
+With [Adobe I/O Events](https://developer.adobe.com/events/docs/), developers can create event-driven applications that take action when a shopper performs an action on an Adobe product. These capabilities are now available in Adobe Commerce and, as a result, Commerce can now make transactional data available to applications created with [Adobe App Builder](https://developer.adobe.com/app-builder/docs/getting_started/first_app/).
 
 The following architectural diagram provides an overview of how Adobe I/O Events for Adobe Commerce works.
 
@@ -15,4 +15,4 @@ Imagine that you want to build an extension that notifies a third-party Enterpri
 
 Your App Builder application uses any applicable details provided with the event to construct a REST or GraphQL request (pull) to Commerce to gather details about the transaction. It then pushes that information to the ERP system. The ERP system responds to the request, and then the App Builder application pushes any new data to Commerce.
 
-This architecture helps merchants efficiently customize processes and integrate systems while maintaining SaaS-like upgradeability. Before event-driven applications, developers had to use API polling to determine if something had occurred. Lags in polling could result in merchants missing realtime activities, which could prevent shoppers from having an optimal experience.
+This architecture helps merchants efficiently customize processes and integrate systems while maintaining SaaS-like upgradeability. Before event-driven applications, developers had to use API polling to determine if something had occurred. Lags in polling could result in merchants missing realtime activities, which could prevent shoppers from having an optimal experience. Eventing enables developers to focus on solving business problems with event data, rather than focusing on problems getting data to applications.
