@@ -7,6 +7,20 @@ description: Learn what you need to do to enable your modules for Adobe I/O Even
 
 This topic describes how to enable your custom modules for Adobe I/O Events. You can also manually register observer events using the [`events:subscribe` command](./commands.md#subscribe-to-a-commerce-event).
 
+## Find supported events
+
+Adobe Commerce is capable of emitting thousands of different observer and plugin events, but most of them aren't good candidates for integrating with an external App Builder application. For example, Commerce emits events before and after a customer address is loaded, saved, or deleted, but the only events of consequence are those that indicate a change of status after the address is saved or deleted.
+
+You can use the Commerce Admin or the command line to find supported events and their payloads:
+
+*  In the Admin, select **System** > Events > **Events** to display the _Event list_ page.
+
+   ![Event list page](../_images/event-list.png)
+
+   The left navigation contains a list of enabled modules on your system. Click on a module name to display a list of supported events. When you select an event, the main panel of the Admin displays the event's payload.
+
+*  The `bin/magento events:list:all` command returns all the supported events in the specified module. Once you know the name of the event, you can use the `events:info` command to return its payload.
+
 ## Register events
 
 You can programmatically register events using the following methods:

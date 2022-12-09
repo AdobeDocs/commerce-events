@@ -11,12 +11,14 @@ Adobe Commerce provides the following commands to configure and process events:
 
 *  Enable integration between Commerce and Adobe I/O events
    *  [events:create-event-provider](#create-an-event-provider)  
-
-*  Manage events subscriptions
-   *  [events:subscribe](#subscribe-to-a-commerce-event)
    *  [events:metadata:populate](#create-event-metadata-in-adobe-io)
+
+*  Manage event subscriptions
+   *  [events:subscribe](#subscribe-to-a-commerce-event)
    *  [events:unsubscribe](#unsubscribe-from-a-commerce-event)
    *  [events:list](#list-subscribed-commerce-events)
+   *  [events:list:all](#list-supported-events)
+   *  [events:info](#return-event-details)
 
 *  Generate a Commerce module
    *  [events:generate:module](#generate-a-commerce-module-based-on-a-list-of-subscribed-events)
@@ -60,6 +62,20 @@ bin/magento events:create-event-provider --label "my_new_event_provider" --descr
 No event provider found, a new event provider will be created
 
 A new event provider has been created with ID <ID>.
+```
+
+## Create event metadata in Adobe I/O
+
+The `events:metadata:populate` command creates event metadata based on XML and application configurations.
+
+### Usage
+
+`events:metadata:populate`
+
+### Example
+
+```bash
+bin/magento events:metadata:populate
 ```
 
 ## Subscribe to a Commerce event
@@ -162,24 +178,108 @@ observer.catalog_product_save_after
 observer.customer_login
 ```
 
-## Create event metadata in Adobe I/O
+## List supported events
 
-The `events:metadata:populate` command creates event metadata based on XML and application configurations.
+The `events:list:all` command returns a list of supported events defined in the specified module. (Commerce Eventing does not support all possible events.) The command returns an error if the specified module has been disabled.
+
+<InlineAlert variant="info" slots="text"/>
+
+If the module does not contain any supported events, the command does not return any results.
 
 ### Usage
 
-`events:metadata:populate`
+`bin/magento events:list:all <module_name>`
+
+### Arguments
+
+`<module_name>` Required. Specifies the module to query.
 
 ### Example
 
 ```bash
-bin/magento events:metadata:populate
+bin/magento events:list:all Magento_Store
+```
+
+### Response
+
+```terminal
+observer.store_add
+observer.store_address_format
+observer.store_delete_after
+observer.store_delete_commit_after
+observer.store_group_delete_after
+observer.store_group_delete_commit_after
+observer.store_group_save_after
+observer.store_group_save_commit_after
+observer.store_save_after
+observer.store_save_commit_after
+observer.website_delete_after
+observer.website_delete_commit_after
+observer.website_save_after
+observer.website_save_commit_after
+plugin.magento.store.model.resource_model.group.delete
+plugin.magento.store.model.resource_model.group.save
+plugin.magento.store.model.resource_model.store.delete
+plugin.magento.store.model.resource_model.store.save
+plugin.magento.store.model.resource_model.website.delete
+plugin.magento.store.model.resource_model.website.save
 ```
 
 ### Response
 
 ```terminal
 The events metadata was successfully created:
+```
+
+## Return event details
+
+The `events:info` command returns the payload of the specified event in JSON format.
+
+### Usage
+
+`bin/magento events:info [--depth=<integer>] <event_code>`
+
+### Arguments
+
+`<event_code>` Required. Specifies the event to query.
+
+### Options
+
+`--depth=<integer>` Optional. Determines how many nested levels of the payload to return. The default value is `2`.
+
+### Example
+
+`bin/magento events:info plugin.magento.customer.api.customer_repository.save --depth=1`
+
+### Response
+
+If the depth value of `2` was specified, the response would also include details about the `addresses` and `extension_attributes` objects.
+
+```json
+{
+    "id": "int",
+    "group_id": "int",
+    "default_billing": "string",
+    "default_shipping": "string",
+    "confirmation": "string",
+    "created_at": "string",
+    "updated_at": "string",
+    "created_in": "string",
+    "dob": "string",
+    "email": "string",
+    "firstname": "string",
+    "lastname": "string",
+    "middlename": "string",
+    "prefix": "string",
+    "suffix": "string",
+    "gender": "int",
+    "store_id": "int",
+    "taxvat": "string",
+    "website_id": "int",
+    "addresses": "\Magento\Customer\Api\Data\AddressInterface[]",
+    "disable_auto_group_change": "int",
+    "extension_attributes": "\Magento\Customer\Api\Data\CustomerExtensionInterface"
+}
 ```
 
 ## Generate a Commerce module based on a list of subscribed events
