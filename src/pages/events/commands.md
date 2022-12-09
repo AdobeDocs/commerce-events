@@ -14,15 +14,10 @@ Adobe Commerce provides the following commands to configure and process events:
 
 *  Manage event subscriptions
    *  [events:subscribe](#subscribe-to-a-commerce-event)
-   *  [events:metadata:populate](#create-event-metadata-in-adobe-io)
    *  [events:unsubscribe](#unsubscribe-from-a-commerce-event)
+   *  [events:metadata:populate](#create-event-metadata-in-adobe-io)
    *  [events:list](#list-subscribed-commerce-events)
-   *  [events:info](#return-event-details)
-
-*  Manage registrations
-   *  [events:registration:create](#create-a-registration)
-   *  [events:registration:delete](#delete-a-registration)
-   *  [events:registration:get-all](#get-registration-details)
+   *  [events:list:all](#list-supported-events)
 
 *  Generate a Commerce module
    *  [events:generate:module](#generate-a-commerce-module-based-on-a-list-of-subscribed-events)
@@ -147,6 +142,20 @@ bin/magento events:unsubscribe observer.catalog_product_save_after
 Successfully unsubscribed from the `observer.catalog_product_save_after` event
 ```
 
+## Create event metadata in Adobe I/O
+
+The `events:metadata:populate` command creates event metadata based on XML and application configurations.
+
+### Usage
+
+`events:metadata:populate`
+
+### Example
+
+```bash
+bin/magento events:metadata:populate
+```
+
 ## List subscribed Commerce events
 
 The `events:list` command returns a list of subscribed events.
@@ -219,84 +228,51 @@ If the depth value of `2` was specified, the response would also include details
 }
 ```
 
-## Create a registration
+## List supported events
 
-The `events:registration:create` command registers the merchant to Adobe Identity Management Services. You must configure the **Stores** > Configuration > **Adobe Services** > **Adobe I/O Events** > **Commerce Events** > **Merchant ID** and **Environment ID** fields before running this command.
+The `events:list:all` command returns a list of supported events defined in the specified module. (Commerce Eventing does not support all possible events.) The command returns an error if the specified module has been disabled.
 
-### Usage
+<InlineAlert variant="info" slots="text"/>
 
-`bin/magento events:registration:create`
-
-### Example
-
-```bash
-bin/magento events:registration:create
-```
-
-### Response
-
-```terminal
-Registration created
-```
-
-## Delete a registration
-
-The `events:registration:delete` command deletes the specified registrant from the IMS organization.
+If the module does not contain any supported events, the command does not return any results.
 
 ### Usage
 
-`bin/magento events:registration:delete <registration-id>`
+`bin/magento events:list:all <module_name>`
 
 ### Arguments
 
-`<registration-id>` Required. The ID assigned to the registration. Use the `events:registration:get-all` command to retrieve the ID.
+`<module_name>` Required. Specifies the module to query.
 
 ### Example
 
 ```bash
-bin/magento events:registration:delete e037f0de-3489-49c7-9366-df86491072b4
+bin/magento events:list:all Magento_Store
 ```
 
 ### Response
 
 ```terminal
-Registration was deleted
-```
-
-## Get registration details
-
-The `events:registration:get-all` command returns details about a registrant. The response includes the registration ID, merchant ID, environment ID, IMS organization ID, and instance ID.
-
-### Usage
-
-`bin/magento events:registration:get-all`
-
-### Example
-
-```bash
-bin/magento events:registration:get-all
-```
-
-### Response
-
-```terminal
-+--------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| e037f0de-3489-49c7-9366-df86491072b4 | {"id":"e037f0de-3489-49c7-9366-df86491072b4","merchant_id":"extension-docs","environment_id":"extension-docs","ims_org_id":"12345678901234567890ABCD@AdobeOrg","instance_id":"extensibility-docs2","event_provider_metadata":"3rd_party_custom_events"} |
-+--------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-```
-
-## Create event metadata in Adobe I/O
-
-The `events:metadata:populate` command creates event metadata based on XML and application configurations.
-
-### Usage
-
-`events:metadata:populate`
-
-### Example
-
-```bash
-bin/magento events:metadata:populate
+observer.store_add
+observer.store_address_format
+observer.store_delete_after
+observer.store_delete_commit_after
+observer.store_group_delete_after
+observer.store_group_delete_commit_after
+observer.store_group_save_after
+observer.store_group_save_commit_after
+observer.store_save_after
+observer.store_save_commit_after
+observer.website_delete_after
+observer.website_delete_commit_after
+observer.website_save_after
+observer.website_save_commit_after
+plugin.magento.store.model.resource_model.group.delete
+plugin.magento.store.model.resource_model.group.save
+plugin.magento.store.model.resource_model.store.delete
+plugin.magento.store.model.resource_model.store.save
+plugin.magento.store.model.resource_model.website.delete
+plugin.magento.store.model.resource_model.website.save
 ```
 
 ### Response

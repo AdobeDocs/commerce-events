@@ -155,7 +155,9 @@ You cannot create an event provider until you have configured and saved a privat
 
 1. Copy the ID returned in the command output into the **Adobe I/O Event Provider ID** field in the Admin.
 
-1. Set the URL in the **Endpoint** field to `https://commerce-eventing.adobe.io`.
+1. Set **Adobe I/O Environment** to `Production`.
+
+1. Enable Commerce Eventing by setting **Enabled** to `Yes`.
 
    **Note**: You must [enable cron](#check-cron-configuration) so that Commerce can send events to the endpoint.
 
@@ -164,12 +166,6 @@ You cannot create an event provider until you have configured and saved a privat
 1. In the **Environment ID** field, enter a temporary name for your workspaces while you are in development mode. When you are ready for production, change this value to a permanent value, such as **Production**.
 
 1. Click **Save Config**.
-
-1. Register your instance with Adobe Identity Management Services by running the following command:
-
-   ```bash
-   bin/magento events:registration:create
-   ```
 
 ## Subscribe and register events
 
