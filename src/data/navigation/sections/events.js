@@ -16,6 +16,10 @@ module.exports = [
         path: "/events/module-development.md",
       },
       {
+        title: "Adding custom event",
+        path: "/events/custom-events.md",
+      },
+      {
         title: "Command reference",
         path: "/events/commands.md",
     },
