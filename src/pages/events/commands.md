@@ -1,5 +1,5 @@
 ---
-title: Adobe Commerce event management commands 
+title: Event management commands 
 description: Provides details about the commands needed to set up Adobe I/O Events for Adobe Commerce.
 ---
 
@@ -78,7 +78,7 @@ The `events:metadata:populate` command creates event metadata based on XML and a
 bin/magento events:metadata:populate
 ```
 
-## Subscribe to a Commerce event
+## Subscribe to an event
 
 The `events:subscribe` command subscribes the current provider to the specified event. You must define the event code using the following pattern:
 
@@ -105,9 +105,11 @@ The command supports observer events by default. You must perform additional ste
 
 You can also subscribe to a plugin event if it was registered in the `app/etc/config.php` file and subsequently unsubscribed with the [`events:unsubscribe` command](#unsubscribe-from-a-commerce-event). [Register events](./module-development.md#register-events) describes the format of these files.)
 
+You can also create and subscribe to a rule event. Rule events allow you to determine the conditions that the event service uses to emit a native or custom events to your application. See [Create rule events](./rule-events.md) for detailed information and examples.
+
 ### Usage
 
-`bin/magento events:subscribe <event_code> --fields=<name1> --fields=<name2>`
+`bin/magento events:subscribe <event_code> --force --fields=<name1> --fields=<name2> --parent <event_code> --rules=<field-name>|<operator>|<value>`
 
 ### Arguments
 
@@ -119,11 +121,24 @@ You can also subscribe to a plugin event if it was registered in the `app/etc/co
 
 `--force`, `-f` Forces subscription to the event, even if it hasn't been defined locally.
 
+`--parent <event code>` Specifies the name of the event to use as the basis of an event rule. If you specify this option, you must also specify the `--rules` option.
+
+`--rules=<field-name>|<operator>|<value>` Defines a rule that will be applied to the subscribed event. You can apply multiple rules to an event, but each rule must be defined separately. A rule definition must specify the field to be evaluated, an operator, and the value to be evaluated, in that order. The field name in a rule definition must match a field specified with the `--fields` option.
+
 ### Example
+
+To subscribe to a native event:
 
 ```bash
 bin/magento events:subscribe observer.catalog_product_save_after --fields=sku --fields=stock_data.qty 
 ```
+
+To create and subscribe to a rule event based on `observer.catalog_product_save_after`:
+
+bin/magento events:subscribe observer.catalog_product_save_after_low_quantity \
+--parent observer.catalog_product_save_after \
+--fields=sku --fields=stock_data.qty \
+--rules="stock_data.qty|lessThan|20" --rules="name|regex|/^TV .*/i"
 
 ### Response
 
