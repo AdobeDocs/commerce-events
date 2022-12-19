@@ -105,7 +105,7 @@ The command supports observer events by default. You must perform additional ste
 
 You can also subscribe to a plugin event if it was registered in the `app/etc/config.php` file and subsequently unsubscribed with the [`events:unsubscribe` command](#unsubscribe-from-a-commerce-event). [Register events](./module-development.md#register-events) describes the format of these files.)
 
-You can also create and subscribe to a rule event. Rule events allow you to determine the conditions that the event service uses to emit a native or custom events to your application. See [Create rule events](./rule-events.md) for detailed information and examples.
+You can also create and subscribe to a rule event. Rule events allow you to determine the conditions that the Commerce events client module uses to emit a native or custom events to your application. See [Create rule events](./rule-events.md) for detailed information and examples.
 
 ### Usage
 
@@ -121,9 +121,9 @@ You can also create and subscribe to a rule event. Rule events allow you to dete
 
 `--force`, `-f` Forces subscription to the event, even if it hasn't been defined locally.
 
-`--parent <event code>` Specifies the name of the event to use as the basis of an event rule. If you specify this option, you must also specify the `--rules` option.
+`--parent=<event code>` Specifies the name of the event to use as the basis of an event rule. If you specify this option, you must also specify the `--rules` option.
 
-`--rules=<field-name>|<operator>|<value>` Defines a rule that will be applied to the subscribed event. You can apply multiple rules to an event, but each rule must be defined separately. A rule definition must specify the field to be evaluated, an operator, and the value to be evaluated, in that order. The field name in a rule definition must match a field specified with the `--fields` option.
+`--rules=<field-name>|<operator>|<value>` Defines a rule that will be applied to the subscribed event. You can apply multiple rules to an event, but each rule must be defined separately. A rule definition must specify the field to be evaluated, an operator, and the value to be evaluated, in that order. The field name in a rule definition does not have to match a field specified with the `--fields` option.
 
 ### Example
 
