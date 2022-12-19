@@ -14,7 +14,7 @@ Adobe Commerce provides the following commands to configure and process events:
    *  [events:metadata:populate](#create-event-metadata-in-adobe-io)
 
 *  Manage event subscriptions
-   *  [events:subscribe](#subscribe-to-a-commerce-event)
+   *  [events:subscribe](#subscribe-to-an-event)
    *  [events:unsubscribe](#unsubscribe-from-a-commerce-event)
    *  [events:list](#list-subscribed-commerce-events)
    *  [events:list:all](#list-supported-events)
@@ -148,7 +148,7 @@ The subscription com.adobe.commerce.observer.catalog_product_save_after was succ
 
 ## Unsubscribe from a Commerce event
 
-The `events:unsubscribe` command causes the current provider to unsubscribe from the specified event. You cannot unsubscribe from events defined in a module's `etc/io_events.xml` file. However, you can unsubscribe events that were registered in the `app/etc/config.php` file or from the [`events:subscribe` command](#subscribe-to-a-commerce-event).
+The `events:unsubscribe` command causes the current provider to unsubscribe from the specified event. You cannot unsubscribe from events defined in a module's `etc/io_events.xml` file. However, you can unsubscribe events that were registered in the `app/etc/config.php` file or from the [`events:subscribe` command](#subscribe-to-an-event).
 
 Use the [`events:list` command](#list-subscribed-commerce-events) to retrieve a list of subscribed events.
 
