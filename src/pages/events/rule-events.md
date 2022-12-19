@@ -78,7 +78,7 @@ These fields are present and declared in the parent event.
     </event>
 </config>
 ```
- 
+
 ## Command line
 
 The `bin/magento events:subscribe <event_code> --force --fields=<name1> --fields=<name2>` command creates and registers custom and native Commerce events. When you also specify the `--parent <event_code>` and `--rules=<field-name>|<operator>|<value>` options, you create and register a rule event.
@@ -93,7 +93,7 @@ bin/magento events:subscribe plugin.magento.catalog.model.resource_model.product
 ```
 
 You can use the `bin/magento events:list -v` command to display the contents of your subscribed events.
- 
+
 ## Known limitations
 
 *  Registering a plugin-type event rule causes the system to generate a plugin for the parent rule. no additional generation is required for observer-type events.
