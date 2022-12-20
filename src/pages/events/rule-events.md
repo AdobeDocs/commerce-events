@@ -13,7 +13,7 @@ All rule events contain the following information:
 
 *  A unique name for the rule event.
 
-*  The code name of the parent event. You must attach a rule event to a specific registered event.
+*  The name of the parent event. You must attach a rule event to a specific registered event.
 
 *  One or more rules.
 
@@ -50,8 +50,7 @@ These fields are present and declared in the parent event.
 ```xml
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="...">
     <event name="plugin.magento.catalog.model.resource_model.product.save_low_stock_event"
-           parent="plugin.magento.catalog.model.resource_model.product.save"
-    >
+           parent="plugin.magento.catalog.model.resource_model.product.save">
         <fields>
             <field name="qty"/>
             <field name="category_id"/>
