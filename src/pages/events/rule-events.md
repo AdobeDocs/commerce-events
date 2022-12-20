@@ -7,7 +7,7 @@ description: Create custom rule events using declarative configuration
 
 You may decide that you want Adobe I/O Events for Adobe Commerce to notify the client application when certain conditions occur. For example, by default, if you register an event that tracks the remaining quantity of the product, the eventing service sends that information to your client application each time Commerce emits the event. However, you might be interested in the remaining quantity only when it reaches a specific threshold, such as 20 units. Rule events allow you to define exactly when to send events to your application. Otherwise, the client application must include code to filter out the unimportant and unnecessary data.
 
-A rule event acts as an extension of a custom or native Commerce event. You must specify the source, or parent, event and define one or more rules that evaluate the data that is present in the payload in the parent event. If all the individual rules defined in a rule event evaluate as true, then the eventing service sends the rule event to the application. If one or more rules evaluate as false, the service sends neither the parent event nor the rule event.
+A rule event acts as an extension of a custom or native Commerce event. You must specify the source, or parent, event and define one or more rules that evaluate the data that is present in the payload in the parent event. If all the individual rules defined in a rule event evaluate as true, then the eventing service sends the rule event to the application. If one or more rules evaluate as false, the service sends neither the parent event nor the rule event, unless the parent has been subscribed separately, without any rules.
 
 All rule events contain the following information:
 
@@ -42,7 +42,6 @@ You can create rule events within your module's `io_events.xml` file or from the
 The following example creates and registers a rule event named `plugin.magento.catalog.model.resource_model.product.save_low_stock_event`. Its parent is `plugin.magento.catalog.model.resource_model.product.save`. It defines rules that trigger when all of the conditions are true:
 
 *  The value of `qty` is less than 20
-*  The value of `price` is greater than 100
 *  The `category_id` is either 3, 4, or 5
 *  The product `name` contains `TV`
 
@@ -83,7 +82,7 @@ These fields are present and declared in the parent event.
 
 The `bin/magento events:subscribe <event_code> --force --fields=<name1> --fields=<name2>` command creates and registers custom and native Commerce events. When you also specify the `--parent <event_code>` and `--rules=<field-name>|<operator>|<value>` options, you create and register a rule event.
 
-The following command creates and registers the same rule event shown in the `io_events.xml` example. Running the command also updates the system `config.php` file. If you need to subsequently update or delete the event subscription, you can manually update the event there.
+The following command creates and registers the same rule event shown in the `io_events.xml` example. Running the command also updates the system `config.php` file. If you need to subsequently update or delete the event subscription, you can manually update the event there. The `bin/magento events:unsubscribe` command unsubscribes the event, but it does not remove the command from the `config.php` file.
 
 ```bash
 bin/magento events:subscribe plugin.magento.catalog.model.resource_model.product.save_low_stock_event \
