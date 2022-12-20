@@ -1,13 +1,13 @@
 ---
 title: Create rule events
-description: Create custom rule events using declarative configuration
+description: Create custom Adobe Commerce rule events using declarative configuration.
 ---
 
 # Create rule events
 
-You may decide that you want Adobe I/O Events for Adobe Commerce to notify the client application when certain conditions occur. For example, by default, if you register an event that tracks the remaining quantity of the product, the eventing service sends that information to your client application each time Commerce emits the event. However, you might be interested in the remaining quantity only when it reaches a specific threshold, such as 20 units. Rule events allow you to define exactly when to send events to your application. Otherwise, the client application must include code to filter out the unimportant and unnecessary data.
+You may decide that you want Adobe I/O Events for Adobe Commerce to notify the client application when certain conditions occur. For example, by default, if you register an event that tracks the remaining quantity of a product, the eventing service sends that information to your client application each time Commerce emits the event. However, you might be interested in the remaining quantity only when it reaches a specific threshold, such as 20 units. Rule events allow you to define exactly when to send events to your application. Otherwise, the client application must include code to filter out the unimportant and unnecessary data.
 
-A rule event acts as an extension of a custom or native Commerce event. You must specify the source, or parent, event and define one or more rules that evaluate the data that is present in the payload in the parent event. If all the individual rules defined in a rule event evaluate as true, then the eventing service sends the rule event to the application. If one or more rules evaluate as false, the service sends neither the parent event nor the rule event, unless the parent has been subscribed separately, without any rules.
+A rule event acts as an extension of a custom or native Commerce event. You must specify the source, or parent, event and define one or more rules that evaluate the data that is present in the parent event payload. If all the individual rules defined in a rule event evaluate as true, then the eventing service sends the rule event to the application. If one or more rules evaluate as false, the service sends neither the parent event nor the rule event, unless the parent has been subscribed separately, without any rules.
 
 All rule events contain the following information:
 
@@ -19,7 +19,7 @@ All rule events contain the following information:
 
 Each rule contains the following:
 
-* A field that is defined in the parent event.
+*  A field that is defined in the parent event.
 
 *  An operator, which is represented as a comparison statement between the value supplied in the parent event's payload and the threshold value.
 
@@ -30,7 +30,7 @@ Each rule contains the following:
    | `greaterThan` | Checks whether the value supplied in the payload of the event is greater than a specified value. Applicable for integer and float data types. |
    | `lessThan`    | Checks whether the payload value is less than a specified value. Applicable for integer and float data types. |
    | `equal`       | Checks whether the payload value matches the specified value. For Boolean data types, use `1` to compare to `true` and `0` to compare to `false`. |
-   | `regex`       | A regular expression that checks for matches. The specified value must be compatible with the  [regular expression match](https://www.php.net/manual/en/function.preg-match.php) |
+   | `regex`       | A regular expression that checks for matches. The specified value must be compatible with the [regular expression match](https://www.php.net/manual/en/function.preg-match.php) |
    | `in`          | Checks whether the payload value is one of multiple specified values. The value must be a comma-separated list. You do not need to provide additional escape characters. |
 
 *  The value to compare against. When you assign the `regex` operator, you must delimit the regular expression value with valid characters, such as forward slashes (/). For example, `/^TV .*/i`, which checks whether the string starts with the string `TV`, ignoring the case of the letters.
@@ -95,6 +95,6 @@ You can use the `bin/magento events:list -v` command to display the contents of 
 
 ## Known limitations
 
-*  Registering a plugin-type event rule causes the system to generate a plugin for the parent rule. no additional generation is required for observer-type events.
+*  Registering a plugin-type event rule causes the system to generate a plugin for the parent rule. No additional generation is required for observer-type events.
 
 *  Rule events that evaluate as false are not stored in the database or sent to the eventing service.
