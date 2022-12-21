@@ -1,19 +1,19 @@
 ---
-title: Create rule events
-description: Create custom Adobe Commerce rule events using declarative configuration.
+title: Create conditional events
+description: Create custom Adobe Commerce conditional events using declarative configuration.
 ---
 
-# Create rule events
+# Create conditional events
 
-You may decide that you want Adobe I/O Events for Adobe Commerce to notify the client application when certain conditions occur. For example, by default, if you register an event that tracks the remaining quantity of a product, the eventing service sends that information to your client application each time Commerce emits the event. However, you might be interested in the remaining quantity only when it reaches a specific threshold, such as 20 units. Rule events allow you to define exactly when to send events to your application. Otherwise, the client application must include code to filter out the unimportant and unnecessary data.
+You may decide that you want Adobe I/O Events for Adobe Commerce to notify the client application when certain conditions occur. For example, by default, if you register an event that tracks the remaining quantity of a product, the eventing service sends that information to your client application each time Commerce emits the event. However, you might be interested in the remaining quantity only when it reaches a specific threshold, such as 20 units. Conditional events allow you to define exactly when to send events to your application. Otherwise, the client application must include code to filter out the unimportant and unnecessary data.
 
-A rule event acts as an extension of a custom or native Commerce event. You must specify the source, or parent, event and define one or more rules that evaluate the data that is present in the parent event payload. If all the individual rules defined in a rule event evaluate as true, then the eventing service sends the rule event to the application. If one or more rules evaluate as false, the service sends neither the parent event nor the rule event, unless the parent has been subscribed separately, without any rules.
+A conditional event acts as an extension of a custom or native Commerce event. You must specify the source, or parent, event and define one or more rules that evaluate the data that is present in the parent event payload. If all the individual rules defined in a conditional event evaluate as true, then the eventing service sends the conditional event to the application. If one or more rules evaluate as false, the service sends neither the parent event nor the conditional event, unless the parent has been subscribed separately, without any rules.
 
-All rule events contain the following information:
+All conditional events contain the following information:
 
-*  A unique name for the rule event.
+*  A unique name for the conditional event.
 
-*  The name of the parent event. You must attach a rule event to a specific registered event.
+*  The name of the parent event. You must attach a conditional event to a specific registered event.
 
 *  One or more rules.
 
@@ -35,11 +35,11 @@ Each rule contains the following:
 
 *  The value to compare against. When you assign the `regex` operator, you must delimit the regular expression value with valid characters, such as forward slashes (/). For example, `/^TV .*/i`, which checks whether the string starts with the string `TV`, ignoring the case of the letters.
 
-You can create rule events within your module's `io_events.xml` file or from the command line.
+You can create conditional events within your module's `io_events.xml` file or from the command line.
 
-## Define rule events in `io_events.xml`
+## Define conditional events in `io_events.xml`
 
-The following example creates and registers a rule event named `plugin.magento.catalog.model.resource_model.product.save_low_stock_event`. Its parent is `plugin.magento.catalog.model.resource_model.product.save`. It defines rules that trigger when all of the conditions are true:
+The following example creates and registers a conditional event named `plugin.magento.catalog.model.resource_model.product.save_low_stock_event`. Its parent is `plugin.magento.catalog.model.resource_model.product.save`. It defines rules that trigger when all of the conditions are true:
 
 *  The value of `qty` is less than 20
 *  The `category_id` is either 3, 4, or 5
@@ -79,9 +79,9 @@ These fields are present and declared in the parent event.
 
 ## Command line
 
-The `bin/magento events:subscribe <event_code> --force --fields=<name1> --fields=<name2>` command creates and registers custom and native Commerce events. When you also specify the `--parent <event_code>` and `--rules=<field-name>|<operator>|<value>` options, you create and register a rule event.
+The `bin/magento events:subscribe <event_code> --force --fields=<name1> --fields=<name2>` command creates and registers custom and native Commerce events. When you also specify the `--parent <event_code>` and `--rules=<field-name>|<operator>|<value>` options, you create and register a conditional event.
 
-The following command creates and registers the same rule event shown in the `io_events.xml` example. Running the command also updates the system `config.php` file. If you need to subsequently update or delete the event subscription, you can manually update the event there. The `bin/magento events:unsubscribe` command unsubscribes the event, but it does not remove the command from the `config.php` file.
+The following command creates and registers the same conditional event shown in the `io_events.xml` example. Running the command also updates the system `config.php` file. If you need to subsequently update or delete the event subscription, you can manually update the event there. The `bin/magento events:unsubscribe` command unsubscribes the event, but it does not remove the command from the `config.php` file.
 
 ```bash
 bin/magento events:subscribe plugin.magento.catalog.model.resource_model.product.save_low_stock_event \
@@ -96,4 +96,4 @@ You can use the `bin/magento events:list -v` command to display the contents of 
 
 *  Registering a plugin-type event rule causes the system to generate a plugin for the parent rule. No additional generation is required for observer-type events.
 
-*  Rule events that evaluate as false are not stored in the database or sent to the eventing service.
+*  Conditional events that evaluate as false are not stored in the database or sent to the eventing service.

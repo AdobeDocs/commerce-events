@@ -16,8 +16,8 @@ module.exports = [
         path: "/events/module-development.md",
       },
       {
-        title: "Create rule events",
-        path: "/events/rule-events.md",
+        title: "Create conditional events",
+        path: "/events/conditional-events.md",
       },
       {
         title: "Command reference",

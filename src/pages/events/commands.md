@@ -105,7 +105,7 @@ The command supports observer events by default. You must perform additional ste
 
 You can also subscribe to a plugin event if it was registered in the `app/etc/config.php` file and subsequently unsubscribed with the [`events:unsubscribe` command](#unsubscribe-from-a-commerce-event). [Register events](./module-development.md#register-events) describes the format of these files.)
 
-You can also create and subscribe to a rule event. Rule events allow you to determine the conditions that the Commerce events client module uses to emit a native or custom events to your application. See [Create rule events](./rule-events.md) for detailed information and examples.
+You can also create and subscribe to a conditional event. Conditional events allow you to determine the conditions that the Commerce events client module uses to emit a native or custom events to your application. See [Create conditional events](./conditional-events.md) for detailed information and examples.
 
 ### Usage
 
@@ -133,7 +133,7 @@ To subscribe to a native event:
 bin/magento events:subscribe observer.catalog_product_save_after --fields=sku --fields=stock_data.qty 
 ```
 
-To create and subscribe to a rule event based on `observer.catalog_product_save_after`:
+To create and subscribe to a conditional event based on `observer.catalog_product_save_after`:
 
 bin/magento events:subscribe observer.catalog_product_save_after_low_quantity \
 --parent observer.catalog_product_save_after \
