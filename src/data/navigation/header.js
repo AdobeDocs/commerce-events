@@ -1,6 +1,6 @@
 module.exports = [
     {
-      title: "Commerce Extensibility",
+      title: "Extensibility",
       path: "/",
     },
     {
