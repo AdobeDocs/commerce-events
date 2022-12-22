@@ -1,5 +1,5 @@
 ---
-title: Adobe Commerce event management commands 
+title: Event management commands 
 description: Provides details about the commands needed to set up Adobe I/O Events for Adobe Commerce.
 ---
 
@@ -14,7 +14,7 @@ Adobe Commerce provides the following commands to configure and process events:
    *  [events:metadata:populate](#create-event-metadata-in-adobe-io)
 
 *  Manage event subscriptions
-   *  [events:subscribe](#subscribe-to-a-commerce-event)
+   *  [events:subscribe](#subscribe-to-an-event)
    *  [events:unsubscribe](#unsubscribe-from-a-commerce-event)
    *  [events:list](#list-subscribed-commerce-events)
    *  [events:list:all](#list-supported-events)
@@ -78,7 +78,7 @@ The `events:metadata:populate` command creates event metadata based on XML and a
 bin/magento events:metadata:populate
 ```
 
-## Subscribe to a Commerce event
+## Subscribe to an event
 
 The `events:subscribe` command subscribes the current provider to the specified event. You must define the event code using the following pattern:
 
@@ -105,9 +105,11 @@ The command supports observer events by default. You must perform additional ste
 
 You can also subscribe to a plugin event if it was registered in the `app/etc/config.php` file and subsequently unsubscribed with the [`events:unsubscribe` command](#unsubscribe-from-a-commerce-event). [Register events](./module-development.md#register-events) describes the format of these files.)
 
+You can also create and subscribe to a conditional event. Conditional events allow you to determine the conditions that the Commerce events client module uses to emit native or custom events to your application. See [Create conditional events](./conditional-events.md) for detailed information and examples.
+
 ### Usage
 
-`bin/magento events:subscribe <event_code> --fields=<name1> --fields=<name2>`
+`bin/magento events:subscribe <event_code> --force --fields=<name1> --fields=<name2> --parent <event_code> --rules=<field-name>|<operator>|<value> --rules=<field-name2>|<operator>|<value2>`
 
 ### Arguments
 
@@ -119,10 +121,25 @@ You can also subscribe to a plugin event if it was registered in the `app/etc/co
 
 `--force`, `-f` Forces subscription to the event, even if it hasn't been defined locally.
 
+`--parent=<event code>` Specifies the name of the event to use as the basis of an event rule. If you specify this option, you must also specify the `--rules` option.
+
+`--rules=<field-name>|<operator>|<value>` Defines a rule that will be applied to the subscribed event. You can apply multiple rules to an event, but each rule must be defined separately. A rule definition must specify the field to be evaluated, an operator, and the value to be evaluated, in that order. The field name in a rule definition does not have to match a field specified with the `--fields` option.
+
 ### Example
+
+To subscribe to a native event:
 
 ```bash
 bin/magento events:subscribe observer.catalog_product_save_after --fields=sku --fields=stock_data.qty 
+```
+
+To create and subscribe to a conditional event based on `observer.catalog_product_save_after`:
+
+```bash
+bin/magento events:subscribe observer.catalog_product_save_after_low_quantity \
+--parent observer.catalog_product_save_after \
+--fields=sku --fields=stock_data.qty \
+--rules="stock_data.qty|lessThan|20" --rules="name|regex|/^TV .*/i"
 ```
 
 ### Response
@@ -133,7 +150,7 @@ The subscription com.adobe.commerce.observer.catalog_product_save_after was succ
 
 ## Unsubscribe from a Commerce event
 
-The `events:unsubscribe` command causes the current provider to unsubscribe from the specified event. You cannot unsubscribe from events defined in a module's `etc/io_events.xml` file. However, you can unsubscribe events that were registered in the `app/etc/config.php` file or from the [`events:subscribe` command](#subscribe-to-a-commerce-event).
+The `events:unsubscribe` command causes the current provider to unsubscribe from the specified event. You cannot unsubscribe from events defined in a module's `etc/io_events.xml` file. However, you can unsubscribe events that were registered in the `app/etc/config.php` file or from the [`events:subscribe` command](#subscribe-to-an-event).
 
 Use the [`events:list` command](#list-subscribed-commerce-events) to retrieve a list of subscribed events.
 
