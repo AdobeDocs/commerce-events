@@ -5,6 +5,6 @@ module.exports = [
     },
     {
       title: "Events",
-      path: "/events/",
+      path: "/get-started/",
     },
   ];
