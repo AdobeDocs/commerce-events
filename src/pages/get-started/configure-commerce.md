@@ -1,9 +1,9 @@
 ---
 title: Install and configure Adobe I/O Events
-description: Learn how to install the Commerce modules needed for Adobe I/O Events and configure both Commerce and your existing Adobe App Builder project.
+description: Learn how to install the Commerce modules needed for Adobe I/O Events for Adobe Commerce and configure both Commerce and your existing Adobe App Builder project.
 ---
 
-# Install and configure Adobe I/O Events
+# Install and configure Adobe I/O Events for Adobe Commerce
 
 After you have created an [App Builder project](./project-setup.md), you must install the Commerce modules that enable integrations with Adobe I/O Events.
 
@@ -164,6 +164,10 @@ You cannot create an event provider until you have configured and saved a privat
 1. Enter the merchant's company name in the **Merchant ID** field. You must use alphanumeric and underscores only.
 
 1. In the **Environment ID** field, enter a temporary name for your workspaces while you are in development mode. When you are ready for production, change this value to a permanent value, such as **Production**.
+
+1. (Optional) By default, if an error occurs when Adobe Commerce attempts to send an event to Adobe I/O, Commerce retries a maximum of three times. To change this value, uncheck the **Use system value** checkbox and set a new value in the **Maximum retries to send events** field.
+
+1. (Optional) By default, Adobe Commerce runs a cron job (clean_event_data) every 24 hours that deletes event data that is three days old. To change the number of days to retain event data, uncheck the **Use system value** checkbox and set a new value in the **Event retention time (in days)** field.
 
 1. Click **Save Config**.
 
