@@ -22,5 +22,9 @@ module.exports = [
   {
     title: "Command reference",
     path: "/get-started/commands.md",
+  },
+  {
+    title: "Release notes",
+    path: "/get-started/release-notes.md",
   }
 ];
