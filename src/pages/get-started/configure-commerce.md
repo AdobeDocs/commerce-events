@@ -211,11 +211,7 @@ You are now set up to develop your App Builder extension.
 
 ## Check cron configuration
 
-The `magento/module-commerce-events-client` module uses the `event_data_batch_send` cron job to transmit batches of event messages. This cron job is part of the `default` group.
-
-<InlineAlert variant="info" slots="text"/>
-
-Cron must be enabled so that Commerce can send events to the endpoint defined in **Stores** > Settings > **Configuration** > **Adobe Services** > **Adobe I/O Events** > **General configuration**.
+Cron must be enabled. Commerce uses the `event_data_batch_send` cron job to transmit batches of event messages and the `clean_event_data` cron job to remove these messages from the database. These cron jobs are part of the `default` group.
 
 Cloud infrastructure and on-premises instances require different cron management procedures as described here:
 
