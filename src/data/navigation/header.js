@@ -1,10 +1,10 @@
 module.exports = [
   {
-    title: "Extensibility",
+    title: "Events",
     path: "/",
   },
   {
-    title: "Events",
+    title: "Get Started",
     path: "/get-started/",
   },
 ];
