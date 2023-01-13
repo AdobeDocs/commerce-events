@@ -3,7 +3,7 @@ title: Adobe I/O Events for Adobe Commerce Release Notes
 details: This page lists new features and known issues for each release of Adobe I/O Events for Adobe Commerce.
 ---
 
-# Adobe I/O Events for Adobe Commerce release notes
+# Release notes
 
 These release notes describe the latest version of Adobe I/O Events for Adobe Commerce.
 
