@@ -59,7 +59,7 @@ The console can generate a JSON file that defines the configuration of your work
 
 To download a `.json` file containing your workspace configuration:
 
-1. Go the overview page of your workspace (Staging).
+1. Go the overview page of your workspace.
 
 1. Click the **Download All** button in the top-right corner.
 

@@ -141,7 +141,7 @@ You cannot create an event provider until you have configured and saved a privat
    For example:
 
    ```bash
-   bin/magento events:create-event-provider --label "Staging_server_provider" --description "Provides out-of-process extensibility for Adobe Commerce"
+   bin/magento events:create-event-provider --label "My_server_provider" --description "Provides out-of-process extensibility for Adobe Commerce"
    ```
 
    **Note**: The label can contain English alphanumeric characters and underscores (_) only. The first character must be a letter.
@@ -154,8 +154,6 @@ You cannot create an event provider until you have configured and saved a privat
    ```
 
 1. Copy the ID returned in the command output into the **Adobe I/O Event Provider ID** field in the Admin.
-
-1. Set **Adobe I/O Environment** to `Production`.
 
 1. Enable Commerce Eventing by setting **Enabled** to `Yes`.
 
