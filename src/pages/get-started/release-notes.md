@@ -18,7 +18,7 @@ January 17, 2023
 Adobe Commerce for Cloud
 
 *  2.4.5+, 2.4.6 beta
-*  `ece-tools` 2002.1.13
+*  `ece-tools` 2002.1.13+
 
 Adobe Commerce (on-premises)
 
