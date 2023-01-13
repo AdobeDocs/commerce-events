@@ -16,7 +16,7 @@ The following steps apply to both Adobe Commerce on cloud infrastructure and on-
 1. If you are running Commerce 2.4.5, use the following command to load the eventing modules:
 
    ```bash
-   composer require magento/commerce-eventing=^1.0
+   composer require magento/commerce-eventing=^1.0 --no-update
    ```
 
    Commerce 2.4.6 beta and later loads these modules automatically.
@@ -27,7 +27,7 @@ The following steps apply to both Adobe Commerce on cloud infrastructure and on-
   composer update
   ```
 
-1. Run the following command to generate the `AdobeCommerceEvents` module. This module helps register events. Initially, the module is empty.
+1. Run the following command to initialize the `AdobeCommerceEvents` module. This module consists of generated plugins based on a list of subscribed events and helps publish and process events.
 
    ```bash
    bin/magento events:generate:module
