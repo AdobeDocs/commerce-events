@@ -1,14 +1,18 @@
 module.exports = [
   {
-    title: "Introduction",
+    title: "Overview",
     path: "/get-started/index.md"
   },
   {
-    title: "Create a project for Adobe I/O Events for Adobe Commerce",
+    title: "Create an App Builder project",
     path: "/get-started/project-setup.md",
   },
   {
-    title: "Install and configure Adobe I/O Events on Adobe Commerce",
+    title: "Installation",
+    path: "/get-started/installation.md",
+  },
+  {
+    title: "Configure Adobe Commerce",
     path: "/get-started/configure-commerce.md",
   },
   {
