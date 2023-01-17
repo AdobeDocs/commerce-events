@@ -1,9 +1,9 @@
 ---
-title: Create an Adobe I/O Events for Adobe Commerce project
+title: Create an App Builder project
 details: Create a project in the Adobe Developer Console, generate API credentials, and download the workspace configuration.
 ---
 
-# Create an Adobe I/O Events for Adobe Commerce project
+# Create an App Builder project
 
 Adobe I/O Events for Adobe Commerce allows you to send and monitor custom Adobe Commerce user-driven events. Follow the instructions on this page to create and configure a project for Adobe I/O Events.
 
@@ -69,7 +69,7 @@ To download a `.json` file containing your workspace configuration:
 
 ## Set up App Builder and define a runtime action
 
-The first step to setting up your App Builder template is to set up your environment and create a runtime action. For details about this process, see [Setting up Your Environment](https://developer.adobe.com/runtime/docs/guides/getting-started/setup/).
+The first step to setting up your App Builder template is to set up your environment and create a runtime action. For details about this process, see [Setting up Your Environment](https://developer.adobe.com/runtime/docs/guides/getting-started/setup/) in the _Adobe IO Runtime Guide_ and [Create a templated project](https://developer.adobe.com/developer-console/docs/guides/projects/projects-template/) in the _Developer Console Guide_.
 
 1. Create a project directory on your local filesystem and change to that directory.
 
@@ -95,11 +95,11 @@ The first step to setting up your App Builder template is to set up your environ
 
    The terminal prompts you to select the path to your workspace.
 
-1. Select your project's organization.
+   * Select your project's organization.
 
-1. Select your project.
+   * Select your project.
 
-1. Select the  **DX Experience Cloud SPA** option.
+   * Select the  **DX Experience Cloud SPA v1** option.
 
    The command initializes a project with a default UI and creates a default Adobe I/O Runtime Action with an internal name of `dx-excshell-1/generic`. This action will be specified later when configuring your workspace to register events.
 

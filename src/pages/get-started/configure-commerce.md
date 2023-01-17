@@ -14,7 +14,9 @@ You must configure Commerce to communicate with your project. You will need two 
 *  [Private key](./project-setup.md#set-up-a-project)
 *  [Workspace configuration](./project-setup.md#download-the-workspace-configuration-file)
 
-1. In the Commerce Admin, navigate to **Stores** > Settings > **Configuration** > **Adobe Services** > **Adobe I/O Events** > **General configuration**.
+1. In the Commerce Admin, navigate to **Stores** > Settings > **Configuration** > **Adobe Services** > **Adobe I/O Events** > **General configuration**. The following screen displays.
+
+![General configuration](../_images/general-configuration.png)
 
 1. Copy and paste the contents of the `private.key` file into the **Service Account Private Key** field. Use the following command to copy the contents.
 
@@ -54,6 +56,8 @@ You cannot create an event provider until you have configured and saved a privat
    ```
 
 1. Copy the ID returned in the command output into the **Adobe I/O Event Provider ID** field in the Admin.
+
+   ![Commerce events configuration](../_images/commerce-events.png)
 
 1. Enable Commerce Eventing by setting **Enabled** to `Yes`.
 
