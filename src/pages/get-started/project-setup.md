@@ -31,25 +31,36 @@ To get started with Adobe I/O Events, you must:
 
 1. Select **App Builder**. The **Set up templated project** page displays.
 
-   ![Add an api](../_images/set-up-templated-project.png)
+   ![Templated project](../_images/set-up-templated-project.png)
 
 1. Specify a project title and app name. Make sure the **Include Runtime with each workspace** checkbox is selected. Click **Save**. The Console creates a workspace.
 
-   ![Add an api](../_images/workspaces.png)
+   ![New workspace](../_images/workspaces.png)
 
 1. In your workspace, click the **Add service** pop-up menu and select **API**.
 
-1. On the **Add an API** page, select **Adobe I/O Events for Adobe Commerce**, and click **Next**.
+   ![Add an API to your workspace](../_images/stage-add-api.png)
 
-   ![Select IO events](../_images/adobe-io-events.png)
 
-1. Select the **Generate a key pair** option and click **Generate keypair**. The `config.zip` file downloads automatically.
+1. On the **Add an API** page, filter on **Adobe Services** and select **I/O Management API**. Then click **Next**.
+
+   ![Select IO events](../_images/add-io-management.png)
+
+1. On the **Configure API** page, select the **Generate a key pair** option and click **Generate keypair**. The `config.zip` file downloads automatically.
 
    ![generate a key pair](../_images/generate-key-pair.png)
 
    **Note**: If you want to manually [create a public key certificate](https://developer.adobe.com/developer-console/docs/guides/authentication/JWT/JWTCertificate/), you can select the **Upload your public key** option.
 
 1. Click **Save configured API**.
+
+1. On the front page of your workspace, click the **Add service** pop-up menu and select **API**.
+
+   ![Generate a key pair](../_images/add-another-api.png)
+
+1. On the **Add an API** page, filter by **Experience Cloud** and select **Adobe I/O Events for Adobe Commerce**. Then click **Next**.
+
+1. On the **Configure API** page, click **Save configured API**.
 
 1. Unzip the downloaded `config.zip` file. The extracted `config` directory should contain a `certificate_pub.crt` and a `private.key` file. The `private.key` file is required to configure the Commerce Admin.
 
@@ -63,7 +74,7 @@ To download a `.json` file containing your workspace configuration:
 
 1. Click the **Download All** button in the top-right corner.
 
-   ![download the workspace config](../_images/download-workspace-config.png)
+   ![Download the workspace config](../_images/download-workspace-config.png)
 
    The `<Workspace-name>.json` file downloads automatically. In this example, the file is named `485PeachHare-283976-Stage.json`.
 
