@@ -162,6 +162,15 @@ The following example registers multiple events. The `<fields>` element defines 
             <field name="qty" />
         </fields>
     </event>
+    <event name="plugin.magento.catalog.model.resource_model.product.save">
+        <fields>
+            <field name="entity_id" />
+            <field name="sku" />
+            <field name="name" />
+            <field name="price" />
+            <field name="created_at" />
+        </fields>
+    </event>
 </config>
 ```
 
@@ -202,6 +211,15 @@ For example:
             'base_row_total',
             'discount_amount',
             'qty',
+        ],
+        'enabled' => 1
+    ],
+    'plugin.magento.catalog.model.resource_model.product.save' => [
+        'fields' => [
+            'sku',
+            'entity_id',
+            'name',
+            'price'
         ],
         'enabled' => 1
     ],
