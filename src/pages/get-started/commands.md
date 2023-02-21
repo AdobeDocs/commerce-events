@@ -123,6 +123,8 @@ You can also create and subscribe to a conditional event. Conditional events all
 
 `--parent=<event code>` Specifies the name of the event to use as the basis of an event rule. If you specify this option, you must also specify the `--rules` option.
 
+`--priority`, `-p` Expedites the transmission of this event. Specify this option for events that need to be delivered immediately. By default, events are sent by cron once per minute.
+
 `--rules=<field-name>|<operator>|<value>` Defines a rule that will be applied to the subscribed event. You can apply multiple rules to an event, but each rule must be defined separately. A rule definition must specify the field to be evaluated, an operator, and the value to be evaluated, in that order. The field name in a rule definition does not have to match a field specified with the `--fields` option.
 
 ### Example
