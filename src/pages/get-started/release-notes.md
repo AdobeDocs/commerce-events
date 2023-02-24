@@ -7,7 +7,21 @@ details: This page lists new features and known issues for each release of Adobe
 
 These release notes describe the latest version of Adobe I/O Events for Adobe Commerce.
 
-## 1.0.0
+## Version 1.0.1
+
+### Release date
+
+February 8, 2023
+
+### Enhancements
+
+*  Added the `storeId`, `websiteId`, and `storeGroupId` to the event payload metadata whenever it is available.
+
+### Bug fixes
+
+*  Fixed multiple static and integration test failures.
+
+## Version 1.0.0
 
 ### Release date
 
