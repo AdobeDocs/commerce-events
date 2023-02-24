@@ -17,6 +17,8 @@ February 8, 2023
 
 *  Added the `storeId`, `websiteId`, and `storeGroupId` to the event payload metadata whenever it is available.
 
+*  Changed the template engine that generates a module with plugins for eventing.
+
 ### Bug fixes
 
 *  Fixed multiple static and integration test failures.
