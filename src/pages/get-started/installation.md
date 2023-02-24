@@ -79,7 +79,7 @@ Use the following steps to perform additional configuration for Adobe Commerce o
 
 Use the following procedure to update patch versions of Adobe I/O Events for Adobe Commerce, such as from V1.0.0 to V1.0.1.
 
-1. Run the following command line to update the eventing modules:
+1. Run the following command to update the eventing modules:
 
    ```bash
    composer update magento/commerce-eventing --with-dependencies
