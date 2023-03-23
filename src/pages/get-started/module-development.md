@@ -19,7 +19,7 @@ You can use the Commerce Admin or the command line to find supported events and 
 
    The left navigation contains a list of enabled modules on your system. Click on a module name to display a list of supported events. When you select an event, the main panel of the Admin displays the event's payload.
 
-*  The `bin/magento events:list:all` command returns all the supported events in the specified module. Once you know the name of the event, you can use the `events:info` command to return its payload.
+*  The `bin/magento events:list:all` command returns all the detectable supported events in the specified module. Once you know the name of the event, you can use the `events:info` command to return its payload.
 
 ## Register events
 
