@@ -61,7 +61,7 @@ You cannot create an event provider until you have configured and saved a privat
 
 1. Enable Commerce Eventing by setting **Enabled** to `Yes`.
 
-   **Note**: You must [enable cron](#check-cron-configuration) so that Commerce can send events to the endpoint.
+   **Note**: You must [enable cron](#check-cron-and-message-queue-configuration) so that Commerce can send events to the endpoint.
 
 1. Enter the merchant's company name in the **Merchant ID** field. You must use alphanumeric and underscores only.
 
