@@ -208,7 +208,164 @@ The contents of an `observer.catalog_product_save_after` event are similar to th
     "entity_id": "3",
     "sku": "test2",
     "is_new": "0"
-  },
+  }
+}
+```
+
+### List of nested objects
+
+If the payload contains a list of objects, but you need only particular fields from that list you can use the next construction `items[].required_field`.
+
+For example, we have invoice event payload `observer.sales_order_invoice_save_after` with several products: but you only need order id, product SKUs and qty:
+
+```json
+{
+   "order_id": "8",
+   "store_id": "1",
+   "customer_id": null,
+   "billing_address_id": "16",
+   "shipping_address_id": "15",
+   "global_currency_code": "USD",
+   "base_currency_code": "USD",
+   "store_currency_code": "USD",
+   "order_currency_code": "USD",
+   "store_to_base_rate": "0.0000",
+   "store_to_order_rate": "0.0000",
+   "base_to_global_rate": "1.0000",
+   "base_to_order_rate": "1.0000",
+   "discount_description": null,
+   "items": {
+      "totalRecords": 0,
+      "items": [
+         {
+            "order_item_id": "8",
+            "product_id": "22",
+            "sku": "simple-product-2",
+            "name": "Simple Product 2",
+            "description": null,
+            "price": 200,
+            "base_price": "200.0000",
+            "base_cost": null,
+            "price_incl_tax": "200.0000",
+            "base_price_incl_tax": "200.0000",
+            "extension_attributes": {},
+            "weee_tax_applied": "[]",
+            "weee_tax_applied_amount": null,
+            "weee_tax_applied_row_amount": 0,
+            "base_weee_tax_applied_amount": null,
+            "base_weee_tax_applied_row_amnt": null,
+            "weee_tax_disposition": null,
+            "base_weee_tax_disposition": null,
+            "weee_tax_row_disposition": 0,
+            "base_weee_tax_row_disposition": 0,
+            "qty": "3.000000",
+            "invoice": {},
+            "parent_id": null,
+            "store_id": "1",
+            "row_total": 600,
+            "base_row_total": 600,
+            "row_total_incl_tax": 600,
+            "base_row_total_incl_tax": 600,
+            "tax_amount": 0,
+            "base_tax_amount": 0,
+            "discount_tax_compensation_amount": 0,
+            "base_discount_tax_compensation_amount": 0,
+            "base_weee_tax_applied_row_amount": 0
+         },
+         {
+            "order_item_id": "9",
+            "product_id": "21",
+            "sku": "simple-product-1",
+            "name": "Simple Product 1",
+            "description": null,
+            "price": 100,
+            "base_price": "100.0000",
+            "base_cost": null,
+            "price_incl_tax": "100.0000",
+            "base_price_incl_tax": "100.0000",
+            "extension_attributes": {},
+            "weee_tax_applied": "[]",
+            "weee_tax_applied_amount": null,
+            "weee_tax_applied_row_amount": 0,
+            "base_weee_tax_applied_amount": null,
+            "base_weee_tax_applied_row_amnt": null,
+            "weee_tax_disposition": null,
+            "base_weee_tax_disposition": null,
+            "weee_tax_row_disposition": 0,
+            "base_weee_tax_row_disposition": 0,
+            "qty": "5.000000",
+            "invoice": {},
+            "parent_id": null,
+            "store_id": "1",
+            "row_total": 500,
+            "base_row_total": 500,
+            "row_total_incl_tax": 500,
+            "base_row_total_incl_tax": 500,
+            "tax_amount": 0,
+            "base_tax_amount": 0,
+            "discount_tax_compensation_amount": 0,
+            "base_discount_tax_compensation_amount": 0,
+            "base_weee_tax_applied_row_amount": 0
+         }
+      ]
+   },
+   "total_qty": 8,
+   "subtotal": 1100,
+   "base_subtotal": 1100,
+   "subtotal_incl_tax": 1100,
+   "base_subtotal_incl_tax": 1100,
+   "grand_total": 1100,
+   "base_grand_total": 1100,
+   "discount_amount": 0,
+   "base_discount_amount": 0,
+   "tax_amount": 0,
+   "base_tax_amount": 0,
+   "discount_tax_compensation_amount": 0,
+   "base_discount_tax_compensation_amount": 0,
+   "base_cost": 0,
+   "base_gift_cards_amount": 0,
+   "gift_cards_amount": 0,
+   "can_void_flag": false,
+   "state": 2,
+   "increment_id": "000000013",
+   "entity_id": "13",
+   "id": "13",
+   "created_at": "2023-04-06 18:36:18",
+   "updated_at": "2023-04-06 18:36:18"
+}
+```
+
+The ebents subscription is looks like:
+
+```xml
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module-commerce-events-client/etc/io_events.xsd">
+   <event name="observer.sales_order_invoice_save_after">
+      <fields>
+         <field name="order_id" />
+         <field name="items.items[].sku" />
+         <field name="items.items[].qty" />
+      </fields>
+   </event>
+</config>
+```
+
+And the result payload will be updated to the next value based on the list of fields:
+
+```json
+{
+   "order_id": "8",
+   "items": {
+      "items": [
+         {
+            "sku": "simple-product-2",
+            "qty": "3.000000"
+         },
+         {
+            "sku": "simple-product-1",
+            "qty": "5.000000"
+         }
+      ]
+   }
 }
 ```
 
