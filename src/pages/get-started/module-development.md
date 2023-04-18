@@ -220,7 +220,7 @@ When the payload contains an array of objects, use the following construction to
 <object_name>[].<field_name>
 ```
 
-For example, the payload of the `observer.sales_order_invoice_save_after` event contains a top-level `items` object that also includes an `items[]` array. In this case, the array contains details about two individual products.
+For example, the payload of the `observer.sales_order_invoice_save_after` event contains a top-level `items[]` array. In this case, the array contains details about two individual products.
 
 ```json
 {
@@ -241,81 +241,78 @@ For example, the payload of the `observer.sales_order_invoice_save_after` event 
         "base_to_global_rate": "1.0000",
         "base_to_order_rate": "1.0000",
         "discount_description": null,
-        "items": {
-          "totalRecords": 0,
-          "items": [
-            {
-              "order_item_id": "8",
-              "product_id": "22",
-              "sku": "simple-product-2",
-              "name": "Simple Product 2",
-              "description": null,
-              "price": 200,
-              "base_price": "200.0000",
-              "base_cost": null,
-              "price_incl_tax": "200.0000",
-              "base_price_incl_tax": "200.0000",
-              "extension_attributes": {},
-              "weee_tax_applied": "[]",
-              "weee_tax_applied_amount": null,
-              "weee_tax_applied_row_amount": 0,
-              "base_weee_tax_applied_amount": null,
-              "base_weee_tax_applied_row_amnt": null,
-              "weee_tax_disposition": null,
-              "base_weee_tax_disposition": null,
-              "weee_tax_row_disposition": 0,
-              "base_weee_tax_row_disposition": 0,
-              "qty": "3.000000",
-              "invoice": {},
-              "parent_id": null,
-              "store_id": "1",
-              "row_total": 600,
-              "base_row_total": 600,
-              "row_total_incl_tax": 600,
-              "base_row_total_incl_tax": 600,
-              "tax_amount": 0,
-              "base_tax_amount": 0,
-              "discount_tax_compensation_amount": 0,
-              "base_discount_tax_compensation_amount": 0,
-              "base_weee_tax_applied_row_amount": 0
-            },
-            {
-              "order_item_id": "9",
-              "product_id": "21",
-              "sku": "simple-product-1",
-              "name": "Simple Product 1",
-              "description": null,
-              "price": 100,
-              "base_price": "100.0000",
-              "base_cost": null,
-              "price_incl_tax": "100.0000",
-              "base_price_incl_tax": "100.0000",
-              "extension_attributes": {},
-              "weee_tax_applied": "[]",
-              "weee_tax_applied_amount": null,
-              "weee_tax_applied_row_amount": 0,
-              "base_weee_tax_applied_amount": null,
-              "base_weee_tax_applied_row_amnt": null,
-              "weee_tax_disposition": null,
-              "base_weee_tax_disposition": null,
-              "weee_tax_row_disposition": 0,
-              "base_weee_tax_row_disposition": 0,
-              "qty": "5.000000",
-              "invoice": {},
-              "parent_id": null,
-              "store_id": "1",
-              "row_total": 500,
-              "base_row_total": 500,
-              "row_total_incl_tax": 500,
-              "base_row_total_incl_tax": 500,
-              "tax_amount": 0,
-              "base_tax_amount": 0,
-              "discount_tax_compensation_amount": 0,
-              "base_discount_tax_compensation_amount": 0,
-              "base_weee_tax_applied_row_amount": 0
-            }
-          ]
-        },
+        "items": [
+          {
+            "order_item_id": "8",
+            "product_id": "22",
+            "sku": "simple-product-2",
+            "name": "Simple Product 2",
+            "description": null,
+            "price": 200,
+            "base_price": "200.0000",
+            "base_cost": null,
+            "price_incl_tax": "200.0000",
+            "base_price_incl_tax": "200.0000",
+            "extension_attributes": {},
+            "weee_tax_applied": "[]",
+            "weee_tax_applied_amount": null,
+            "weee_tax_applied_row_amount": 0,
+            "base_weee_tax_applied_amount": null,
+            "base_weee_tax_applied_row_amnt": null,
+            "weee_tax_disposition": null,
+            "base_weee_tax_disposition": null,
+            "weee_tax_row_disposition": 0,
+            "base_weee_tax_row_disposition": 0,
+            "qty": "3.000000",
+            "invoice": {},
+            "parent_id": null,
+            "store_id": "1",
+            "row_total": 600,
+            "base_row_total": 600,
+            "row_total_incl_tax": 600,
+            "base_row_total_incl_tax": 600,
+            "tax_amount": 0,
+            "base_tax_amount": 0,
+            "discount_tax_compensation_amount": 0,
+            "base_discount_tax_compensation_amount": 0,
+            "base_weee_tax_applied_row_amount": 0
+          },
+          {
+            "order_item_id": "9",
+            "product_id": "21",
+            "sku": "simple-product-1",
+            "name": "Simple Product 1",
+            "description": null,
+            "price": 100,
+            "base_price": "100.0000",
+            "base_cost": null,
+            "price_incl_tax": "100.0000",
+            "base_price_incl_tax": "100.0000",
+            "extension_attributes": {},
+            "weee_tax_applied": "[]",
+            "weee_tax_applied_amount": null,
+            "weee_tax_applied_row_amount": 0,
+            "base_weee_tax_applied_amount": null,
+            "base_weee_tax_applied_row_amnt": null,
+            "weee_tax_disposition": null,
+            "base_weee_tax_disposition": null,
+            "weee_tax_row_disposition": 0,
+            "base_weee_tax_row_disposition": 0,
+            "qty": "5.000000",
+            "invoice": {},
+            "parent_id": null,
+            "store_id": "1",
+            "row_total": 500,
+            "base_row_total": 500,
+            "row_total_incl_tax": 500,
+            "base_row_total_incl_tax": 500,
+            "tax_amount": 0,
+            "base_tax_amount": 0,
+            "discount_tax_compensation_amount": 0,
+            "base_discount_tax_compensation_amount": 0,
+            "base_weee_tax_applied_row_amount": 0
+          }
+        ],
         "total_qty": 8,
         "subtotal": 1100,
         "base_subtotal": 1100,
@@ -352,8 +349,8 @@ To register the top-level `order_id` field and the `sku` and `qty` of each produ
    <event name="observer.sales_order_invoice_save_after">
       <fields>
          <field name="order_id" />
-         <field name="items.items[].sku" />
-         <field name="items.items[].qty" />
+         <field name="items[].sku" />
+         <field name="items[].qty" />
       </fields>
    </event>
 </config>
@@ -364,18 +361,16 @@ The contents of the event are similar to the following:
 ```json
 {
    "order_id": "8",
-   "items": {
-      "items": [
-         {
-            "sku": "simple-product-2",
-            "qty": "3.000000"
-         },
-         {
-            "sku": "simple-product-1",
-            "qty": "5.000000"
-         }
-      ]
-   }
+   "items": [
+      {
+         "sku": "simple-product-2",
+         "qty": "3.000000"
+      },
+      {
+         "sku": "simple-product-1",
+         "qty": "5.000000"
+      }
+   ]
 }
 ```
 
