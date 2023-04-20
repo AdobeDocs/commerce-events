@@ -7,6 +7,8 @@ details: This page lists new features and known issues for each release of Adobe
 
 These release notes describe the latest version of Adobe I/O Events for Adobe Commerce.
 
+See [Update Adobe I/O Events for Adobe Commerce](./installation.md#update-adobe-io-events-for-adobe-commerce) for upgrade instructions.
+
 ## Version 1.1.0
 
 ### Release date
