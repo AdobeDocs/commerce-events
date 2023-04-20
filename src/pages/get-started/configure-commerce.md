@@ -61,7 +61,7 @@ You cannot create an event provider until you have configured and saved a privat
 
 1. Enable Commerce Eventing by setting **Enabled** to `Yes`.
 
-   **Note**: You must [enable cron](#check-cron-configuration) so that Commerce can send events to the endpoint.
+   **Note**: You must [enable cron](#check-cron-and-message-queue-configuration) so that Commerce can send events to the endpoint.
 
 1. Enter the merchant's company name in the **Merchant ID** field. You must use alphanumeric and underscores only.
 
@@ -111,12 +111,29 @@ Commerce provides two sources for events: observers and plugins. You must specif
 
 You are now set up to develop your App Builder extension.
 
-## Check cron configuration
+## Check cron and message queue configuration
 
-Cron must be enabled. Commerce uses the `event_data_batch_send` cron job to transmit batches of event messages and the `clean_event_data` cron job to remove these messages from the database. These cron jobs are part of the `default` group.
+Cron and message queues must be enabled. Commerce uses the `event_data_batch_send` cron job to transmit batches of event messages and the `clean_event_data` cron job to remove these messages from the database. These cron jobs are part of the `default` group.
+
+The `commerce.eventing.event.publish` message queue consumer helps expedite registered events that have been designated as priority. The consumer processes priority events within a second of their receipt. By default, it can take up to 59 seconds for cron to process standard-priority events.
+
+In Adobe Commerce on cloud infrastructure, update your `.magento.env.yaml` file with the following changes to the `global` and `deploy` stages:
+
+```yaml
+stage:
+  global:
+    ENABLE_EVENTING: true
+  deploy:
+    CRON_CONSUMERS_RUNNER:
+      cron_run: true
+      max_messages: 0
+      consumers: []
+```
+
+See [Global variables](https://experienceleague.adobe.com/docs/commerce-cloud-service/user-guide/configure/env/stage/variables-global.html) for more information about the `ENABLE_EVENTING` variable.
 
 Cloud infrastructure and on-premises instances require different cron management procedures as described here:
 
-*  [Adobe Commerce on cloud infrastructure](https://devdocs.magento.com/cloud/configure/setup-cron-jobs.html)
+*  [Adobe Commerce on cloud infrastructure](https://experienceleague.adobe.com/docs/commerce-cloud-service/user-guide/configure/app/properties/crons-property.html)
 
 *  [On premises](https://experienceleague.adobe.com/docs/commerce-operations/configuration-guide/crons/custom-cron-reference.html)
