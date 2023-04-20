@@ -7,6 +7,20 @@ details: This page lists new features and known issues for each release of Adobe
 
 These release notes describe the latest version of Adobe I/O Events for Adobe Commerce.
 
+## Version 1.1.0
+
+### Release date
+
+April 20, 2023
+
+### Enchancements
+
+Added support for delivering events using message queues. Previously, all events were delivered by cron, which could delay delivery by up to a minute. Use the `bin/magento events:subscribe --priority` command to register the event as requiring expedited delivery. See [Configure Adobe Commerce](./configure-commerce.md/#check-cron-and-message-queue-configuration) for information about configuring the message queues.
+
+### Bug fixes
+
+* Made multiple minor bug fixes
+
 ## Version 1.0.1
 
 ### Release date
