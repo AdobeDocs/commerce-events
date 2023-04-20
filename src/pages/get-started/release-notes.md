@@ -7,6 +7,34 @@ details: This page lists new features and known issues for each release of Adobe
 
 These release notes describe the latest version of Adobe I/O Events for Adobe Commerce.
 
+See [Update Adobe I/O Events for Adobe Commerce](./installation.md#update-adobe-io-events-for-adobe-commerce) for upgrade instructions.
+
+## Version 1.1.0
+
+### Release date
+
+April 20, 2023
+
+### Enchancements
+
+*  Added support for delivering events using message queues. Previously, all events were delivered by cron, which could delay delivery by up to a minute. Use the `bin/magento events:subscribe --priority` command to register the event as requiring expedited delivery. See [Configure Adobe Commerce](./configure-commerce.md#check-cron-and-message-queue-configuration) for information about configuring the message queues.
+
+*  Added the ability to filter on fields in an array of nested objects. For example, you can retrieve the `sku` and `qty` fields in an `items[]` array as shown:
+
+   ```text
+   items[].sku
+   items[].qty
+   ```
+
+Previously, you could not specify individual fields within an array. All fields within the array would be returned. [Commerce module development](module-development.md#array-of-nested-objects) demonstrates this feature in full context.
+
+### Bug fixes
+
+*  Fixed conversion of a nested array of objects. Previously they were omitted in the final payload.
+*  Fixed displayed event information for multiple events that are based on `DataObjects`.
+*  Fixed performance degradation that occurred when an event was being saved.
+*  Made other minor bug fixes.
+
 ## Version 1.0.1
 
 ### Release date
