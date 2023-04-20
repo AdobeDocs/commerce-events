@@ -19,19 +19,19 @@ April 20, 2023
 
 *  Added the ability to filter on fields in an array of nested objects. For example, you can retrieve the `sku` and `qty` fields in an `items[]` array as shown:
 
-```text
-items[].sku
-items[].qty
-```
+   ```text
+   items[].sku
+   items[].qty
+   ```
 
 Previously, you could not specify individual fields within an array. All fields within the array would be returned. [Commerce module development](module-development.md/#array-of-nested-objects) demonstrates this feature in full context.
 
 ### Bug fixes
 
-- Fixed conversion of an nested array of objects. Previously they were omitted in the final payload.
-- Fixed displayed event information for multiple events that are based on `DataObjects`.
-- Fixed performance degradation that occurred when an event was being saved.
-* Made other minor bug fixes.
+*  Fixed conversion of an nested array of objects. Previously they were omitted in the final payload.
+*  Fixed displayed event information for multiple events that are based on `DataObjects`.
+*  Fixed performance degradation that occurred when an event was being saved.
+*  Made other minor bug fixes.
 
 ## Version 1.0.1
 
