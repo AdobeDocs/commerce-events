@@ -19,7 +19,7 @@ Added support for delivering events using message queues. Previously, all events
 
 ### Bug fixes
 
-* Made multiple minor bug fixes
+* Made multiple minor bug fixes.
 
 ## Version 1.0.1
 
