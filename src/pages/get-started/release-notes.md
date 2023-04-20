@@ -30,7 +30,7 @@ Previously, you could not specify individual fields within an array. All fields 
 
 ### Bug fixes
 
-*  Fixed conversion of an nested array of objects. Previously they were omitted in the final payload.
+*  Fixed conversion of a nested array of objects. Previously they were omitted in the final payload.
 *  Fixed displayed event information for multiple events that are based on `DataObjects`.
 *  Fixed performance degradation that occurred when an event was being saved.
 *  Made other minor bug fixes.
