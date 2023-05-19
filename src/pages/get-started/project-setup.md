@@ -45,11 +45,9 @@ To get started with Adobe I/O Events, you must:
 
    ![Select IO events](../_images/add-io-management.png)
 
-1. On the **Configure API** page, select the **Generate a key pair** option and click **Generate keypair**. The `config.zip` file downloads automatically.
+1. On the **Configure API** page, select the **OAuth Server-to-Server** option and click **Save configured API**.
 
-   ![generate a key pair](../_images/generate-key-pair.png)
-
-   **Note**: If you want to manually [create a public key certificate](https://developer.adobe.com/developer-console/docs/guides/authentication/JWT/JWTCertificate/), you can select the **Upload your public key** option.
+   ![Setup OAuth](../_images/setup-api-oauth.png)
 
 1. Click **Save configured API**.
 
@@ -60,8 +58,6 @@ To get started with Adobe I/O Events, you must:
 1. On the **Add an API** page, filter by **Experience Cloud** and select **Adobe I/O Events for Adobe Commerce**. Then click **Next**.
 
 1. On the **Configure API** page, click **Save configured API**.
-
-1. Unzip the downloaded `config.zip` file. The extracted `config` directory should contain a `certificate_pub.crt` and a `private.key` file. The `private.key` file is required to configure the Commerce Admin.
 
 ## Download the workspace configuration file
 

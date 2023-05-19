@@ -9,20 +9,13 @@ After you have created an [App Builder project](./project-setup.md) and [install
 
 ## Begin configuring events on Commerce
 
-You must configure Commerce to communicate with your project. You will need two files that you downloaded from the the Adobe Developer Console.
-
-*  [Private key](./project-setup.md#set-up-a-project)
-*  [Workspace configuration](./project-setup.md#download-the-workspace-configuration-file)
+You must configure Commerce to communicate with your project. You will need a configuration file that you downloaded from the Adobe Developer Console.
+*  
+* [Workspace configuration](./project-setup.md#download-the-workspace-configuration-file)
 
 1. In the Commerce Admin, navigate to **Stores** > Settings > **Configuration** > **Adobe Services** > **Adobe I/O Events** > **General configuration**. The following screen displays.
 
 ![General configuration](../_images/general-configuration.png)
-
-1. Copy and paste the contents of the `private.key` file into the **Service Account Private Key** field. Use the following command to copy the contents.
-
-   ```bash
-   cat config/private.key | pbcopy
-   ```
 
 1. Copy the contents of the `<workspace-name>.json` file into the **Adobe I/O Workspace Configuration** field.
 
@@ -32,7 +25,7 @@ You must configure Commerce to communicate with your project. You will need two 
 
 ## Create an event provider and complete the Commerce configuration
 
-You cannot create an event provider until you have configured and saved a private key, workspace file, and instance ID values.
+You cannot create an event provider until you have configured and saved workspace file and instance ID values.
 
 1. Run the following command to create an event provider:
 
@@ -101,7 +94,7 @@ Commerce provides two sources for events: observers and plugins. You must specif
 
    ![Select the events to subscribe to](../_images/config-event-registration.png)
 
-1. Optionally create a new JWT credential. Then click **Next**.
+1. Optionally create a new OAuth credential. Then click **Next**.
 
 1. Update the **Event registration name** and **Event registration description** fields. In the **How to receive events** section, under **Option 2**, select the runtime action you created in [Set up App Builder and define a runtime action](./project-setup.md#set-up-app-builder-and-define-a-runtime-action).
 
