@@ -90,7 +90,7 @@ Commerce provides two sources for events: observers and plugins. You must specif
    ```
    
    **Warning**: When you use the `events:subscribe` command to subscribe to events on an on-premises installation, configuration information is stored in the `app/etc/config.php` file. You must keep in mind that this file can be replaced with the `app/etc/config.php` file from Git during deployment. As a result, the event subscription will be replaced as well. Cloud deployments do not store this information in the `config.php`, and event subscriptions are not affected when Commerce is redeployed.
-   To make these changes permanent please add appropriate configuration to the `app/etc/config.php` file under Git.
+   To make these changes permanent, manually add the appropriate configuration to the `app/etc/config.php` file under Git.
 
    If you have a module ready or have specific events in mind, see [Register events](./module-development.md#register-events) for more information.
 
