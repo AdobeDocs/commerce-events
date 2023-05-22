@@ -45,11 +45,11 @@ To get started with Adobe I/O Events, you must:
 
    ![Select IO events](../_images/add-io-management.png)
 
-1. On the **Configure API** page, select the **Generate a key pair** option and click **Generate keypair**. The `config.zip` file downloads automatically.
+1. On the **Configure API** page, select the **OAuth Server-to-Server** option and click **Save configured API**.
 
-   ![generate a key pair](../_images/generate-key-pair.png)
+   ![generate a key pair](../_images/setup-api-oauth.png)
 
-   **Note**: If you want to manually [create a public key certificate](https://developer.adobe.com/developer-console/docs/guides/authentication/JWT/JWTCertificate/), you can select the **Upload your public key** option.
+   **Note**: You can set up server-to-server authentication using JSON Web Tokens (JWT). However, this method has been deprecated in favor of OAuth and must be replaced no later than January 1, 2025. See [Service Account (JWT) Authentication](https://developer.adobe.com/developer-console/docs/guides/authentication/JWT/) for details on implementing this solution.
 
 1. Click **Save configured API**.
 

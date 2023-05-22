@@ -7,22 +7,23 @@ description: Learn how to configure both Commerce and your existing Adobe App Bu
 
 After you have created an [App Builder project](./project-setup.md) and [install the eventing modules](./installation.md), you must download several files from the App Builder project and configure eventing in the Commerce admin.
 
-## Begin configuring events on Commerce
+## Configure the Adobe I/O connection
 
-You must configure Commerce to communicate with your project. You will need two files that you downloaded from the the Adobe Developer Console.
-
-*  [Private key](./project-setup.md#set-up-a-project)
-*  [Workspace configuration](./project-setup.md#download-the-workspace-configuration-file)
+You must configure Commerce to communicate with your project. Configuration includes copying and pasting the contents of the [workspace configuration file](./project-setup.md#download-the-workspace-configuration-file) that you downloaded from the Adobe Developer Console. If you decided to use JSON Web Tokens (JWT) as your server-to server authentication method, you must also upload a private key.
 
 1. In the Commerce Admin, navigate to **Stores** > Settings > **Configuration** > **Adobe Services** > **Adobe I/O Events** > **General configuration**. The following screen displays.
 
-![General configuration](../_images/general-configuration.png)
+   ![General configuration](../_images/general-configuration.png)
 
-1. Copy and paste the contents of the `private.key` file into the **Service Account Private Key** field. Use the following command to copy the contents.
+1. Select the server-to-server authorization method you implemented from **Adobe I/O Authorization Type** menu. Adobe recommends using OAuth. JWT has been deprecated.
+
+1. (JWT only) Copy and paste the contents of your `private.key` file into the **Service Account Private Key** field. Use the following command to copy the contents.
 
    ```bash
    cat config/private.key | pbcopy
    ```
+
+   See [Service Account (JWT) Authentication](https://developer.adobe.com/developer-console/docs/guides/authentication/JWT/) for more information about the `private.key` file.
 
 1. Copy the contents of the `<workspace-name>.json` file into the **Adobe I/O Workspace Configuration** field.
 
@@ -101,7 +102,7 @@ Commerce provides two sources for events: observers and plugins. You must specif
 
    ![Select the events to subscribe to](../_images/config-event-registration.png)
 
-1. Optionally create a new JWT credential. Then click **Next**.
+1. Optionally create a new OAuth or JWT credential. Then click **Next**.
 
 1. Update the **Event registration name** and **Event registration description** fields. In the **How to receive events** section, under **Option 2**, select the runtime action you created in [Set up App Builder and define a runtime action](./project-setup.md#set-up-app-builder-and-define-a-runtime-action).
 
