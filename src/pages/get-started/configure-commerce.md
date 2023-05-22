@@ -88,7 +88,7 @@ Commerce provides two sources for events: observers and plugins. You must specif
    ```bash
    bin/magento events:subscribe observer.customer_login --fields=firstname --fields=lastname --fields=entity_id
    ```
-   
+
     **Warning**: When you use the `events:subscribe` command to subscribe to events on a Cloud environment, configuration information is stored in the `app/etc/config.php` file. You must keep in mind that this file can be replaced with the `app/etc/config.php` file from Git during deployment. As a result, the event subscription will be replaced as well.
    To make these changes permanent, manually add the appropriate configuration to the `app/etc/config.php` file under Git.
 
