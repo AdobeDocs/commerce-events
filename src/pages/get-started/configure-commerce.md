@@ -15,7 +15,7 @@ You must configure Commerce to communicate with your project. Configuration incl
 
    ![General configuration](../_images/general-configuration.png)
 
-1. Select the server-to-server authorization method you implemented from **Adobe I/O Authorization Type** menu. Adobe recommends using OAuth. JWT has been deprecated.
+1. Select the server-to-server authorization method you implemented from the **Adobe I/O Authorization Type** menu. Adobe recommends using OAuth. JWT has been deprecated.
 
 1. (JWT only) Copy and paste the contents of your `private.key` file into the **Service Account Private Key** field. Use the following command to copy the contents.
 
@@ -33,7 +33,7 @@ You must configure Commerce to communicate with your project. Configuration incl
 
 ## Create an event provider and complete the Commerce configuration
 
-You cannot create an event provider until you have configured and saved a private key, workspace file, and instance ID values.
+You cannot create an event provider until you have configured and saved a workspace file and instance ID values. If you are using JWT for server-to-server authentication, you must also have previously specified the private key.
 
 1. Run the following command to create an event provider:
 
@@ -49,7 +49,7 @@ You cannot create an event provider until you have configured and saved a privat
 
    **Note**: The label can contain English alphanumeric characters and underscores (_) only. The first character must be a letter.
 
-   The command displays a message similar to the the following:
+   The command displays a message similar to the following:
 
    ```terminal
    No event provider found, a new event provider will be created
