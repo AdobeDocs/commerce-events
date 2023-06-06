@@ -15,7 +15,20 @@ See [Update Adobe I/O Events for Adobe Commerce](./installation.md#update-adobe-
 
 May 25, 2023
 
+### Compatibility
+
+Adobe Commerce for Cloud
+
+*  2.4.4+
+*  `ece-tools` 2002.1.13+
+
+Adobe Commerce (on-premises)
+
+*  2.4.4+
+
 ### Enhancements
+
+*  I/O Events for Adobe Commerce now supports 2.4.4.
 
 *  The Adobe I/O Service Account (JWT) credentials have been deprecated in favor of the OAuth Server-to-Server credentials. Adobe Commerce Eventing now supports the OAuth Server-to-Server crendentials. The [Create an App Builder project](project-setup.md) and [Configure Adobe Commerce](configure-commerce.md) topics have been updated to include instructions for setting up OAuth authentication. See the [_Adobe Developer Authentication Guide_](https://developer.adobe.com/developer-console/docs/guides/authentication/) for details about OAuth support.
 
@@ -75,12 +88,12 @@ January 17, 2023
 
 Adobe Commerce for Cloud
 
-*  2.4.4+
+*  2.4.5+
 *  `ece-tools` 2002.1.13+
 
 Adobe Commerce (on-premises)
 
-*  2.4.4+
+*  2.4.5+
 
 ### Known issues
 
