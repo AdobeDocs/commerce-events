@@ -15,7 +15,7 @@ See [Update Adobe I/O Events for Adobe Commerce](./installation.md#update-adobe-
 
 May 25, 2023
 
-### Enchancements
+### Enhancements
 
 *  The Adobe I/O Service Account (JWT) credentials have been deprecated in favor of the OAuth Server-to-Server credentials. Adobe Commerce Eventing now supports the OAuth Server-to-Server crendentials. The [Create an App Builder project](project-setup.md) and [Configure Adobe Commerce](configure-commerce.md) topics have been updated to include instructions for setting up OAuth authentication. See the [_Adobe Developer Authentication Guide_](https://developer.adobe.com/developer-console/docs/guides/authentication/) for details about OAuth support.
 
@@ -29,7 +29,7 @@ May 25, 2023
 
 April 20, 2023
 
-### Enchancements
+### Enhancements
 
 *  Added support for delivering events using message queues. Previously, all events were delivered by cron, which could delay delivery by up to a minute. Use the `bin/magento events:subscribe --priority` command to register the event as requiring expedited delivery. See [Configure Adobe Commerce](./configure-commerce.md#check-cron-and-message-queue-configuration) for information about configuring the message queues.
 
@@ -75,13 +75,12 @@ January 17, 2023
 
 Adobe Commerce for Cloud
 
-*  2.4.5+, 2.4.6 beta
+*  2.4.4+
 *  `ece-tools` 2002.1.13+
 
 Adobe Commerce (on-premises)
 
-*  2.4.5+
-*  2.4.6 beta
+*  2.4.4+
 
 ### Known issues
 
