@@ -19,12 +19,12 @@ May 25, 2023
 
 Adobe Commerce for Cloud
 
-*  2.4.4+
+*  2.4.4 and higher
 *  `ece-tools` 2002.1.13+
 
 Adobe Commerce (on-premises)
 
-*  2.4.4+
+*  2.4.4 and higher
 
 ### Enhancements
 
@@ -88,12 +88,12 @@ January 17, 2023
 
 Adobe Commerce for Cloud
 
-*  2.4.5+
+*  2.4.5 and higher
 *  `ece-tools` 2002.1.13+
 
 Adobe Commerce (on-premises)
 
-*  2.4.5+
+*  2.4.5 and higher
 
 ### Known issues
 

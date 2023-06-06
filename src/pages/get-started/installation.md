@@ -5,7 +5,7 @@ description: Learn how to install the Commerce modules needed for Adobe I/O Even
 
 # Install Adobe I/O Events for Adobe Commerce
 
-Adobe I/O Events for Adobe Commerce requires Adobe Commerce 2.4.4+.
+Adobe I/O Events for Adobe Commerce requires Adobe Commerce 2.4.4 or higher.
 
 Magento Open Source is not supported.
 
