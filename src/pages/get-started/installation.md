@@ -5,7 +5,7 @@ description: Learn how to install the Commerce modules needed for Adobe I/O Even
 
 # Install Adobe I/O Events for Adobe Commerce
 
-Adobe I/O Events for Adobe Commerce requires Adobe Commerce 2.4.5+.
+Adobe I/O Events for Adobe Commerce requires Adobe Commerce 2.4.4 or higher.
 
 Magento Open Source is not supported.
 
@@ -15,13 +15,13 @@ After you have created an [App Builder project](./project-setup.md), you must in
 
 The following steps apply to both Adobe Commerce on cloud infrastructure and on-premises installations. Cloud customers must perform additional steps to configure the `ece-tools` package.
 
-1. If you are running Commerce 2.4.5, use the following command to load the eventing modules:
+1. If you are running Commerce 2.4.4 or 2.4.5, use the following command to load the eventing modules:
 
    ```bash
    composer require magento/commerce-eventing=^1.0 --no-update
    ```
 
-   Commerce 2.4.6 beta and later loads these modules automatically.
+   Commerce 2.4.6 and later loads these modules automatically.
 
 1. Update the project dependencies.
 
