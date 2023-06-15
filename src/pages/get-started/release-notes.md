@@ -17,7 +17,7 @@ June 15, 2023
 
 ### Enhancements
 
-*  Corrected the `Event publishing failed: OAuth credentials is not found in the Adobe I/O Workspace Configuration` error that occurred when the project `workspace.json` file contains a `oauth_server_to_server` section and a `jwt` section.
+* Corrected the `Event publishing failed: OAuth credentials is not found in the Adobe I/O Workspace Configuration` error that occurred when a project `workspace.json` file contained a `oauth_server_to_server` section and a `jwt` section.
 
 * Added the `events:provider:info` command, which returns details about an event provider.
 
