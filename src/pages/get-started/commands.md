@@ -10,8 +10,7 @@ Adobe I/O Events allow you to receive notifications of real-time events taking p
 Adobe Commerce provides the following commands to configure and process events:
 
 *  Enable integration between Commerce and Adobe I/O events
-   *  [events:create-event-provider](#create-an-event-provider)
-   *  [events:provider:info](#get-details-about-a-configured-event-provider)
+   *  [events:create-event-provider](#create-an-event-provider)  
    *  [events:metadata:populate](#create-event-metadata-in-adobe-io)
 
 *  Manage event subscriptions
@@ -63,29 +62,6 @@ bin/magento events:create-event-provider --label "my_new_event_provider" --descr
 No event provider found, a new event provider will be created
 
 A new event provider has been created with ID <ID>.
-```
-
-## Get details about a configured event provider
-
-The `events:provider:info` command returns details about a configured event provider.
-
-### Usage
-
-`events:provider:info`
-
-### Example
-
-```bash
-bin/magento events:provider:info
-```
-
-### Response
-
-```terminal
-Configured event provider details:
-- id: abcdef12-e499-5a0a-a683-1234567890ab
-- label: test provider
-- description: testing local provider creation (Instance docs-stage-testing)
 ```
 
 ## Create event metadata in Adobe I/O
