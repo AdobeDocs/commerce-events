@@ -9,11 +9,27 @@ These release notes describe the latest version of Adobe I/O Events for Adobe Co
 
 See [Update Adobe I/O Events for Adobe Commerce](./installation.md#update-adobe-io-events-for-adobe-commerce) for upgrade instructions.
 
-## Version 1.2.0
+## Version 1.2.2
 
 ### Release date
 
-May 25, 2023
+June 15, 2023
+
+### Enhancements
+
+*  Corrected the `Event publishing failed: OAuth credentials is not found in the Adobe I/O Workspace Configuration` error that occurred when the project `workspace.json` file contains a `oauth_server_to_server` section and a `jwt` section.
+
+* Added the [`events:provider:info` command](commands.md/#get-details-about-a-configured-event-provider), which returns details about an event provider.
+
+## Version 1.2.1
+
+### Release date
+
+June 5, 2023
+
+### Enhancements
+
+*  I/O Events for Adobe Commerce now supports 2.4.4.
 
 ### Compatibility
 
@@ -26,9 +42,13 @@ Adobe Commerce (on-premises)
 
 *  2.4.4 and higher
 
-### Enhancements
+## Version 1.2.0
 
-*  I/O Events for Adobe Commerce now supports 2.4.4.
+### Release date
+
+May 25, 2023
+
+### Enhancements
 
 *  The Adobe I/O Service Account (JWT) credentials have been deprecated in favor of the OAuth Server-to-Server credentials. Adobe Commerce Eventing now supports the OAuth Server-to-Server crendentials. The [Create an App Builder project](project-setup.md) and [Configure Adobe Commerce](configure-commerce.md) topics have been updated to include instructions for setting up OAuth authentication. See the [_Adobe Developer Authentication Guide_](https://developer.adobe.com/developer-console/docs/guides/authentication/) for details about OAuth support.
 
