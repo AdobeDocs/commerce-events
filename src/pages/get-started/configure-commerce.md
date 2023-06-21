@@ -74,6 +74,8 @@ You cannot create an event provider until you have configured and saved a worksp
 
 1. Click **Save Config**.
 
+After you have completely configured and saved your Adobe I/O event connection and your event provider, you can click the **Send Test Event** button to determine the status of the connection. The response displays beneath the button.
+
 ## Subscribe and register events
 
 You must define which Commerce events to subscribe to, then register them in the project.
