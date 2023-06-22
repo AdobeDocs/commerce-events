@@ -115,7 +115,7 @@ where:
 *  `type` specifies the origin of the event. Specify `observer` if the event is emitted by a Commerce observer, or specify `plugin` if the event is emitted by a plugin.
 *  `event_name` identifies the event to subscribe. For example: `catalog_product_save_after`.
 
-The `--fields` command option defines which fields within an event to send to your external application. To send all fields, specify `--fields='*'`. If you want to send only specific fields, use a separate instance of the `--fields` command option to define each field to transmit.
+The `--fields` command option defines which fields within an event to send to your external application. To send all fields, specify `--fields='*'`. If you want to send only specific fields, use a separate instance of the `--fields` command option to define each field to transmit. You cannot use `*` wildcard character to perform match partial strings.
 
 If the Commerce event contains objects, use dotted notation to specify fields within an object. For example, if your event contains a `stock_data` object, and you want to send its `product_id` and `qty` fields, you would specify the `--fields stock_data.product_id` and `--fields stock_data.qty` command options. [Commerce module development](./module-development.md) provides a detailed example of using files to register events.
 
