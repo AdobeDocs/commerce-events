@@ -170,7 +170,7 @@ You can transmit all the fields within an event by setting the value of the `fie
 
 <InlineAlert variant="warning" slots="text"/>
 
-Adobe recommends sending a limited number of fields per event. If you send all fields, you increase risk of including sensitive or PCI-compliant data in the event. In addition, specifying only the fields that are applicable to your business case is recommended for optimal performance and cost effectiveness.
+Adobe recommends sending a limited number of fields per event. If you send all fields, you increase risk of including sensitive or PCI compliance data in the event. In addition, specifying only the fields that are applicable to your business case is recommended for optimal performance and cost effectiveness.
 
 The following example registers multiple events. The `<fields>` element defines the contents of each transmitted event.
 
