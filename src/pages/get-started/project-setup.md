@@ -59,7 +59,7 @@ To get started with Adobe I/O Events, you must:
 
 1. On the **Configure API** page, click **Save configured API**.
 
-1. If you using JWT authentication, unzip the downloaded `config.zip` file. The extracted `config` directory should contain a `certificate_pub.crt` and a `private.key` file. The `private.key` file is required to configure the Commerce Admin.
+1. If you are using JWT authentication, unzip the downloaded `config.zip` file. The extracted `config` directory should contain a `certificate_pub.crt` and a `private.key` file. The `private.key` file is required to configure the Commerce Admin.
 
 ## Download the workspace configuration file
 
