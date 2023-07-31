@@ -1,5 +1,5 @@
 ---
-title: Event management commands 
+title: Event management commands
 description: Provides details about the commands needed to set up Adobe I/O Events for Adobe Commerce.
 ---
 
@@ -12,6 +12,7 @@ Adobe Commerce provides the following commands to configure and process events:
 *  Enable integration between Commerce and Adobe I/O events
    *  [events:create-event-provider](#create-an-event-provider)
    *  [events:provider:info](#get-details-about-a-configured-event-provider)
+   *  [events:registrations:list](#get-details-about-configured-event-registrations-in-your-app-builder-application)
    *  [events:metadata:populate](#create-event-metadata-in-adobe-io)
 
 *  Manage event subscriptions
@@ -86,6 +87,44 @@ Configured event provider details:
 - id: abcdef12-e499-5a0a-a683-1234567890ab
 - label: test provider
 - description: testing local provider creation (Instance docs-stage-testing)
+```
+
+## Get details about configured event registrations in your App Builder application
+
+The `bin/magento events:registrations:list` command returns details about configured event registrations.
+
+### Usage
+
+`events:registrations:list`
+
+### Example
+
+```bash
+bin/magento events:registrations:list
+```
+
+### Response
+
+```terminal
+- Event registration 1 (5eb5106d-0e84-4c2e-ae73-b22b266a7908)
+```
+
+Specify the `-vv` option to increase the verbosity of information about the subscribed events.
+
+```bash
+bin/magento events:registrations:list -vv
+```
+
+### Response
+
+```terminal
++----------------------+--------------------------------------+---------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| name                 | registration_id                      | enabled | events                                                                                                                                                                          |
++----------------------+--------------------------------------+---------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Event registration 1 | 5eb5106d-0e84-4c2e-ae73-b22b266a7908 | 1       | [                                                                                                                                                                               |
+|                      |                                      |         |     { code: com.adobe.commerce.observer.catalog_product_commit_after2, provider_id: e763142d-0439-4022-abeb-6227a396bbd2, label: Observer event catalog_product_commit_after2 } |
+|                      |                                      |         | ]                                                                                                                                                                               |
++----------------------+--------------------------------------+---------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ```
 
 ## Create event metadata in Adobe I/O
