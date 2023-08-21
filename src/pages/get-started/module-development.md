@@ -213,8 +213,8 @@ sending the batch of events to the eventing-service. Processors having the least
         </fields>
         <processors>
             <processor class="ProcessorClassOne" priority="10"/>
-            <processor class="ProcessorClassTwo" priority="20"/>
-            <processor class="ProcessorClassThree" priority="30"/>
+            <processor class="ProcessorClassTwo" priority="30"/>
+            <processor class="ProcessorClassThree" priority="20"/>
         </processors>
     </event>
 </config>
