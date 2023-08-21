@@ -199,6 +199,26 @@ The following example registers multiple events. The `<fields>` element defines 
     </event>
 </config>
 ```
+### Data Enrichment using processors
+This feature can be used for data enrichment purpose with custom fields to the event data. Data enrichment will be done before
+sending the batch of events to the eventing-service. Processors having the least priority will be executed first.
+
+```xml
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module-commerce-events-client/etc/io_events.xsd">
+    <event name="observer.catalog_product_save_after">
+        <fields>
+            <field name="entity_id" />
+            <field name="sku" />
+            <field name="is_new" />
+        </fields>
+        <processors>
+            <processor class="ProcessorClassOne" priority="10"/>
+            <processor class="ProcessorClassTwo" priority="20"/>
+            <processor class="ProcessorClassThree" priority="30"/>
+        </processors>
+    </event>
+</config>
+```
 
 The contents of an `observer.catalog_product_save_after` event are similar to the following:
 
