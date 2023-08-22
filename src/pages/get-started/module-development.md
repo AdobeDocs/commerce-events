@@ -232,7 +232,7 @@ Below processors added to the `observer.sales_order_save_after` event will add `
     </event>
 </config>
 ```
-The event payload will be having the following values
+The event payload will be having the following values 
 
 ```json
 {
