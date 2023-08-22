@@ -84,7 +84,7 @@ class TestProcessorOrderStatus implements EventDataProcessorInterface
 {
     public function process(Event $event, array $eventData): array
     {
-        $eventData['order_status'] = 2;
+        $eventData['order_status'] = 1;
         return $eventData;
     }
 }
