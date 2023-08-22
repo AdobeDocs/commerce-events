@@ -207,11 +207,13 @@ The following example registers multiple events. The `<fields>` element defines 
 ```
 ### Data Enrichment using processors
 
-This feature can be used for data enrichment purpose with custom fields to the event data. Data enrichment will be done before
+This feature can be used for data enrichment purpose by adding custom fields to the event data. Data enrichment will be done before
 sending the batch of events to the eventing-service. Processors having the least priority will be executed first.
 
 Below processors added to the `observer.sales_order_save_after` event will add `order_status` , `order_id`, and `order_details` fields to the event payload
-`priority` attribute indicates the priority of executing the processor. In below code sample processors will be executed in following sequence
+`priority` attribute indicates the priority of executing the processor. The priority is important in cases when changes from one processor can affect the logic of another processor or processors trying to add a new element with the same key.
+
+In below sample code processors will be executed in following sequence
 1. TestProcessorOrderStatus
 2. TestProcessorOrderDetails
 3. TestProcessorOrderId
@@ -232,7 +234,20 @@ Below processors added to the `observer.sales_order_save_after` event will add `
     </event>
 </config>
 ```
-The event payload will be having the following values 
+
+The event payload will be having the following values with no processors
+
+```json
+{
+    "value": {
+    "entity_id": "3",
+    "base_currency_code": "USD",
+    "shipping_method": "tablerate_bestway"
+  }
+}
+```
+
+The event payload will be having the following values after applying processors 
 
 ```json
 {
