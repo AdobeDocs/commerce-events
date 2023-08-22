@@ -24,6 +24,10 @@ module.exports = [
     path: "/get-started/conditional-events.md",
   },
   {
+    title: "Add custom fields",
+    path: "/get-started/custom-event-fields.md"
+  },
+  {
     title: "Command reference",
     path: "/get-started/commands.md",
   },
