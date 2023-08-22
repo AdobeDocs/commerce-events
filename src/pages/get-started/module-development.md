@@ -205,18 +205,28 @@ The following example registers multiple events. The `<fields>` element defines 
     </event>
 </config>
 ```
-### Data Enrichment using processors
 
-This feature can be used for data enrichment purpose by adding custom fields to the event data. Data enrichment will be done before
-sending the batch of events to the eventing-service. Processors having the least priority will be executed first.
+The contents of an `observer.catalog_product_save_after` event are similar to the following:
 
-Below processors added to the `observer.sales_order_save_after` event will add `order_status` , `order_id`, and `order_details` fields to the event payload
-`priority` attribute indicates the priority of executing the processor. The priority is important in cases when changes from one processor can affect the logic of another processor or processors trying to add a new element with the same key.
+```json
+{
+    "value": {
+    "entity_id": "3",
+    "sku": "test2",
+    "is_new": "0"
+  }
+}
+```
 
-In below sample code processors will be executed in following sequence
+### Add custom fields to an event
+
+Your custom code might generate data that would be useful to insert into an existing Commerce event. Processors allow you to enrich the data contained in an event before it is transmitted to the eventing service. You can optionally assign a priority to each processor. The priority is important in cases when changes from one processor can affect the logic of another processor, or when processors add a new element with the same key. The processor assigned the lowest value is executed first.
+
+The following example adds the `order_status`, `order_id`, and `order_details` fields to the `observer.sales_order_save_after` event payload. The assigned `priority` values indicate the processors will be execute in the following order:
+
 1. TestProcessorOrderStatus
-2. TestProcessorOrderDetails
-3. TestProcessorOrderId
+1. TestProcessorOrderDetails
+1. TestProcessorOrderId
 
 ```xml
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module-commerce-events-client/etc/io_events.xsd">
@@ -235,41 +245,17 @@ In below sample code processors will be executed in following sequence
 </config>
 ```
 
-The event payload will be having the following values with no processors
+After defining the processors, the event payload will be similar to the following: 
 
 ```json
 {
     "value": {
-    "entity_id": "3",
-    "base_currency_code": "USD",
-    "shipping_method": "tablerate_bestway"
-  }
-}
-```
-
-The event payload will be having the following values after applying processors 
-
-```json
-{
-    "value": {
-    "entity_id": "3",
-    "base_currency_code": "USD",
-    "shipping_method": "tablerate_bestway",
-    "order_status": "1", 
-    "order_details": "test details",
-    "order_id": "3"
-  }
-}
-```
-
-The contents of an `observer.catalog_product_save_after` event are similar to the following:
-
-```json
-{
-    "value": {
-    "entity_id": "3",
-    "sku": "test2",
-    "is_new": "0"
+       "entity_id": "3",
+       "base_currency_code": "USD",
+       "shipping_method": "tablerate_bestway",
+       "order_status": "1", 
+       "order_details": "test details",
+       "order_id": "3"
   }
 }
 ```
