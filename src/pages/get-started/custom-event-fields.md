@@ -5,7 +5,7 @@ description: Learn how to add custom fields to an event.
 
 # Add custom fields to an event
 
-Your custom code might generate data that would be useful to insert into an existing Commerce event. Processors allow you to enrich the data contained in an event before it is transmitted to the eventing service. You can optionally assign a priority to each processor. The priority is important in cases when changes from one processor can affect the logic of another processor, or when processors add a new element with the same key.
+Your custom module might generate data that would be useful to insert into an existing Commerce event. Processors allow you to enrich the data contained in an event before it is transmitted to the eventing service. You can optionally assign a priority to each processor. The priority is important in cases when changes from one processor can affect the logic of another processor, or when processors add a new element with the same key.
 
 <InlineAlert variant="info" slots="text"/>
 
