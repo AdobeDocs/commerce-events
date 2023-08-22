@@ -205,6 +205,47 @@ The following example registers multiple events. The `<fields>` element defines 
     </event>
 </config>
 ```
+### Data Enrichment using processors
+
+This feature can be used for data enrichment purpose with custom fields to the event data. Data enrichment will be done before
+sending the batch of events to the eventing-service. Processors having the least priority will be executed first.
+
+Below processors added to the `observer.sales_order_save_after` event will add `order_status` , `order_id`, and `order_details` fields to the event payload
+`priority` attribute indicates the priority of executing the processor. In below code sample processors will be executed in following sequence
+1. TestProcessorOrderStatus
+2. TestProcessorOrderDetails
+3. TestProcessorOrderId
+
+```xml
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module-commerce-events-client/etc/io_events.xsd">
+    <event name="observer.sales_order_save_after">
+        <fields>
+            <field name="entity_id" />
+            <field name="base_currency_code" />
+            <field name="shipping_method" />
+        </fields>
+        <processors>
+            <processor class="Magento\AdobeCommerceEventsClient\Event\TestProcessorOrderStatus" priority="10"/>
+            <processor class="Magento\AdobeCommerceEventsClient\Event\TestProcessorOrderId" priority="30"/>
+            <processor class="Magento\AdobeCommerceEventsClient\Event\TestProcessorOrderDetails" priority="20"/>
+        </processors>
+    </event>
+</config>
+```
+The event payload will be having the following values
+
+```json
+{
+    "value": {
+    "entity_id": "3",
+    "base_currency_code": "USD",
+    "shipping_method": "tablerate_bestway",
+    "order_status": "1", 
+    "order_details": "test details",
+    "order_id": "3"
+  }
+}
+```
 
 The contents of an `observer.catalog_product_save_after` event are similar to the following:
 
