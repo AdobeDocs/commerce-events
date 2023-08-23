@@ -9,6 +9,30 @@ These release notes describe the latest version of Adobe I/O Events for Adobe Co
 
 See [Update Adobe I/O Events for Adobe Commerce](installation.md#update-adobe-io-events-for-adobe-commerce) for upgrade instructions.
 
+## Version 1.3.0
+
+### Release date
+
+June 24, 2023
+
+### Enhancements
+
+* You can transmit all the fields within an event by setting the value of the `field` element to `*` (`<field name="*" />`). To perform the same action from the command line, specify the `--fields='*'` attribute when running the `bin/magento events:subscribe` command.
+
+* You can create an event processor class that injects custom fields into an event. See [Add custom fields](custom-event-fields.md) for more information.
+
+* Added the **Send Test Event** button to the **Commerce events** configuration screen in the Admin.
+
+* Cached access tokens are now removed when sending events results in a 401 response.
+
+* Added the [`bin/magento events:registrations:list` command](commands.md/#get-details-about-configured-event-registrations-in-your-app-builder-application).
+
+* Added validation to the workspace configuration file to ensure it has the correct structure.
+
+### Bug fixes
+
+* Corrected a problem that occurred when an array in an event payload does not contain an index upon creation, but contains an index in a subsequent update event.
+
 ## Version 1.2.2
 
 ### Release date
