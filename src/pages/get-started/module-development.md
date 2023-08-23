@@ -172,6 +172,8 @@ You can transmit all the fields within an event by setting the value of the `fie
 
 Adobe recommends sending a limited number of fields per event. If you send all fields, you increase risk of including sensitive or PCI compliance data in the event. In addition, specifying only the fields that are applicable to your business case is recommended for optimal performance and cost effectiveness.
 
+[Add custom fields to an event](custom-event-fields.md) describes how to enhance the payload of pre-defined events.
+
 The following example registers multiple events. The `<fields>` element defines the contents of each transmitted event.
 
 ```xml
@@ -214,48 +216,6 @@ The contents of an `observer.catalog_product_save_after` event are similar to th
     "entity_id": "3",
     "sku": "test2",
     "is_new": "0"
-  }
-}
-```
-
-### Add custom fields to an event
-
-Your custom code might generate data that would be useful to insert into an existing Commerce event. Processors allow you to enrich the data contained in an event before it is transmitted to the eventing service. You can optionally assign a priority to each processor. The priority is important in cases when changes from one processor can affect the logic of another processor, or when processors add a new element with the same key. The processor assigned the lowest value is executed first.
-
-The following example adds the `order_status`, `order_id`, and `order_details` fields to the `observer.sales_order_save_after` event payload. The assigned `priority` values indicate the processors will be execute in the following order:
-
-1. TestProcessorOrderStatus
-1. TestProcessorOrderDetails
-1. TestProcessorOrderId
-
-```xml
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module-commerce-events-client/etc/io_events.xsd">
-    <event name="observer.sales_order_save_after">
-        <fields>
-            <field name="entity_id" />
-            <field name="base_currency_code" />
-            <field name="shipping_method" />
-        </fields>
-        <processors>
-            <processor class="Magento\AdobeCommerceEventsClient\Event\TestProcessorOrderStatus" priority="10"/>
-            <processor class="Magento\AdobeCommerceEventsClient\Event\TestProcessorOrderId" priority="30"/>
-            <processor class="Magento\AdobeCommerceEventsClient\Event\TestProcessorOrderDetails" priority="20"/>
-        </processors>
-    </event>
-</config>
-```
-
-After defining the processors, the event payload will be similar to the following: 
-
-```json
-{
-    "value": {
-       "entity_id": "3",
-       "base_currency_code": "USD",
-       "shipping_method": "tablerate_bestway",
-       "order_status": "1", 
-       "order_details": "test details",
-       "order_id": "3"
   }
 }
 ```
