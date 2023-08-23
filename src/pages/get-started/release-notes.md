@@ -23,11 +23,9 @@ June 24, 2023
 
 * Added the **Send Test Event** button to the **Commerce events** configuration screen in the Admin.
 
-* Cached access tokens are now removed when sending events results in a 401 response.
+* Added authorization token caching to improve performance.
 
-* Added the [`bin/magento events:registrations:list` command](commands.md/#get-details-about-configured-event-registrations-in-your-app-builder-application).
-
-* Added validation to the workspace configuration file to ensure it has the correct structure.
+* Added the [`bin/magento events:registrations:list` command](commands.md#get-details-about-configured-event-registrations-in-your-app-builder-application).
 
 ### Bug fixes
 
