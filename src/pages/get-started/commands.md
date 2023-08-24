@@ -154,13 +154,13 @@ where:
 *  `type` specifies the origin of the event. Specify `observer` if the event is emitted by a Commerce observer, or specify `plugin` if the event is emitted by a plugin.
 *  `event_name` identifies the event to subscribe. For example: `catalog_product_save_after`.
 
-The `--fields` command option defines which fields within an event to send to your external application. To send all fields, specify `--fields='*'`. If you want to send only specific fields, use a separate instance of the `--fields` command option to define each field to transmit. You cannot use `*` wildcard character to match partial strings.
+The `--fields` command option defines which fields within an event to send to your external application. To send all fields, specify `--fields='*'`. If you want to send only specific fields, use a separate instance of the `--fields` command option to define each field to transmit. You cannot use a `*` wildcard character to match partial strings.
 
 If the Commerce event contains objects, use dotted notation to specify fields within an object. For example, if your event contains a `stock_data` object, and you want to send its `product_id` and `qty` fields, you would specify the `--fields stock_data.product_id` and `--fields stock_data.qty` command options. [Commerce module development](./module-development.md) provides a detailed example of using files to register events.
 
 <InlineAlert variant="warning" slots="text" />
 
-Adobe recommends sending a limited number of fields per event. If you send all fields, you increase risk of including sensitive or PCI-compliant data in the event. In addition, specifying only the fields that are applicable to your business case is recommended for optimal performance and cost effectiveness.
+Adobe recommends sending a limited number of fields per event. If you send all fields, you increase the risk of including sensitive or PCI-compliant data in the event. In addition, specifying only the fields that are applicable to your business case is recommended for optimal performance and cost effectiveness.
 
 The command supports observer events by default. You must perform additional steps to subscribe to a plugin event:
 
