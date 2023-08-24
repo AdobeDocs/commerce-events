@@ -51,8 +51,6 @@ To get started with Adobe I/O Events, you must:
 
    **Note**: You can set up server-to-server authentication using JSON Web Tokens (JWT). However, this method has been deprecated in favor of OAuth and must be replaced no later than January 1, 2025. See [Service Account (JWT) Authentication](https://developer.adobe.com/developer-console/docs/guides/authentication/JWT/) for details on implementing this solution.
 
-1. Click **Save configured API**.
-
 1. On the front page of your workspace, click the **Add service** pop-up menu and select **API**.
 
    ![Generate a key pair](../_images/add-another-api.png)
@@ -61,7 +59,7 @@ To get started with Adobe I/O Events, you must:
 
 1. On the **Configure API** page, click **Save configured API**.
 
-1. Unzip the downloaded `config.zip` file. The extracted `config` directory should contain a `certificate_pub.crt` and a `private.key` file. The `private.key` file is required to configure the Commerce Admin.
+1. If you are using JWT authentication, unzip the downloaded `config.zip` file. The extracted `config` directory should contain a `certificate_pub.crt` and a `private.key` file. The `private.key` file is required to configure the Commerce Admin.
 
 ## Download the workspace configuration file
 
