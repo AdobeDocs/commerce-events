@@ -1,5 +1,5 @@
 ---
-title: Event management commands 
+title: Event management commands
 description: Provides details about the commands needed to set up Adobe I/O Events for Adobe Commerce.
 ---
 
@@ -12,6 +12,7 @@ Adobe Commerce provides the following commands to configure and process events:
 *  Enable integration between Commerce and Adobe I/O events
    *  [events:create-event-provider](#create-an-event-provider)
    *  [events:provider:info](#get-details-about-a-configured-event-provider)
+   *  [events:registrations:list](#get-details-about-configured-event-registrations-in-your-app-builder-application)
    *  [events:metadata:populate](#create-event-metadata-in-adobe-io)
 
 *  Manage event subscriptions
@@ -88,6 +89,44 @@ Configured event provider details:
 - description: testing local provider creation (Instance docs-stage-testing)
 ```
 
+## Get details about configured event registrations in your App Builder application
+
+The `bin/magento events:registrations:list` command returns details about configured event registrations.
+
+### Usage
+
+`events:registrations:list`
+
+### Example
+
+```bash
+bin/magento events:registrations:list
+```
+
+### Response
+
+```terminal
+- Event registration 1 (5eb5106d-0e84-4c2e-ae73-b22b266a7908)
+```
+
+Specify the `-vv` option to increase the verbosity of information about the subscribed events.
+
+```bash
+bin/magento events:registrations:list -vv
+```
+
+### Response
+
+```terminal
++----------------------+--------------------------------------+---------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| name                 | registration_id                      | enabled | events                                                                                                                                                                          |
++----------------------+--------------------------------------+---------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Event registration 1 | 5eb5106d-0e84-4c2e-ae73-b22b266a7908 | 1       | [                                                                                                                                                                               |
+|                      |                                      |         |     { code: com.adobe.commerce.observer.catalog_product_commit_after2, provider_id: e763142d-0439-4022-abeb-6227a396bbd2, label: Observer event catalog_product_commit_after2 } |
+|                      |                                      |         | ]                                                                                                                                                                               |
++----------------------+--------------------------------------+---------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+```
+
 ## Create event metadata in Adobe I/O
 
 The `events:metadata:populate` command creates event metadata based on XML and application configurations.
@@ -115,7 +154,13 @@ where:
 *  `type` specifies the origin of the event. Specify `observer` if the event is emitted by a Commerce observer, or specify `plugin` if the event is emitted by a plugin.
 *  `event_name` identifies the event to subscribe. For example: `catalog_product_save_after`.
 
-Adobe Commerce does not send all event fields to your external application by default. Instead, you must use the `--fields` option to specify which fields to transmit. To send all event fields, you must specify a separate `--fields` option for each field. This practice keeps data transmission to a minimum and helps prevent accidentally sending sensitive information. If the Commerce event contains objects, use dotted notation to specify fields within an object. For example, if your event contains a `stock_data` object, and you want to send its `product_id` and `qty` fields, you would specify the `--fields stock_data.product_id` and `--fields stock_data.qty` command options. [Commerce module development](./module-development.md) provides a detailed example of using files to register events.
+The `--fields` command option defines which fields within an event to send to your external application. To send all fields, specify `--fields='*'`. If you want to send only specific fields, use a separate instance of the `--fields` command option to define each field to transmit. You cannot use a `*` wildcard character to match partial strings.
+
+If the Commerce event contains objects, use dotted notation to specify fields within an object. For example, if your event contains a `stock_data` object, and you want to send its `product_id` and `qty` fields, you would specify the `--fields stock_data.product_id` and `--fields stock_data.qty` command options. [Commerce module development](./module-development.md) provides a detailed example of using files to register events.
+
+<InlineAlert variant="warning" slots="text" />
+
+Adobe recommends sending a limited number of fields per event. If you send all fields, you increase the risk of including sensitive or PCI-compliant data in the event. In addition, specifying only the fields that are applicable to your business case is recommended for optimal performance and cost effectiveness.
 
 The command supports observer events by default. You must perform additional steps to subscribe to a plugin event:
 
